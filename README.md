@@ -15,3 +15,21 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![downloads](http://img.shields.io/npm/dm/aggregation-repository-provider.svg?style=flat-square)](https://npmjs.org/package/aggregation-repository-provider)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+# aggregation-repository-provider
+
+aggregates several repository providers into one
+
+# API
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install aggregation-repository-provider
+```
+
+# license
+
+BSD-2-Clause
