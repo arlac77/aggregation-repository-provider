@@ -7,7 +7,7 @@ import { Provider } from 'repository-provider';
 export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
-    Object.defineProperty(this, 'providers', { value: [] });
+    Object.defineProperty(this, 'providers', { value: providers });
   }
 
   /**
@@ -19,6 +19,6 @@ export class AggregationProvider extends Provider {
     const matches = await Promise.all(
       this.providers.map(provider => provider.repository(name))
     );
-    return matches.find(p => p !== undefind);
+    return matches.find(p => p !== undefined);
   }
 }
