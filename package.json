@@ -1,0 +1,4 @@
+{
+  "name": "aggregation-repository-provider",
+  "description": "aggregates several repository providers into one"
+}
