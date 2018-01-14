@@ -7,6 +7,11 @@ export default {
     format: 'cjs',
     sourcemap: true
   },
-  external: ['ava', 'repository-provider', 'github-repository-provider'],
+  external: [
+    'ava',
+    'repository-provider',
+    'github-repository-provider',
+    'bitbucket-repository-provider'
+  ],
   plugins: [multiEntry()]
 };
