@@ -5,7 +5,7 @@ import { Provider } from 'repository-provider';
  * @param {Provider[]} providers
  */
 export class AggregationProvider extends Provider {
-  constructor(providers = []) {
+  constructor(providers) {
     super(undefined);
     Object.defineProperty(this, 'providers', { value: providers });
   }
