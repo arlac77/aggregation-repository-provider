@@ -33,11 +33,30 @@ aggregates several repository providers into one
 
 **Extends Provider**
 
+<!-- skip-example -->
+
 Combines several repository providers into one
 
 **Parameters**
 
 -   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
+
+**Examples**
+
+```javascript
+const provider = new AggregationProvider([
+    new GithubProvider(),
+  new BitbucketProvider()
+]);
+ const repository1 = await provider.repository(
+   'https://github.com/arlac77/aggregation-repository-provider'
+ );
+const repository2 = await provider.repository(
+ 'https://arlac77@bitbucket.org/arlac77/sync-test-repository.git'
+);
+// repository1 -> github
+// repository2 -> bitbucket
+```
 
 ### repository
 

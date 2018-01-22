@@ -17,6 +17,19 @@ test('locate github', async t => {
   t.is(repository.name, 'arlac77/aggregation-repository-provider');
 });
 
+test('locate github short', async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider(),
+    new BitbucketProvider()
+  ]);
+
+  const repository = await provider.repository(
+    'arlac77/aggregation-repository-provider'
+  );
+
+  t.is(repository.name, 'arlac77/aggregation-repository-provider');
+});
+
 test('locate bitbucket', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
