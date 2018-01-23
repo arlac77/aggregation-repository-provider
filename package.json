@@ -4,9 +4,7 @@
   "main": "dist/repository-provider.js",
   "module": "src/repository-provider.js",
   "description": "aggregates several repository providers into one",
-  "keywords": [
-    "npm-package-template"
-  ],
+  "keywords": ["repository-provider"],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -51,25 +49,16 @@
   "bugs": {
     "url": "https://github.com/arlac77/aggregation-repository-provider/issues"
   },
-  "homepage": "https://github.com/arlac77/aggregation-repository-provider#readme",
+  "homepage":
+    "https://github.com/arlac77/aggregation-repository-provider#readme",
   "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "presets": [
-      "env"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.js"],
+    "presets": ["env"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["build/*-test.js"],
+    "reporter": ["lcov"],
     "report-dir": "./build/coverage"
   },
   "xo": {
