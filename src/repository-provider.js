@@ -4,6 +4,7 @@ import { Provider } from 'repository-provider';
  * <!-- skip-example -->
  * Combines several repository providers into one
  * @param {Provider[]} providers
+ * @property {Provider[]} providers
  * @example
  *   const provider = new AggregationProvider([
  *     new GithubProvider(),
@@ -25,14 +26,19 @@ export class AggregationProvider extends Provider {
   }
 
   /**
-   * Retrieve named repository in one of the given providers
+   * Retrieve named repository in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
    * @return {Repository}
    */
   async repository(name) {
-    const matches = await Promise.all(
-      this.providers.map(provider => provider.repository(name))
-    );
-    return matches.find(p => p !== undefined);
+    for (const p of this.providers) {
+      const r = await p.repository(name);
+      if (r !== undefined) {
+        return r;
+      }
+    }
+
+    return undefined;
   }
 }

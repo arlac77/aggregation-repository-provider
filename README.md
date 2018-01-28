@@ -41,6 +41,10 @@ Combines several repository providers into one
 
 -   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
 
+**Properties**
+
+-   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
+
 **Examples**
 
 ```javascript
@@ -60,7 +64,8 @@ const repository2 = await provider.repository(
 
 ### repository
 
-Retrieve named repository in one of the given providers
+Retrieve named repository in one of the given providers.
+They are consulted in the order of the propviders given to the constructor
 
 **Parameters**
 

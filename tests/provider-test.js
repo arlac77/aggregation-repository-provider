@@ -1,13 +1,14 @@
 import test from 'ava';
 import { GithubProvider } from 'github-repository-provider';
 import { BitbucketProvider } from 'bitbucket-repository-provider';
-
+import { LocalProvider } from 'local-repository-provider';
 import { AggregationProvider } from '../src/repository-provider';
 
 test('locate github', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
-    new BitbucketProvider()
+    new BitbucketProvider(),
+    new LocalProvider()
   ]);
 
   const repository = await provider.repository(
@@ -20,7 +21,8 @@ test('locate github', async t => {
 test('locate github short', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
-    new BitbucketProvider()
+    new BitbucketProvider(),
+    new LocalProvider()
   ]);
 
   const repository = await provider.repository(
@@ -33,7 +35,8 @@ test('locate github short', async t => {
 test('locate bitbucket', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
-    new BitbucketProvider()
+    new BitbucketProvider(),
+    new LocalProvider()
   ]);
 
   const repository = await provider.repository(

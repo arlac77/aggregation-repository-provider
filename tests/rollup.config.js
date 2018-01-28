@@ -11,7 +11,8 @@ export default {
     'ava',
     'repository-provider',
     'github-repository-provider',
-    'bitbucket-repository-provider'
+    'bitbucket-repository-provider',
+    'local-repository-provider'
   ],
   plugins: [multiEntry()]
 };
