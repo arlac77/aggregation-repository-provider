@@ -27,11 +27,11 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "repository-provider": "^2.18.0"
+    "repository-provider": "^2.19.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "bitbucket-repository-provider": "^1.2.9",
+    "bitbucket-repository-provider": "^1.2.10",
     "documentation": "^6.1.0",
     "github-repository-provider": "^2.0.1",
     "local-repository-provider": "^1.2.4",
