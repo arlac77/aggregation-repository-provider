@@ -63,3 +63,17 @@ test('locate bitbucket', async t => {
 
   t.is(repository.name, 'arlac77/sync-test-repository');
 });
+
+test.skip('locate bitbucket ssh', async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider(),
+    new BitbucketProvider(),
+    new LocalProvider()
+  ]);
+
+  const repository = await provider.repository(
+    'ssh://git@bitbucket.org/arlac77/sync-test-repository.git'
+  );
+
+  t.is(repository.name, 'arlac77/sync-test-repository');
+});
