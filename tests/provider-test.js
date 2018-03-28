@@ -15,6 +15,7 @@ test('locate github https', async t => {
     'https://github.com/arlac77/aggregation-repository-provider'
   );
 
+  t.is(repository.provider.name, 'GithubProvider');
   t.is(repository.name, 'arlac77/aggregation-repository-provider');
 });
 
@@ -30,6 +31,7 @@ test('locate github git@', async t => {
       'git@github.com:arlac77/aggregation-repository-provider.git'
     );
 
+    t.is(repository.provider.name, 'GithubProvider');
     t.is(repository.name, 'arlac77/aggregation-repository-provider');
   } else {
     t.is(1, 1, 'skip git@ test without SSH_AUTH_SOCK');
@@ -47,6 +49,7 @@ test('locate github short', async t => {
     'arlac77/aggregation-repository-provider'
   );
 
+  t.is(repository.provider.name, 'GithubProvider');
   t.is(repository.name, 'arlac77/aggregation-repository-provider');
 });
 
@@ -61,6 +64,7 @@ test('locate bitbucket', async t => {
     'https://arlac77@bitbucket.org/arlac77/sync-test-repository.git'
   );
 
+  t.is(repository.provider.name, 'BitbucketProvider');
   t.is(repository.name, 'arlac77/sync-test-repository');
 });
 
