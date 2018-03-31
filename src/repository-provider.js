@@ -20,7 +20,7 @@ import { Provider } from 'repository-provider';
  * // repository2 -> bitbucket
  */
 export class AggregationProvider extends Provider {
-  constructor(providers) {
+  constructor(providers = []) {
     super(undefined);
     Object.defineProperty(this, 'providers', { value: providers });
   }

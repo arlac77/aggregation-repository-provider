@@ -39,7 +39,7 @@ Combines several repository providers into one
 
 **Parameters**
 
--   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
+-   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>**  (optional, default `[]`)
 
 **Properties**
 
