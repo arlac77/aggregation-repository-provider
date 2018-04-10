@@ -53,11 +53,34 @@ test('locate github short', async t => {
   t.is(repository.name, 'arlac77/aggregation-repository-provider');
 });
 
+test('locate github after bitbucket short', async t => {
+  const bbOptions = process.env.BITBUCKET_USERNAME
+    ? {
+        auth: {
+          type: 'basic',
+          username: process.env.BITBUCKET_USERNAME,
+          password: process.env.BITBUCKET_PASSWORD
+        }
+      }
+    : undefined;
+
+  const provider = new AggregationProvider([
+    new BitbucketProvider(bbOptions),
+    new GithubProvider()
+  ]);
+
+  const repository = await provider.repository(
+    'arlac77/aggregation-repository-provider'
+  );
+
+  t.is(repository.provider.name, 'GithubProvider');
+  t.is(repository.name, 'arlac77/aggregation-repository-provider');
+});
+
 test('locate bitbucket', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
-    new BitbucketProvider(),
-    new LocalProvider()
+    new BitbucketProvider()
   ]);
 
   const repository = await provider.repository(
@@ -71,8 +94,7 @@ test('locate bitbucket', async t => {
 test('locate bitbucket ssh', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
-    new BitbucketProvider(),
-    new LocalProvider()
+    new BitbucketProvider()
   ]);
 
   const repository = await provider.repository(
