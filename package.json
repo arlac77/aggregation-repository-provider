@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "bitbucket-repository-provider": "^1.2.10",
+    "bitbucket-repository-provider": "^1.2.11",
     "documentation": "^6.1.0",
-    "github-repository-provider": "^2.0.1",
+    "github-repository-provider": "^2.0.2",
     "local-repository-provider": "^1.2.5",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.6.0",
