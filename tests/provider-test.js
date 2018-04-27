@@ -4,6 +4,18 @@ import { BitbucketProvider } from 'bitbucket-repository-provider';
 import { LocalProvider } from 'local-repository-provider';
 import { AggregationProvider } from '../src/repository-provider';
 
+test('locate repository undefined', async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider()
+    // TODO new BitbucketProvider(),
+    // TODO new LocalProvider()
+  ]);
+
+  const repository = await provider.repository(undefined);
+
+  t.is(repository, undefined);
+});
+
 test('locate github https', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),
