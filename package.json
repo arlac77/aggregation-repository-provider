@@ -34,7 +34,7 @@
     "bitbucket-repository-provider": "^1.4.0",
     "documentation": "^6.3.2",
     "github-repository-provider": "^2.1.1",
-    "local-repository-provider": "^1.2.9",
+    "local-repository-provider": "^1.2.14",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.7.1",
     "rollup": "^0.58.2",
