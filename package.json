@@ -36,7 +36,7 @@
     "github-repository-provider": "^2.1.1",
     "local-repository-provider": "^1.2.14",
     "markdown-doctest": "^0.9.1",
-    "nyc": "^11.7.2",
+    "nyc": "^11.7.3",
     "rollup": "^0.58.2",
     "rollup-plugin-multi-entry": "^2.0.2",
     "semantic-release": "^15.4.0",
