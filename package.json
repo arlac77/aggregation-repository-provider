@@ -1,6 +1,9 @@
 {
   "name": "aggregation-repository-provider",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/repository-provider.js",
   "module": "src/repository-provider.js",
   "description": "aggregates several repository providers into one",
