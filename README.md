@@ -26,7 +26,11 @@ aggregates several repository providers into one
 ### Table of Contents
 
 -   [AggregationProvider](#aggregationprovider)
+    -   [Parameters](#parameters)
+    -   [Properties](#properties)
+    -   [Examples](#examples)
     -   [repository](#repository)
+        -   [Parameters](#parameters-1)
 
 ## AggregationProvider
 
@@ -36,15 +40,15 @@ aggregates several repository providers into one
 
 Combines several repository providers into one
 
-**Parameters**
+### Parameters
 
 -   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>**  (optional, default `[]`)
 
-**Properties**
+### Properties
 
 -   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
 
-**Examples**
+### Examples
 
 ```javascript
 const provider = new AggregationProvider([
@@ -66,7 +70,7 @@ const repository2 = await provider.repository(
 Retrieve named repository in one of the given providers.
 They are consulted in the order of the propviders given to the constructor
 
-**Parameters**
+#### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
