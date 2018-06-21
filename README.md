@@ -74,7 +74,7 @@ They are consulted in the order of the propviders given to the constructor
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **Repository** 
+Returns **Primise&lt;Repository>** 
 
 # install
 

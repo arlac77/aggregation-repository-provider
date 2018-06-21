@@ -29,7 +29,7 @@ export class AggregationProvider extends Provider {
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
-   * @return {Repository}
+   * @return {Primise<Repository>}
    */
   async repository(name) {
     for (const p of this.providers) {
