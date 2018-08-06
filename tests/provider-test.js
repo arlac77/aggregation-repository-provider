@@ -16,6 +16,18 @@ test('locate repository undefined', async t => {
   t.is(repository, undefined);
 });
 
+test('locate project undefined', async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider()
+    // TODO new BitbucketProvider(),
+    // TODO new LocalProvider()
+  ]);
+
+  const project = await provider.project(undefined);
+
+  t.is(project, undefined);
+});
+
 test('locate github https', async t => {
   const provider = new AggregationProvider([
     new GithubProvider(),

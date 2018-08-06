@@ -41,4 +41,21 @@ export class AggregationProvider extends Provider {
 
     return undefined;
   }
+
+  /**
+   * Retrieve named project in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor
+   * @param {string} name
+   * @return {Primise<Project>}
+   */
+  async project(name) {
+    for (const p of this.providers) {
+      const r = await p.project(name);
+      if (r !== undefined) {
+        return r;
+      }
+    }
+
+    return undefined;
+  }
 }

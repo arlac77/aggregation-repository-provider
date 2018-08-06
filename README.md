@@ -31,6 +31,8 @@ aggregates several repository providers into one
     -   [Examples](#examples)
     -   [repository](#repository)
         -   [Parameters](#parameters-1)
+    -   [project](#project)
+        -   [Parameters](#parameters-2)
 
 ## AggregationProvider
 
@@ -75,6 +77,17 @@ They are consulted in the order of the propviders given to the constructor
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **Primise&lt;Repository>** 
+
+### project
+
+Retrieve named project in one of the given providers.
+They are consulted in the order of the propviders given to the constructor
+
+#### Parameters
+
+-   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **Primise&lt;Project>** 
 
 # install
 
