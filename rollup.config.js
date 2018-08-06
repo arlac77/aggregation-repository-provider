@@ -11,6 +11,6 @@ export default {
     format: 'cjs',
     interop: false
   },
-  plugins: [resolve(), commonjs()],
+  plugins: [resolve(), commonjs(), cleanup()],
   external: ['repository-provider']
 };
