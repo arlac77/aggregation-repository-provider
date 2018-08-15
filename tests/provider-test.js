@@ -23,9 +23,9 @@ test('locate project undefined', async t => {
     // TODO new LocalProvider()
   ]);
 
-  const project = await provider.project(undefined);
+  const rg = await provider.repositoryGroup(undefined);
 
-  t.is(project, undefined);
+  t.is(rg, undefined);
 });
 
 test('locate github https', async t => {

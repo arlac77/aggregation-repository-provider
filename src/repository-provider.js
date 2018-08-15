@@ -43,14 +43,14 @@ export class AggregationProvider extends Provider {
   }
 
   /**
-   * Retrieve named project in one of the given providers.
+   * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
-   * @return {Primise<Project>}
+   * @return {Primise<RepositoryGroup>}
    */
-  async project(name) {
+  async repositoryGroup(name) {
     for (const p of this.providers) {
-      const r = await p.project(name);
+      const r = await p.repositoryGroup(name);
       if (r !== undefined) {
         return r;
       }
