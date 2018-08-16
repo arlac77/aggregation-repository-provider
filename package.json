@@ -36,7 +36,7 @@
     "ava": "^1.0.0-beta.7",
     "bitbucket-repository-provider": "^1.5.1",
     "documentation": "^8.1.0",
-    "github-repository-provider": "^2.1.5",
+    "github-repository-provider": "^2.1.8",
     "local-repository-provider": "^1.2.18",
     "markdown-doctest": "^0.9.1",
     "nyc": "^13.0.1",
