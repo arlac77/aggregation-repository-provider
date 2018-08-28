@@ -75,6 +75,7 @@ They are consulted in the order of the propviders given to the constructor
 #### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **Primise&lt;Repository>** 
 
@@ -86,6 +87,7 @@ They are consulted in the order of the propviders given to the constructor
 #### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **Primise&lt;RepositoryGroup>** 
 

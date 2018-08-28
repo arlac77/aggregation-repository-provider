@@ -1,4 +1,4 @@
-import { Provider } from 'repository-provider';
+import { Provider } from "repository-provider";
 
 /**
  * <!-- skip-example -->
@@ -22,20 +22,21 @@ import { Provider } from 'repository-provider';
 export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
-    Object.defineProperty(this, 'providers', { value: providers });
+    Object.defineProperty(this, "providers", { value: providers });
   }
 
   /**
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
+   * @param {Object} options
    * @return {Primise<Repository>}
    */
-  async repository(name) {
+  async repository(name, options) {
     for (const p of this.providers) {
-      const r = await p.repository(name);
-      if (r !== undefined) {
-        return r;
+      const repository = await p.repository(name, options);
+      if (repository !== undefined) {
+        return repository;
       }
     }
 
@@ -46,13 +47,14 @@ export class AggregationProvider extends Provider {
    * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
+   * @param {Object} options
    * @return {Primise<RepositoryGroup>}
    */
-  async repositoryGroup(name) {
+  async repositoryGroup(name, options) {
     for (const p of this.providers) {
-      const r = await p.repositoryGroup(name);
-      if (r !== undefined) {
-        return r;
+      const rg = await p.repositoryGroup(name, options);
+      if (rg !== undefined) {
+        return rg;
       }
     }
 
