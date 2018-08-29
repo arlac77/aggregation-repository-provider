@@ -30,13 +30,13 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "repository-provider": "^3.5.0"
+    "repository-provider": "^3.5.1"
   },
   "devDependencies": {
-    "ava": "^1.0.0-beta.7",
+    "ava": "^1.0.0-beta.8",
     "bitbucket-repository-provider": "^2.0.1",
     "documentation": "^8.1.2",
-    "github-repository-provider": "^3.0.1",
+    "github-repository-provider": "^3.0.4",
     "local-repository-provider": "^2.0.4",
     "markdown-doctest": "^0.9.1",
     "nyc": "^13.0.1",
