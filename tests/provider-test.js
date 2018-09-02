@@ -6,9 +6,9 @@ import { AggregationProvider } from "../src/repository-provider";
 
 test("locate repository undefined", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider()
-    // TODO new BitbucketProvider(),
-    // TODO new LocalProvider()
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    new BitbucketProvider(),
+    new LocalProvider()
   ]);
 
   const repository = await provider.repository(undefined);
@@ -18,9 +18,9 @@ test("locate repository undefined", async t => {
 
 test("locate project undefined", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider()
-    // TODO new BitbucketProvider(),
-    // TODO new LocalProvider()
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    new BitbucketProvider(),
+    new LocalProvider()
   ]);
 
   const rg = await provider.repositoryGroup(undefined);
@@ -30,7 +30,7 @@ test("locate project undefined", async t => {
 
 test("locate github https", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(),
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     new BitbucketProvider(),
     new LocalProvider()
   ]);
@@ -40,13 +40,13 @@ test("locate github https", async t => {
   );
 
   t.is(repository.provider.name, "GithubProvider");
-  t.is(repository.name, "arlac77/aggregation-repository-provider");
+  t.is(repository.fullName, "arlac77/aggregation-repository-provider");
 });
 
 test("locate github git@", async t => {
   if (process.env.SSH_AUTH_SOCK) {
     const provider = new AggregationProvider([
-      new GithubProvider(),
+      new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
       new BitbucketProvider(),
       new LocalProvider()
     ]);
@@ -56,7 +56,7 @@ test("locate github git@", async t => {
     );
 
     t.is(repository.provider.name, "GithubProvider");
-    t.is(repository.name, "arlac77/aggregation-repository-provider");
+    t.is(repository.fullName, "arlac77/aggregation-repository-provider");
   } else {
     t.is(1, 1, "skip git@ test without SSH_AUTH_SOCK");
   }
@@ -64,7 +64,7 @@ test("locate github git@", async t => {
 
 test("locate github short", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(),
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     new BitbucketProvider(),
     new LocalProvider()
   ]);
@@ -73,8 +73,8 @@ test("locate github short", async t => {
     "arlac77/aggregation-repository-provider"
   );
 
-  t.is(repository.provider.name, "GithubProvider");
-  t.is(repository.name, "arlac77/aggregation-repository-provider");
+  t.is(repository.fullName, "arlac77/aggregation-repository-provider");
+  //t.is(repository.provider.name, "GithubProvider");
 });
 
 test("locate github after bitbucket short", async t => {
@@ -90,20 +90,20 @@ test("locate github after bitbucket short", async t => {
 
   const provider = new AggregationProvider([
     new BitbucketProvider(bbOptions),
-    new GithubProvider()
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
   ]);
 
   const repository = await provider.repository(
     "arlac77/aggregation-repository-provider"
   );
 
-  t.is(repository.provider.name, "GithubProvider");
-  t.is(repository.name, "arlac77/aggregation-repository-provider");
+  //t.is(repository.provider.name, "GithubProvider");
+  t.is(repository.fullName, "arlac77/aggregation-repository-provider");
 });
 
 test("locate bitbucket", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(),
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     new BitbucketProvider()
   ]);
 
@@ -111,13 +111,13 @@ test("locate bitbucket", async t => {
     "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git"
   );
 
-  t.is(repository.provider.name, "BitbucketProvider");
-  t.is(repository.name, "arlac77/sync-test-repository");
+  //t.is(repository.provider.name, "BitbucketProvider");
+  t.is(repository.fullName, "arlac77/sync-test-repository");
 });
 
 test("locate bitbucket ssh", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(),
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     new BitbucketProvider()
   ]);
 
@@ -126,7 +126,7 @@ test("locate bitbucket ssh", async t => {
   );
 
   t.is(repository.provider.name, "BitbucketProvider");
-  t.is(repository.name, "arlac77/sync-test-repository");
+  t.is(repository.fullName, "arlac77/sync-test-repository");
 });
 
 test.skip("locate bitbucket (stash) ssh", async t => {
