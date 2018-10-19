@@ -30,7 +30,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "repository-provider": "^5.7.0"
+    "repository-provider": "^5.7.1"
   },
   "devDependencies": {
     "ava": "^1.0.0-rc.1",
