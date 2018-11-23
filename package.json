@@ -37,7 +37,7 @@
     "documentation": "^8.1.2",
     "esm": "^3.0.84",
     "github-repository-provider": "^5.0.0",
-    "local-repository-provider": "^3.2.4",
+    "local-repository-provider": "^4.0.0",
     "markdown-doctest": "^0.9.1",
     "rollup": "^0.67.3",
     "rollup-plugin-cleanup": "^3.0.0",
