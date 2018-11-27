@@ -22,6 +22,16 @@ import { Provider } from "repository-provider";
 export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
+
+    /*
+    providers = providers.sort((a, b) => {
+      const x = a.priority < b.priority ? -1 : a.priority > b.priority ? 1 : 0;
+      console.log(`${a.priority} <> ${b.priority} -> ${x}`);
+      return x;
+     }
+    );
+    */
+
     Object.defineProperty(this, "providers", { value: providers });
   }
 
@@ -34,6 +44,8 @@ export class AggregationProvider extends Provider {
    */
   async repository(name, options) {
     for (const p of this.providers) {
+      this.trace({ message: 'consulting provider', provider: p.name, repository: name });
+
       const repository = await p.repository(name, options);
       if (repository !== undefined) {
         return repository;
@@ -52,6 +64,8 @@ export class AggregationProvider extends Provider {
    */
   async repositoryGroup(name, options) {
     for (const p of this.providers) {
+      this.trace({ message: 'consulting provider for repo group', provider: p.name, group: name });
+
       const rg = await p.repositoryGroup(name, options);
       if (rg !== undefined) {
         return rg;
