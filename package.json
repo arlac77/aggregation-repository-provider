@@ -28,7 +28,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "repository-provider": "^9.0.1"
+    "repository-provider": "^9.0.3"
   },
   "devDependencies": {
     "ava": "^1.0.1",
