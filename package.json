@@ -19,11 +19,11 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "test": "ava",
+    "docs": "documentation readme src/repository-provider.js --section=API",
+    "lint": "documentation lint src/repository-provider.js",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
-    "docs": "documentation readme src/repository-provider.js --section=API",
-    "lint": "documentation lint src/repository-provider.js"
+    "test": "ava"
   },
   "dependencies": {
     "repository-provider": "^9.0.4"
