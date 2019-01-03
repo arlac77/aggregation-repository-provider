@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/repository-provider.js",
-  "module": "src/repository-provider.js",
+  "main": "src/repository-provider.mjs",
+  "module": "src/repository-provider.mjs",
   "description": "aggregates several repository providers into one",
   "keywords": [
     "repository-provider"
@@ -19,9 +19,9 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "docs": "documentation readme src/repository-provider.js --section=API",
-    "lint": "documentation lint src/repository-provider.js",
-    "posttest": "markdown-doctest && npm run prepare",
+    "docs": "documentation readme src/repository-provider.mjs --section=API",
+    "lint": "documentation lint src/repository-provider.mjs",
+    "posttest": "markdown-doctest",
     "test": "ava"
   },
   "dependencies": {
@@ -33,8 +33,8 @@
     "c8": "^3.2.1",
     "documentation": "^9.1.1",
     "esm": "^3.0.84",
-    "github-repository-provider": "^5.1.18",
-    "local-repository-provider": "^4.0.17",
+    "github-repository-provider": "^6.0.0",
+    "local-repository-provider": "^5.0.0",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.2"
   },
