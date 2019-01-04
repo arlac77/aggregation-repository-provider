@@ -29,12 +29,12 @@
   },
   "devDependencies": {
     "ava": "^1.0.1",
-    "bitbucket-repository-provider": "^3.0.0",
+    "bitbucket-repository-provider": "^3.0.1",
     "c8": "^3.2.1",
     "documentation": "^9.1.1",
     "esm": "^3.0.84",
-    "github-repository-provider": "^6.0.0",
-    "local-repository-provider": "^5.0.0",
+    "github-repository-provider": "^6.0.2",
+    "local-repository-provider": "^5.0.1",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.2"
   },
