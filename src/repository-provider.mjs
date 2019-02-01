@@ -44,7 +44,11 @@ export class AggregationProvider extends Provider {
    */
   async repository(name, options) {
     for (const p of this.providers) {
-      this.trace({ message: 'consulting provider', provider: p.name, repository: name });
+      this.trace({
+        message: "consulting provider",
+        provider: p.name,
+        repository: name
+      });
 
       const repository = await p.repository(name, options);
       if (repository !== undefined) {
@@ -56,6 +60,25 @@ export class AggregationProvider extends Provider {
   }
 
   /**
+   * List repositories for the owner
+   * @param {string[]|string} matchingPatterns
+   * @return {Iterator<Repository>} all matching repositories of the owner
+   */
+  async *repositories(patterns) {
+    for (const provider of this.providers) {
+      this.trace({
+        message: "consulting provider",
+        provider: provider.name,
+        patterns
+      });
+
+      for await (const repository of provider.repositories(patterns)) {
+        yield repository;
+      }
+    }
+  }
+
+  /**
    * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
@@ -64,7 +87,11 @@ export class AggregationProvider extends Provider {
    */
   async repositoryGroup(name, options) {
     for (const p of this.providers) {
-      this.trace({ message: 'consulting provider for repo group', provider: p.name, group: name });
+      this.trace({
+        message: "consulting provider for repo group",
+        provider: p.name,
+        group: name
+      });
 
       const rg = await p.repositoryGroup(name, options);
       if (rg !== undefined) {

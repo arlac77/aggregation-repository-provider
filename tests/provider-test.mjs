@@ -87,6 +87,28 @@ test("locate github short", async t => {
   //t.is(repository.provider.name, "GithubProvider");
 });
 
+test.skip("list github short pattern", async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
+    /*  new BitbucketProvider(
+      BitbucketProvider.optionsFromEnvironment(process.env)
+    ),
+    new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+    */
+  ]);
+
+  const r = {};
+
+  for await (const repository of provider.repositories(
+    "arlac77/*-repository-provider"
+  )) {
+    console.log(repository);
+    r[repository.fullName] = repository;
+  }
+
+  t.truthy(r["arlac77/aggregation-repository-provider"]);
+});
+
 test("locate github after bitbucket short", async t => {
   const bbOptions = process.env.BITBUCKET_USERNAME
     ? {
