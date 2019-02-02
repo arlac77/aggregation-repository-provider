@@ -100,7 +100,7 @@ test.skip("list github short pattern", async t => {
   const r = {};
 
   for await (const repository of provider.repositories(
-    "arlac77/*-repository-provider"
+    "arlac77/*"
   )) {
     console.log(repository);
     r[repository.fullName] = repository;

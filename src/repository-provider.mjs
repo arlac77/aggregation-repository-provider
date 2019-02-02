@@ -78,6 +78,20 @@ export class AggregationProvider extends Provider {
     }
   }
 
+  async *branches(patterns) {
+    for (const provider of this.providers) {
+      this.trace({
+        message: "consulting provider",
+        provider: provider.name,
+        patterns
+      });
+
+      for await (const branch of provider.branches(patterns)) {
+        yield branch;
+      }
+    }
+  }
+
   /**
    * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
