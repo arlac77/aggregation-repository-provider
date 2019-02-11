@@ -61,7 +61,7 @@ export class AggregationProvider extends Provider {
 
   /**
    * List repositories for the owner
-   * @param {string[]|string} matchingPatterns
+   * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repositories of the owner
    */
   async *repositories(patterns) {

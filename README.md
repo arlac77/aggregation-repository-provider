@@ -31,8 +31,10 @@ aggregates several repository providers into one
     -   [Examples](#examples)
     -   [repository](#repository)
         -   [Parameters](#parameters-1)
-    -   [repositoryGroup](#repositorygroup)
+    -   [repositories](#repositories)
         -   [Parameters](#parameters-2)
+    -   [repositoryGroup](#repositorygroup)
+        -   [Parameters](#parameters-3)
 
 ## AggregationProvider
 
@@ -78,6 +80,16 @@ They are consulted in the order of the propviders given to the constructor
 -   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **Primise&lt;Repository>** 
+
+### repositories
+
+List repositories for the owner
+
+#### Parameters
+
+-   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+
+Returns **Iterator&lt;Repository>** all matching repositories of the owner
 
 ### repositoryGroup
 
