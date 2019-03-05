@@ -32,7 +32,7 @@
     "bitbucket-repository-provider": "^3.0.8",
     "c8": "^3.4.0",
     "documentation": "^9.3.0",
-    "esm": "^3.2.10",
+    "esm": "^3.2.11",
     "github-repository-provider": "^7.0.7",
     "local-repository-provider": "^6.0.6",
     "markdown-doctest": "^0.9.1",
