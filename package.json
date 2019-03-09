@@ -33,7 +33,7 @@
     "c8": "^3.4.0",
     "documentation": "^9.3.0",
     "esm": "^3.2.14",
-    "github-repository-provider": "^7.0.7",
+    "github-repository-provider": "^7.0.8",
     "local-repository-provider": "^6.0.6",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.3"
