@@ -12,6 +12,7 @@ test.skip("list repositories github", async t => {
   for await (const repository of provider.repositories(
     "arlac77/*"
   )) {
+    console.log("REPO",repository);
     r[repository.fullName] = repository;
   }
 
