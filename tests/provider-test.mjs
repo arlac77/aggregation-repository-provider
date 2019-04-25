@@ -2,7 +2,7 @@ import test from "ava";
 import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
 import { LocalProvider } from "local-repository-provider";
-import { AggregationProvider } from "../src/repository-provider";
+import { AggregationProvider } from "../src/repository-provider.mjs";
 
 test("locate repository undefined", async t => {
   const provider = new AggregationProvider([
