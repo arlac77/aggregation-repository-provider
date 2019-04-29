@@ -30,8 +30,12 @@ aggregates several repository providers into one
         -   [Parameters](#parameters-1)
     -   [repositories](#repositories)
         -   [Parameters](#parameters-2)
-    -   [repositoryGroup](#repositorygroup)
+    -   [repositoryGroups](#repositorygroups)
         -   [Parameters](#parameters-3)
+    -   [branches](#branches)
+        -   [Parameters](#parameters-4)
+    -   [repositoryGroup](#repositorygroup)
+        -   [Parameters](#parameters-5)
 
 ## AggregationProvider
 
@@ -80,7 +84,27 @@ Returns **Primise&lt;Repository>**
 
 ### repositories
 
-List repositories for the owner
+List repositories of the providers
+
+#### Parameters
+
+-   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+
+Returns **Iterator&lt;Repository>** all matching repositories of the owner
+
+### repositoryGroups
+
+List repositories groups of the providers
+
+#### Parameters
+
+-   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+
+Returns **Iterator&lt;Repository>** all matching repositories of the owner
+
+### branches
+
+List branches of the providers
 
 #### Parameters
 
