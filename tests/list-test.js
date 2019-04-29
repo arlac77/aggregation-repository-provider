@@ -2,7 +2,7 @@ import test from "ava";
 import { GithubProvider } from "github-repository-provider";
 import { AggregationProvider } from "../src/repository-provider.mjs";
 
-test.skip("list repositories github", async t => {
+test("list repositories github", async t => {
   const provider = new AggregationProvider([
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
   ]);
