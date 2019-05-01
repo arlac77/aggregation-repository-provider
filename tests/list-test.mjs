@@ -19,7 +19,7 @@ test("list repositories github", async t => {
   t.truthy(r["arlac77/aggregation-repository-provider"]);
 });
 
-test.skip("list branches github", async t => {
+test("list branches github", async t => {
   const provider = new AggregationProvider([
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
   ]);
@@ -27,10 +27,10 @@ test.skip("list branches github", async t => {
   const b = {};
 
   for await (const branch of provider.branches(
-    "arlac77/*"
+    "arlac77/*repository-provider"
   )) {
-    console.log("BRANCH",branch);
-    r[branch.fullName] = branch;
+    //console.log("BRANCH",branch.fullCondensedName);
+    b[branch.fullCondensedName] = branch;
   }
 
   t.truthy(b["arlac77/aggregation-repository-provider"]);

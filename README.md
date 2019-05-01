@@ -28,9 +28,9 @@ aggregates several repository providers into one
     -   [Examples](#examples)
     -   [repository](#repository)
         -   [Parameters](#parameters-1)
-    -   [repositories](#repositories)
-        -   [Parameters](#parameters-2)
     -   [repositoryGroups](#repositorygroups)
+        -   [Parameters](#parameters-2)
+    -   [repositories](#repositories)
         -   [Parameters](#parameters-3)
     -   [branches](#branches)
         -   [Parameters](#parameters-4)
@@ -82,16 +82,6 @@ They are consulted in the order of the propviders given to the constructor
 
 Returns **Primise&lt;Repository>** 
 
-### repositories
-
-List repositories of the providers
-
-#### Parameters
-
--   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
-
-Returns **Iterator&lt;Repository>** all matching repositories of the owner
-
 ### repositoryGroups
 
 List repositories groups of the providers
@@ -100,7 +90,17 @@ List repositories groups of the providers
 
 -   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **Iterator&lt;Repository>** all matching repositories of the owner
+Returns **Iterator&lt;Repository>** all matching repository groups of the providers
+
+### repositories
+
+List repositories of the providers
+
+#### Parameters
+
+-   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+
+Returns **Iterator&lt;Repository>** all matching repositories of the providers
 
 ### branches
 
@@ -110,7 +110,7 @@ List branches of the providers
 
 -   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **Iterator&lt;Repository>** all matching repositories of the owner
+Returns **Iterator&lt;Branch>** all matching branches of the providers
 
 ### repositoryGroup
 

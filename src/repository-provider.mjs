@@ -60,20 +60,9 @@ export class AggregationProvider extends Provider {
   }
 
   /**
-   * List repositories of the providers
-   * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repositories of the owner
-   */
-  async *repositories(patterns) {
-    for (const provider of this.providers) {
-      yield * provider.repositories(patterns);
-    }
-  }
-
-  /**
    * List repositories groups of the providers
    * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repositories of the owner
+   * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
     for (const provider of this.providers) {
@@ -82,21 +71,24 @@ export class AggregationProvider extends Provider {
   }
 
   /**
+   * List repositories of the providers
+   * @param {string[]|string} patterns
+   * @return {Iterator<Repository>} all matching repositories of the providers
+   */
+  async *repositories(patterns) {
+    for (const provider of this.providers) {
+      yield * provider.repositories(patterns);
+    }
+  }
+
+  /**
    * List branches of the providers
    * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repositories of the owner
+   * @return {Iterator<Branch>} all matching branches of the providers
    */
   async *branches(patterns) {
     for (const provider of this.providers) {
-      this.trace({
-        message: "consulting provider",
-        provider: provider.name,
-        patterns
-      });
-
-      for await (const branch of provider.branches(patterns)) {
-        yield branch;
-      }
+      yield * provider.branches(patterns);
     }
   }
 
