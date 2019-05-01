@@ -12,11 +12,28 @@ test("list repositories github", async t => {
   for await (const repository of provider.repositories(
     "arlac77/*"
   )) {
-    console.log("REPO",repository);
+    //console.log("REPO",repository);
     r[repository.fullName] = repository;
   }
 
   t.truthy(r["arlac77/aggregation-repository-provider"]);
+});
+
+test.skip("list branches github", async t => {
+  const provider = new AggregationProvider([
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
+  ]);
+
+  const b = {};
+
+  for await (const branch of provider.branches(
+    "arlac77/*"
+  )) {
+    console.log("BRANCH",branch);
+    r[branch.fullName] = branch;
+  }
+
+  t.truthy(b["arlac77/aggregation-repository-provider"]);
 });
 
 
