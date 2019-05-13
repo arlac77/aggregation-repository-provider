@@ -66,7 +66,7 @@ export class AggregationProvider extends Provider {
    */
   async *repositoryGroups(patterns) {
     for (const provider of this.providers) {
-      yield * provider.repositoryGroups(patterns);
+      yield* provider.repositoryGroups(patterns);
     }
   }
 
@@ -77,7 +77,7 @@ export class AggregationProvider extends Provider {
    */
   async *repositories(patterns) {
     for (const provider of this.providers) {
-      yield * provider.repositories(patterns);
+      yield* provider.repositories(patterns);
     }
   }
 
@@ -88,7 +88,7 @@ export class AggregationProvider extends Provider {
    */
   async *branches(patterns) {
     for (const provider of this.providers) {
-      yield * provider.branches(patterns);
+      yield* provider.branches(patterns);
     }
   }
 
@@ -116,3 +116,5 @@ export class AggregationProvider extends Provider {
     return undefined;
   }
 }
+
+export default AggregationProvider;
