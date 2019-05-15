@@ -31,13 +31,13 @@
   "devDependencies": {
     "ava": "^1.4.1",
     "bitbucket-repository-provider": "^3.0.8",
-    "c8": "^4.1.4",
+    "c8": "^4.1.5",
     "documentation": "^11.0.0",
     "esm": "^3.2.22",
     "github-repository-provider": "^7.2.1",
     "local-repository-provider": "^6.3.0",
     "markdown-doctest": "^0.9.1",
-    "semantic-release": "^15.13.13"
+    "semantic-release": "^15.13.14"
   },
   "engines": {
     "node": ">=10.15.3"
