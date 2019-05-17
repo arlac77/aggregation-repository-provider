@@ -35,7 +35,7 @@
     "documentation": "^11.0.0",
     "esm": "^3.2.22",
     "github-repository-provider": "^7.2.2",
-    "local-repository-provider": "^6.3.2",
+    "local-repository-provider": "^6.3.3",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.14"
   },
