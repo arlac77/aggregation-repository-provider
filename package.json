@@ -32,7 +32,7 @@
     "ava": "^2.1.0",
     "bitbucket-repository-provider": "^3.0.8",
     "c8": "^5.0.1",
-    "documentation": "^11.0.0",
+    "documentation": "^11.0.1",
     "esm": "^3.2.25",
     "github-repository-provider": "^7.3.3",
     "local-repository-provider": "^6.4.4",
