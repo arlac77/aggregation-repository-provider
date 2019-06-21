@@ -1,11 +1,18 @@
 import test from "ava";
 import { GithubProvider } from "github-repository-provider";
+import { GiteaProvider } from "gitea-repository-provider";
 import { AggregationProvider } from "../src/repository-provider.mjs";
 
-test("list repositories github", async t => {
-  const provider = new AggregationProvider([
+function createProvider()
+{
+  return new AggregationProvider([
+    new GiteaProvider(GiteaProvider.optionsFromEnvironment(process.env)),
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
   ]);
+}
+
+test("list repositories github", async t => {
+  const provider = createProvider();
 
   const r = {};
 
@@ -20,9 +27,7 @@ test("list repositories github", async t => {
 });
 
 test("list branches github", async t => {
-  const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
-  ]);
+  const provider = createProvider();
 
   const b = {};
 
@@ -38,9 +43,7 @@ test("list branches github", async t => {
 
 
 test.skip("list groups github", async t => {
-  const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
-  ]);
+  const provider = createProvider();
 
   const rgs = {};
 
