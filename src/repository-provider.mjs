@@ -23,6 +23,8 @@ export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
 
+    providers = providers.filter(provider => provider !== undefined);
+
     /*
     providers = providers.sort((a, b) => {
       const x = a.priority < b.priority ? -1 : a.priority > b.priority ? 1 : 0;
@@ -77,6 +79,7 @@ export class AggregationProvider extends Provider {
    */
   async *repositories(patterns) {
     for (const provider of this.providers) {
+      console.log("X",provider);
       yield* provider.repositories(patterns);
     }
   }

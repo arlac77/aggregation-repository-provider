@@ -3,11 +3,10 @@ import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
 import { AggregationProvider } from "../src/repository-provider.mjs";
 
-function createProvider()
-{
+function createProvider() {
   return new AggregationProvider([
-    new GiteaProvider(GiteaProvider.optionsFromEnvironment(process.env)),
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
+    GiteaProvider.initialize(undefined, process.env),
+    GithubProvider.initialize(undefined, process.env)
   ]);
 }
 

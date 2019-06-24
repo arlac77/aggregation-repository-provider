@@ -7,12 +7,9 @@ import { AggregationProvider } from "../src/repository-provider.mjs";
 
 test("locate repository undefined", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    new GiteaProvider(GiteaProvider.optionsFromEnvironment(process.env)),
-    new BitbucketProvider(
-      BitbucketProvider.optionsFromEnvironment(process.env)
-    ),
-    new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+    GithubProvider.initialize(undefined, process.env),
+    GiteaProvider.initialize(undefined, process.env),
+    LocalProvider.initialize(process.env)
   ]);
 
   const repository = await provider.repository();
@@ -20,13 +17,11 @@ test("locate repository undefined", async t => {
   t.is(repository, undefined);
 });
 
-test("locate project undefined", async t => {
+test("locate group undefined", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    new BitbucketProvider(
-      BitbucketProvider.optionsFromEnvironment(process.env)
-    ),
-    new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+    GithubProvider.initialize(undefined, process.env),
+    GiteaProvider.initialize(undefined, process.env),
+    LocalProvider.initialize(process.env)
   ]);
 
   const rg = await provider.repositoryGroup(undefined);
@@ -92,12 +87,12 @@ test("locate github short", async t => {
 test.skip("locate github after bitbucket short", async t => {
   const bbOptions = process.env.BITBUCKET_USERNAME
     ? {
-        auth: {
-          type: "basic",
-          username: process.env.BITBUCKET_USERNAME,
-          password: process.env.BITBUCKET_PASSWORD
-        }
+      auth: {
+        type: "basic",
+        username: process.env.BITBUCKET_USERNAME,
+        password: process.env.BITBUCKET_PASSWORD
       }
+    }
     : undefined;
 
   const provider = new AggregationProvider([
