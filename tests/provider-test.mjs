@@ -7,14 +7,22 @@ import { AggregationProvider } from "../src/repository-provider.mjs";
 
 function createProvider() {
   return new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    GiteaProvider.initialize(undefined, process.env),
+    GithubProvider.initialize({ priority: 1 }, process.env),
+    GiteaProvider.initialize({ priority: 2 }, process.env),
     LocalProvider.initialize(undefined, process.env)
   ]);
 }
 
+test("sorted providers", async t => {
+  const provider = createProvider();
+
+  t.is(provider.providers[0].name, "GiteaProvider");
+  t.is(provider.providers[1].name, "GithubProvider");
+});
+
 test("locate repository undefined", async t => {
   const provider = createProvider();
+
   const repository = await provider.repository();
 
   t.is(repository, undefined);

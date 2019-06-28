@@ -23,16 +23,7 @@ export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
 
-    providers = providers.filter(provider => provider !== undefined);
-
-    /*
-    providers = providers.sort((a, b) => {
-      const x = a.priority < b.priority ? -1 : a.priority > b.priority ? 1 : 0;
-      console.log(`${a.priority} <> ${b.priority} -> ${x}`);
-      return x;
-     }
-    );
-    */
+    providers = providers.filter(provider => provider !== undefined).sort((a, b) => a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0);
 
     Object.defineProperty(this, "providers", { value: providers });
   }
