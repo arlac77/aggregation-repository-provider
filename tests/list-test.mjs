@@ -46,9 +46,9 @@ test.skip("list groups github", async t => {
 
   const rgs = {};
 
-  for await (const rg of provider.repositoryGroups("*")) {
+  for await (const rg of provider.repositoryGroups()) {
     rgs[rg.name] = rg;
-    console.log("YYY", rg);
+    console.log("YYY", rg.provider.name, rg, rg.name);
   }
 
   t.truthy(rgs["arlac77"]);

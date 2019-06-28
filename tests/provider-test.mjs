@@ -5,26 +5,31 @@ import { GiteaProvider } from "gitea-repository-provider";
 import { LocalProvider } from "local-repository-provider";
 import { AggregationProvider } from "../src/repository-provider.mjs";
 
-test("locate repository undefined", async t => {
-  const provider = new AggregationProvider([
+function createProvider() {
+  return new AggregationProvider([
     GithubProvider.initialize(undefined, process.env),
     GiteaProvider.initialize(undefined, process.env),
-    LocalProvider.initialize(process.env)
+    LocalProvider.initialize(undefined, process.env)
   ]);
+}
 
+test("locate repository undefined", async t => {
+  const provider = createProvider();
   const repository = await provider.repository();
 
   t.is(repository, undefined);
 });
 
-test("locate group undefined", async t => {
-  const provider = new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    GiteaProvider.initialize(undefined, process.env),
-    LocalProvider.initialize(undefined, process.env)
-  ]);
+test("locate branch undefined", async t => {
+  const provider = createProvider();
+  const branch = await provider.branch();
 
-  const rg = await provider.repositoryGroup(undefined);
+  t.is(branch, undefined);
+});
+
+test("locate group undefined", async t => {
+  const provider = createProvider();
+  const rg = await provider.repositoryGroup();
 
   t.is(rg, undefined);
 });

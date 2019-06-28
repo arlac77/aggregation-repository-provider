@@ -38,6 +38,17 @@ export class AggregationProvider extends Provider {
   }
 
   /**
+   * List repositories of the providers
+   * @param {string[]|string} patterns
+   * @return {Iterator<Repository>} all matching repositories of the providers
+   */
+  async *repositories(patterns) {
+    for (const provider of this.providers) {
+      yield* provider.repositories(patterns);
+    }
+  }
+
+  /**
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
@@ -62,28 +73,6 @@ export class AggregationProvider extends Provider {
   }
 
   /**
-   * List repositories groups of the providers
-   * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repository groups of the providers
-   */
-  async *repositoryGroups(patterns) {
-    for (const provider of this.providers) {
-      yield* provider.repositoryGroups(patterns);
-    }
-  }
-
-  /**
-   * List repositories of the providers
-   * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repositories of the providers
-   */
-  async *repositories(patterns) {
-    for (const provider of this.providers) {
-      yield* provider.repositories(patterns);
-    }
-  }
-
-  /**
    * List branches of the providers
    * @param {string[]|string} patterns
    * @return {Iterator<Branch>} all matching branches of the providers
@@ -91,6 +80,34 @@ export class AggregationProvider extends Provider {
   async *branches(patterns) {
     for (const provider of this.providers) {
       yield* provider.branches(patterns);
+    }
+  }
+
+  /**
+   * Retrieve named branch in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor
+   * @param {string} name
+   * @return {Primise<Branch>}
+   */
+  async branch(name) {
+    for (const p of this.providers) {
+      const b = await p.branch(name);
+      if (b !== undefined) {
+        return b;
+      }
+    }
+
+    return undefined;
+  }
+
+  /**
+   * List repositories groups of the providers
+   * @param {string[]|string} patterns
+   * @return {Iterator<Repository>} all matching repository groups of the providers
+   */
+  async *repositoryGroups(patterns) {
+    for (const provider of this.providers) {
+      yield* provider.repositoryGroups(patterns);
     }
   }
 
