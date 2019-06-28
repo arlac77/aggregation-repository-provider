@@ -21,7 +21,7 @@ test("locate group undefined", async t => {
   const provider = new AggregationProvider([
     GithubProvider.initialize(undefined, process.env),
     GiteaProvider.initialize(undefined, process.env),
-    LocalProvider.initialize(process.env)
+    LocalProvider.initialize(undefined, process.env)
   ]);
 
   const rg = await provider.repositoryGroup(undefined);
@@ -31,11 +31,9 @@ test("locate group undefined", async t => {
 
 test("locate github https", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    new BitbucketProvider(
-      BitbucketProvider.optionsFromEnvironment(process.env)
-    ),
-    new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+    GithubProvider.initialize(undefined, process.env),
+    //BitbucketProvider.initialize(undefined, process.env),
+    LocalProvider.initialize(undefined, process.env)
   ]);
 
   const repository = await provider.repository(
@@ -49,11 +47,11 @@ test("locate github https", async t => {
 test("locate github git@", async t => {
   if (process.env.SSH_AUTH_SOCK) {
     const provider = new AggregationProvider([
-      new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+      GithubProvider.initialize(undefined, process.env),
       new BitbucketProvider(
         BitbucketProvider.optionsFromEnvironment(process.env)
       ),
-      new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+      LocalProvider.initialize(undefined, process.env)
     ]);
 
     const repository = await provider.repository(
@@ -69,11 +67,11 @@ test("locate github git@", async t => {
 
 test("locate github short", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    GithubProvider.initialize(undefined, process.env),
     new BitbucketProvider(
       BitbucketProvider.optionsFromEnvironment(process.env)
     ),
-    new LocalProvider(LocalProvider.optionsFromEnvironment(process.env))
+    LocalProvider.initialize(undefined, process.env)
   ]);
 
   const repository = await provider.repository(
@@ -97,7 +95,7 @@ test.skip("locate github after bitbucket short", async t => {
 
   const provider = new AggregationProvider([
     new BitbucketProvider(bbOptions),
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env))
+    GithubProvider.initialize(undefined, process.env),
   ]);
 
   const repository = await provider.repository(
@@ -110,7 +108,7 @@ test.skip("locate github after bitbucket short", async t => {
 
 test.skip("locate bitbucket", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    GithubProvider.initialize(undefined, process.env),
     new BitbucketProvider(BitbucketProvider.optionsFromEnvironment(process.env))
   ]);
 
@@ -124,7 +122,7 @@ test.skip("locate bitbucket", async t => {
 
 test.skip("locate bitbucket ssh", async t => {
   const provider = new AggregationProvider([
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    GithubProvider.initialize(undefined, process.env),
     new BitbucketProvider(BitbucketProvider.optionsFromEnvironment(process.env))
   ]);
 

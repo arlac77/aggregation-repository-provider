@@ -79,7 +79,6 @@ export class AggregationProvider extends Provider {
    */
   async *repositories(patterns) {
     for (const provider of this.providers) {
-      console.log("X",provider);
       yield* provider.repositories(patterns);
     }
   }
