@@ -34,9 +34,9 @@
     "c8": "^5.0.2",
     "documentation": "^11.0.1",
     "esm": "^3.2.25",
-    "gitea-repository-provider": "^1.6.1",
-    "github-repository-provider": "^7.3.10",
-    "local-repository-provider": "^6.4.7",
+    "gitea-repository-provider": "^1.6.2",
+    "github-repository-provider": "^7.3.11",
+    "local-repository-provider": "^6.4.9",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.18"
   },
