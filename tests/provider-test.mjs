@@ -7,8 +7,9 @@ import { AggregationProvider } from "../src/repository-provider.mjs";
 
 function createProvider() {
   return new AggregationProvider([
-    GithubProvider.initialize({ priority: 1 }, process.env),
-    GiteaProvider.initialize({ priority: 2 }, process.env),
+    GithubProvider.initialize({ priority: 2 }, process.env),
+    GiteaProvider.initialize({ priority: 3 }, process.env),
+    //  BitbucketProvider.initialize({ priority: 1 }, process.env),
     LocalProvider.initialize(undefined, process.env)
   ]);
 }
@@ -28,6 +29,44 @@ test("locate repository undefined", async t => {
   t.is(repository, undefined);
 });
 
+test("locate repository several", async t => {
+  const provider = createProvider();
+
+  const rs = {
+    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
+      fullName: "markus/de.mfelten.archlinux",
+      provider: GiteaProvider
+    },
+    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux": {
+      fullName: "markus/de.mfelten.archlinux",
+      provider: GiteaProvider
+    },
+    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux#master": {
+      fullName: "markus/de.mfelten.archlinux",
+      provider: GiteaProvider
+    },
+    "markus/de.mfelten.archlinux#master": {
+      fullName: "markus/de.mfelten.archlinux",
+      provider: GiteaProvider
+    },
+    "https://github.com/arlac77/aggregation-repository-provider": {
+      fullName: "arlac77/aggregation-repository-provider",
+      provider: GithubProvider
+    },
+    "arlac77/aggregation-repository-provider": {
+      fullName: "arlac77/aggregation-repository-provider",
+      provider: GithubProvider
+    }
+  };
+
+  for (const rn of Object.keys(rs)) {
+    const r = rs[rn];
+    const repository = await provider.repository(rn);
+    t.is(repository.fullName, r.fullName);
+    t.is(repository.provider.constructor, r.provider);
+  }
+});
+
 test("locate branch undefined", async t => {
   const provider = createProvider();
   const branch = await provider.branch();
@@ -40,21 +79,6 @@ test("locate group undefined", async t => {
   const rg = await provider.repositoryGroup();
 
   t.is(rg, undefined);
-});
-
-test("locate github https", async t => {
-  const provider = new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env),
-    LocalProvider.initialize(undefined, process.env)
-  ]);
-
-  const repository = await provider.repository(
-    "https://github.com/arlac77/aggregation-repository-provider"
-  );
-
-  t.is(repository.provider.name, "GithubProvider");
-  t.is(repository.fullName, "arlac77/aggregation-repository-provider");
 });
 
 test("locate github git@", async t => {
@@ -76,35 +100,20 @@ test("locate github git@", async t => {
   }
 });
 
-test("locate github short", async t => {
-  const provider = new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env),
-    LocalProvider.initialize(undefined, process.env)
-  ]);
-
-  const repository = await provider.repository(
-    "arlac77/aggregation-repository-provider"
-  );
-
-  t.is(repository.fullName, "arlac77/aggregation-repository-provider");
-  //t.is(repository.provider.name, "GithubProvider");
-});
-
 test.skip("locate github after bitbucket short", async t => {
   const bbOptions = process.env.BITBUCKET_USERNAME
     ? {
-      auth: {
-        type: "basic",
-        username: process.env.BITBUCKET_USERNAME,
-        password: process.env.BITBUCKET_PASSWORD
+        auth: {
+          type: "basic",
+          username: process.env.BITBUCKET_USERNAME,
+          password: process.env.BITBUCKET_PASSWORD
+        }
       }
-    }
     : undefined;
 
   const provider = new AggregationProvider([
     new BitbucketProvider(bbOptions),
-    GithubProvider.initialize(undefined, process.env),
+    GithubProvider.initialize(undefined, process.env)
   ]);
 
   const repository = await provider.repository(
