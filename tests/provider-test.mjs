@@ -9,7 +9,7 @@ function createProvider() {
   return new AggregationProvider([
     GithubProvider.initialize({ priority: 2 }, process.env),
     GiteaProvider.initialize({ priority: 3 }, process.env),
-    //  BitbucketProvider.initialize({ priority: 1 }, process.env),
+    BitbucketProvider.initialize({ priority: 1 }, process.env),
     LocalProvider.initialize(undefined, process.env)
   ]);
 }
@@ -19,48 +19,55 @@ test("sorted providers", async t => {
 
   t.is(provider.providers[0].name, "GiteaProvider");
   t.is(provider.providers[1].name, "GithubProvider");
+  t.is(provider.providers[2].name, "BitbucketProvider");
 });
 
 test("locate repository undefined", async t => {
   const provider = createProvider();
 
-  const repository = await provider.repository();
-
-  t.is(repository, undefined);
+  t.is(await provider.repository(), undefined);
 });
+
+const repoFixtures = {
+  "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
+    fullName: "markus/de.mfelten.archlinux",
+    provider: GiteaProvider
+  },
+  "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux": {
+    fullName: "markus/de.mfelten.archlinux",
+    provider: GiteaProvider
+  },
+  "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux#master": {
+    fullName: "markus/de.mfelten.archlinux",
+    provider: GiteaProvider
+  },
+  "markus/de.mfelten.archlinux#master": {
+    fullName: "markus/de.mfelten.archlinux",
+    provider: GiteaProvider
+  },
+  "https://github.com/arlac77/aggregation-repository-provider": {
+    fullName: "arlac77/aggregation-repository-provider",
+    provider: GithubProvider
+  },
+  "arlac77/aggregation-repository-provider": {
+    fullName: "arlac77/aggregation-repository-provider",
+    provider: GithubProvider
+  },
+  "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git" : {
+    fullName: "arlac77/sync-test-repository",
+    provider: BitbucketProvider
+  },
+  "ssh://git@bitbucket.org/arlac77/sync-test-repository.git" : {
+    fullName: "arlac77/sync-test-repository",
+    provider: BitbucketProvider
+  },
+};
 
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  const rs = {
-    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
-      fullName: "markus/de.mfelten.archlinux",
-      provider: GiteaProvider
-    },
-    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux": {
-      fullName: "markus/de.mfelten.archlinux",
-      provider: GiteaProvider
-    },
-    "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux#master": {
-      fullName: "markus/de.mfelten.archlinux",
-      provider: GiteaProvider
-    },
-    "markus/de.mfelten.archlinux#master": {
-      fullName: "markus/de.mfelten.archlinux",
-      provider: GiteaProvider
-    },
-    "https://github.com/arlac77/aggregation-repository-provider": {
-      fullName: "arlac77/aggregation-repository-provider",
-      provider: GithubProvider
-    },
-    "arlac77/aggregation-repository-provider": {
-      fullName: "arlac77/aggregation-repository-provider",
-      provider: GithubProvider
-    }
-  };
-
-  for (const rn of Object.keys(rs)) {
-    const r = rs[rn];
+  for (const rn of Object.keys(repoFixtures)) {
+    const r = repoFixtures[rn];
     const repository = await provider.repository(rn);
     t.is(repository.fullName, r.fullName);
     t.is(repository.provider.constructor, r.provider);
@@ -122,34 +129,6 @@ test.skip("locate github after bitbucket short", async t => {
 
   //t.is(repository.provider.name, "GithubProvider");
   t.is(repository.fullName, "arlac77/aggregation-repository-provider");
-});
-
-test.skip("locate bitbucket", async t => {
-  const provider = new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env)
-  ]);
-
-  const repository = await provider.repository(
-    "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git"
-  );
-
-  //t.is(repository.provider.name, "BitbucketProvider");
-  t.is(repository.fullName, "arlac77/sync-test-repository");
-});
-
-test.skip("locate bitbucket ssh", async t => {
-  const provider = new AggregationProvider([
-    GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env)
-  ]);
-
-  const repository = await provider.repository(
-    "ssh://git@bitbucket.org/arlac77/sync-test-repository.git"
-  );
-
-  t.is(repository.provider.name, "BitbucketProvider");
-  t.is(repository.fullName, "arlac77/sync-test-repository");
 });
 
 test.skip("locate bitbucket (stash) ssh", async t => {
