@@ -36,10 +36,12 @@ const repoFixtures = {
 
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
     fullName: "markus/de.mfelten.archlinux",
+    description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux": {
     fullName: "markus/de.mfelten.archlinux",
+    description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux#master": {
@@ -48,10 +50,12 @@ const repoFixtures = {
   },
   "markus/de.mfelten.archlinux#master": {
     fullName: "markus/de.mfelten.archlinux",
+    description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://github.com/arlac77/github-repository-provider.git#master": {
     fullName: "arlac77/github-repository-provider",
+    description: "repository provider for github",
     provider: GithubProvider
   },
   "https://github.com/arlac77/aggregation-repository-provider": {
@@ -64,16 +68,20 @@ const repoFixtures = {
   },
   "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git": {
     fullName: "arlac77/sync-test-repository",
+    description: "test repository for npm-template-sync @bitbucket",
     provider: BitbucketProvider
   },
   "ssh://git@bitbucket.org/arlac77/sync-test-repository.git": {
     fullName: "arlac77/sync-test-repository",
+    description: "test repository for npm-template-sync @bitbucket",
     provider: BitbucketProvider
   }
 };
 
-test.only("locate repository several", async t => {
+test("locate repository several", async t => {
   const provider = createProvider();
+
+  t.plan(24);
 
   for (const rn of Object.keys(repoFixtures)) {
     const r = repoFixtures[rn];
@@ -81,6 +89,10 @@ test.only("locate repository several", async t => {
     if (r === undefined) {
       t.is(repository, undefined);
     } else {
+      if(r.description !== undefined) {
+        t.is(repository.description, r.description);
+      }
+
       t.is(repository.fullName, r.fullName);
       t.is(repository.provider.constructor, r.provider);
     }
