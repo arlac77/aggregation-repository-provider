@@ -35,7 +35,7 @@
     "documentation": "^11.0.1",
     "esm": "^3.2.25",
     "gitea-repository-provider": "^1.6.3",
-    "github-repository-provider": "^7.3.13",
+    "github-repository-provider": "^7.3.14",
     "local-repository-provider": "^6.4.12",
     "markdown-doctest": "^0.9.1",
     "semantic-release": "^15.13.18"
