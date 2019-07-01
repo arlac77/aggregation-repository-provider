@@ -29,6 +29,11 @@ test("locate repository undefined", async t => {
 });
 
 const repoFixtures = {
+  /*
+  "git@mfelten.de/github-repository-provider.git": undefined,
+  "http://www.heise.de/index.html": undefined,
+*/
+
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
     fullName: "markus/de.mfelten.archlinux",
     provider: GiteaProvider
@@ -45,6 +50,10 @@ const repoFixtures = {
     fullName: "markus/de.mfelten.archlinux",
     provider: GiteaProvider
   },
+  "https://github.com/arlac77/github-repository-provider.git#master": {
+    fullName: "arlac77/github-repository-provider",
+    provider: GithubProvider
+  },
   "https://github.com/arlac77/aggregation-repository-provider": {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
@@ -53,24 +62,28 @@ const repoFixtures = {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
-  "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git" : {
+  "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git": {
     fullName: "arlac77/sync-test-repository",
     provider: BitbucketProvider
   },
-  "ssh://git@bitbucket.org/arlac77/sync-test-repository.git" : {
+  "ssh://git@bitbucket.org/arlac77/sync-test-repository.git": {
     fullName: "arlac77/sync-test-repository",
     provider: BitbucketProvider
-  },
+  }
 };
 
-test("locate repository several", async t => {
+test.only("locate repository several", async t => {
   const provider = createProvider();
 
   for (const rn of Object.keys(repoFixtures)) {
     const r = repoFixtures[rn];
     const repository = await provider.repository(rn);
-    t.is(repository.fullName, r.fullName);
-    t.is(repository.provider.constructor, r.provider);
+    if (r === undefined) {
+      t.is(repository, undefined);
+    } else {
+      t.is(repository.fullName, r.fullName);
+      t.is(repository.provider.constructor, r.provider);
+    }
   }
 });
 
