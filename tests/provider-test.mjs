@@ -34,6 +34,7 @@ const repoFixtures = {
   "http://www.heise.de/index.html": undefined,
 */
 
+
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
     fullName: "markus/de.mfelten.archlinux",
     description: "infrasctucture build on arch linux (arm)",
@@ -62,6 +63,10 @@ const repoFixtures = {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
+  "git@github.com:arlac77/aggregation-repository-provider.git" : {
+    fullName: "arlac77/aggregation-repository-provider",
+    provider: GithubProvider
+  },
   "arlac77/aggregation-repository-provider": {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
@@ -81,7 +86,7 @@ const repoFixtures = {
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(24);
+  t.plan(26);
 
   for (const rn of Object.keys(repoFixtures)) {
     const r = repoFixtures[rn];
@@ -113,24 +118,6 @@ test("locate group undefined", async t => {
   t.is(rg, undefined);
 });
 
-test("locate github git@", async t => {
-  if (process.env.SSH_AUTH_SOCK) {
-    const provider = new AggregationProvider([
-      GithubProvider.initialize(undefined, process.env),
-      BitbucketProvider.initialize(undefined, process.env),
-      LocalProvider.initialize(undefined, process.env)
-    ]);
-
-    const repository = await provider.repository(
-      "git@github.com:arlac77/aggregation-repository-provider.git"
-    );
-
-    t.is(repository.provider.name, "GithubProvider");
-    t.is(repository.fullName, "arlac77/aggregation-repository-provider");
-  } else {
-    t.is(1, 1, "skip git@ test without SSH_AUTH_SOCK");
-  }
-});
 
 test.skip("locate github after bitbucket short", async t => {
   const bbOptions = process.env.BITBUCKET_USERNAME
