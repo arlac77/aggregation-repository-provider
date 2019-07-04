@@ -1,4 +1,6 @@
 import test from "ava";
+import {assertRepo} from './util.mjs';
+
 import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
@@ -29,11 +31,9 @@ test("locate repository undefined", async t => {
 });
 
 const repoFixtures = {
-  /*
-  "git@mfelten.de/github-repository-provider.git": undefined,
-  "http://www.heise.de/index.html": undefined,
-*/
-
+ // "git@mfelten.de/github-repository-provider.git": undefined,
+ //"http://www.heise.de/index.html": undefined,
+ //"": undefined,
 
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
     fullName: "markus/de.mfelten.archlinux",
@@ -91,16 +91,7 @@ test("locate repository several", async t => {
   for (const rn of Object.keys(repoFixtures)) {
     const r = repoFixtures[rn];
     const repository = await provider.repository(rn);
-    if (r === undefined) {
-      t.is(repository, undefined);
-    } else {
-      if(r.description !== undefined) {
-        t.is(repository.description, r.description);
-      }
-
-      t.is(repository.fullName, r.fullName);
-      t.is(repository.provider.constructor, r.provider);
-    }
+    await assertRepo(t,repository,r);
   }
 });
 
