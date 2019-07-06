@@ -38,7 +38,7 @@
     "github-repository-provider": "^7.3.22",
     "local-repository-provider": "^6.4.20",
     "markdown-doctest": "^0.9.1",
-    "semantic-release": "^15.13.18"
+    "semantic-release": "^15.13.19"
   },
   "engines": {
     "node": ">=10.16.0"
