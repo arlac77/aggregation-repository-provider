@@ -88,7 +88,7 @@ const repoFixtures = {
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(26);
+  t.plan(28);
 
   for (const rn of Object.keys(repoFixtures)) {
     const r = repoFixtures[rn];
