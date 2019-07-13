@@ -30,6 +30,10 @@ test("locate repository undefined", async t => {
   t.is(await provider.repository(), undefined);
 });
 
+const owner1 = {
+  name: "arlac77"
+};
+
 const repoFixtures = {
   "": undefined,
   " ": undefined,
@@ -73,27 +77,54 @@ const repoFixtures = {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
+
   "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git": {
+    owner: owner1,
     fullName: "arlac77/sync-test-repository",
     description: "test repository for npm-template-sync @bitbucket",
     provider: BitbucketProvider
   },
+
   "ssh://git@bitbucket.org/arlac77/sync-test-repository.git": {
+    owner: owner1,
     fullName: "arlac77/sync-test-repository",
     description: "test repository for npm-template-sync @bitbucket",
     provider: BitbucketProvider
+  },
+
+  /*
+  "git@bitbucket.org:arlac77/sync-test-repository.git": {
+    owner: owner1,
+    fullName: "arlac77/sync-test-repository",
+    description: "test repository for npm-template-sync @bitbucket",
+    provider: BitbucketProvider
+  },
+  */
+
+  "https://arlac77@bitbucket.org/arlac77/npm-package-template.git": {
+    provider: BitbucketProvider,
+    fullName: "arlac77/npm-package-template",
+    owner: owner1,
+    hooks: [
+      {
+        id: "{79492efb-32b4-4f69-a469-606b58d2f8b5}",
+        active: true,
+        url: "https://mfelten.dynv6.net/services/ci/api/webhook",
+        events: new Set(["repo:push"])
+      }
+    ]
   }
 };
 
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(28);
+  t.plan(40);
 
   for (const rn of Object.keys(repoFixtures)) {
-    const r = repoFixtures[rn];
+    t.log(rn);
     const repository = await provider.repository(rn);
-    await assertRepo(t, repository, r);
+    await assertRepo(t, repository, repoFixtures[rn]);
   }
 });
 
