@@ -119,7 +119,7 @@ const repoFixtures = {
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(40);
+  t.plan(44);
 
   for (const rn of Object.keys(repoFixtures)) {
     t.log(rn);
