@@ -23,7 +23,11 @@ export class AggregationProvider extends Provider {
   constructor(providers = []) {
     super(undefined);
 
-    providers = providers.filter(provider => provider !== undefined).sort((a, b) => a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0);
+    providers = providers
+      .filter(provider => provider !== undefined)
+      .sort((a, b) =>
+        a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0
+      );
 
     Object.defineProperty(this, "providers", { value: providers });
   }
@@ -43,10 +47,9 @@ export class AggregationProvider extends Provider {
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
-   * @param {Object} options
    * @return {Primise<Repository>}
    */
-  async repository(name, options) {
+  async repository(name) {
     for (const p of this.providers) {
       this.trace({
         message: "consulting provider",
@@ -54,7 +57,8 @@ export class AggregationProvider extends Provider {
         repository: name
       });
 
-      const repository = await p.repository(name, options);
+      const repository = await p.repository(name);
+
       if (repository !== undefined) {
         return repository;
       }
