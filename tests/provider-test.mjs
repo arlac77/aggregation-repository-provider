@@ -38,9 +38,12 @@ const repoFixtures = {
   "": undefined,
   " ": undefined,
 
-  // "git@mfelten.de/github-repository-provider.git": undefined,
-  //"http://www.heise.de/index.html": undefined,
-
+  "git@mfelten.de/github-repository-provider.git": {
+    provider: LocalProvider
+  },
+  "http://www.heise.de/index.html": {
+    provider: LocalProvider
+  },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
     fullName: "markus/de.mfelten.archlinux",
     description: "infrasctucture build on arch linux (arm)",
@@ -77,33 +80,35 @@ const repoFixtures = {
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
-
   "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git": {
+    provider: BitbucketProvider,
     owner: owner1,
+    name: "sync-test-repository",
     fullName: "arlac77/sync-test-repository",
-    description: "test repository for npm-template-sync @bitbucket",
-    provider: BitbucketProvider
+    uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
+    description: "test repository for npm-template-sync @bitbucket"
   },
-
   "ssh://git@bitbucket.org/arlac77/sync-test-repository.git": {
+    provider: BitbucketProvider,
     owner: owner1,
+    name: "sync-test-repository",
     fullName: "arlac77/sync-test-repository",
-    description: "test repository for npm-template-sync @bitbucket",
-    provider: BitbucketProvider
+    uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
+    description: "test repository for npm-template-sync @bitbucket"
   },
-
-  /*
   "git@bitbucket.org:arlac77/sync-test-repository.git": {
+    provider: BitbucketProvider,
     owner: owner1,
+    name: "sync-test-repository",
     fullName: "arlac77/sync-test-repository",
-    description: "test repository for npm-template-sync @bitbucket",
-    provider: BitbucketProvider
+    uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
+    description: "test repository for npm-template-sync @bitbucket"
   },
-  */
-
   "https://arlac77@bitbucket.org/arlac77/npm-package-template.git": {
     provider: BitbucketProvider,
+    name: "npm-package-template",
     fullName: "arlac77/npm-package-template",
+    uuid: "{36734289-3058-4c37-86ff-0ee8696d3d9d}",
     owner: owner1,
     hooks: [
       {
@@ -119,12 +124,11 @@ const repoFixtures = {
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(44);
+  t.plan(55);
 
   for (const rn of Object.keys(repoFixtures)) {
-    t.log(rn);
     const repository = await provider.repository(rn);
-    await assertRepo(t, repository, repoFixtures[rn]);
+    await assertRepo(t, repository, repoFixtures[rn], rn);
   }
 });
 
