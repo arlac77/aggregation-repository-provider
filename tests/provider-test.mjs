@@ -1,5 +1,5 @@
 import test from "ava";
-import { assertRepo } from "./util.mjs";
+import { assertRepo, assertBranch } from "./util.mjs";
 
 import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
@@ -31,7 +31,8 @@ test("locate repository undefined", async t => {
 });
 
 const owner1 = {
-  name: "arlac77"
+  name: "arlac77",
+  uuid: '{7eeeef8a-17ef-45be-996f-ea51387bc7b9}'
 };
 
 const repoFixtures = {
@@ -45,42 +46,51 @@ const repoFixtures = {
     provider: LocalProvider
   },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux.git": {
+    branch: "master",
     fullName: "markus/de.mfelten.archlinux",
     description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux": {
+    branch: "master",
     fullName: "markus/de.mfelten.archlinux",
     description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://mfelten.dynv6.net/services/git/markus/de.mfelten.archlinux#master": {
+    branch: "master",
     fullName: "markus/de.mfelten.archlinux",
     provider: GiteaProvider
   },
   "markus/de.mfelten.archlinux#master": {
+    branch: "master",
     fullName: "markus/de.mfelten.archlinux",
     description: "infrasctucture build on arch linux (arm)",
     provider: GiteaProvider
   },
   "https://github.com/arlac77/github-repository-provider.git#master": {
+    branch: "master",
     fullName: "arlac77/github-repository-provider",
     description: "repository provider for github",
     provider: GithubProvider
   },
   "https://github.com/arlac77/aggregation-repository-provider": {
+    branch: "master",
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
   "git@github.com:arlac77/aggregation-repository-provider.git": {
+    branch: "master",
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
   "arlac77/aggregation-repository-provider": {
+    branch: "master",
     fullName: "arlac77/aggregation-repository-provider",
     provider: GithubProvider
   },
   "https://arlac77@bitbucket.org/arlac77/sync-test-repository.git": {
+    branch: "master",
     provider: BitbucketProvider,
     owner: owner1,
     name: "sync-test-repository",
@@ -89,6 +99,7 @@ const repoFixtures = {
     description: "test repository for npm-template-sync @bitbucket"
   },
   "ssh://git@bitbucket.org/arlac77/sync-test-repository.git": {
+    branch: "master",
     provider: BitbucketProvider,
     owner: owner1,
     name: "sync-test-repository",
@@ -97,6 +108,7 @@ const repoFixtures = {
     description: "test repository for npm-template-sync @bitbucket"
   },
   "git@bitbucket.org:arlac77/sync-test-repository.git": {
+    branch: "master",
     provider: BitbucketProvider,
     owner: owner1,
     name: "sync-test-repository",
@@ -105,6 +117,7 @@ const repoFixtures = {
     description: "test repository for npm-template-sync @bitbucket"
   },
   "https://arlac77@bitbucket.org/arlac77/npm-package-template.git": {
+    branch: "master",
     provider: BitbucketProvider,
     name: "npm-package-template",
     fullName: "arlac77/npm-package-template",
@@ -124,11 +137,22 @@ const repoFixtures = {
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(55);
+  t.plan(59);
 
   for (const rn of Object.keys(repoFixtures)) {
     const repository = await provider.repository(rn);
     await assertRepo(t, repository, repoFixtures[rn], rn);
+  }
+});
+
+test("locate branch several", async t => {
+  const provider = createProvider();
+
+  t.plan(26);
+
+  for (const rn of Object.keys(repoFixtures)) {
+    const branch = await provider.branch(rn);
+    await assertBranch(t, branch, repoFixtures[rn], rn);
   }
 });
 
