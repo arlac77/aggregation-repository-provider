@@ -116,28 +116,34 @@ const repoFixtures = {
     uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
     description: "test repository for npm-template-sync @bitbucket"
   },
+  "https://bitbucket.org/arlac77/npm-package-template.git" : {
+    provider: BitbucketProvider,
+    name: "npm-package-template",
+    uuid: '{36734289-3058-4c37-86ff-0ee8696d3d9d}',
+    branch: 'master'
+  },
   "https://arlac77@bitbucket.org/arlac77/npm-package-template.git": {
-    branch: "master",
     provider: BitbucketProvider,
     name: "npm-package-template",
     fullName: "arlac77/npm-package-template",
-    uuid: "{36734289-3058-4c37-86ff-0ee8696d3d9d}",
+    uuid: '{36734289-3058-4c37-86ff-0ee8696d3d9d}',
     owner: owner1,
     hooks: [
       {
         id: "{79492efb-32b4-4f69-a469-606b58d2f8b5}",
         active: true,
-        url: "https://mfelten.dynv6.net/services/ci/api/webhook",
+        url: "https://mfelten.dynv6.net/services/ci/api/bitbucket",
         events: new Set(["repo:push"])
       }
-    ]
+    ],
+    branch: 'master'
   }
 };
 
 test("locate repository several", async t => {
   const provider = createProvider();
 
-  t.plan(59);
+  t.plan(62);
 
   for (const rn of Object.keys(repoFixtures)) {
     const repository = await provider.repository(rn);
@@ -148,7 +154,7 @@ test("locate repository several", async t => {
 test("locate branch several", async t => {
   const provider = createProvider();
 
-  t.plan(26);
+  t.plan(28);
 
   for (const rn of Object.keys(repoFixtures)) {
     const branch = await provider.branch(rn);
