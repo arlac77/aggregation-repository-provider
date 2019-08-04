@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "ava": "^2.2.0",
-    "bitbucket-repository-provider": "^3.3.23",
+    "bitbucket-repository-provider": "^3.3.24",
     "c8": "^5.0.2",
     "documentation": "^12.1.1",
     "esm": "^3.2.25",
