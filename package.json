@@ -29,7 +29,7 @@
     "repository-provider": "^16.7.2"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^2.3.0",
     "bitbucket-repository-provider": "^3.3.21",
     "c8": "^5.0.2",
     "documentation": "^12.1.1",
