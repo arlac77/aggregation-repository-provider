@@ -1,5 +1,5 @@
 import test from "ava";
-import { assertRepo, assertBranch } from "./util.mjs";
+import { assertRepo, assertBranch } from "repository-provider-test-support";
 
 import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
