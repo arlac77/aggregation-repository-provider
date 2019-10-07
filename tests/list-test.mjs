@@ -43,12 +43,12 @@ test("list branches github", async t => {
 });
 
 
-test.skip("list groups github", async t => {
+test("list groups github/gitea", async t => {
   const provider = createProvider();
 
   const rgs = {};
 
-  for await (const rg of provider.repositoryGroups()) {
+  for await (const rg of provider.repositoryGroups("*")) {
     rgs[rg.name] = rg;
     console.log(rg.provider.name, rg, rg.name);
   }
