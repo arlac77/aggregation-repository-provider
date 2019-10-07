@@ -1,12 +1,14 @@
 import test from "ava";
 import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
+import { BitbucketProvider } from "bitbucket-repository-provider";
 import { AggregationProvider } from "../src/repository-provider.mjs";
 
 function createProvider() {
   return new AggregationProvider([
     GiteaProvider.initialize(undefined, process.env),
-    GithubProvider.initialize(undefined, process.env)
+    GithubProvider.initialize(undefined, process.env),
+    BitbucketProvider.initialize(undefined, process.env)
   ]);
 }
 
@@ -48,7 +50,7 @@ test.skip("list groups github", async t => {
 
   for await (const rg of provider.repositoryGroups()) {
     rgs[rg.name] = rg;
-    console.log("YYY", rg.provider.name, rg, rg.name);
+    console.log(rg.provider.name, rg, rg.name);
   }
 
   t.truthy(rgs["arlac77"]);
