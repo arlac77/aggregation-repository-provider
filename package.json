@@ -35,7 +35,7 @@
     "documentation": "^12.1.2",
     "esm": "^3.2.25",
     "gitea-repository-provider": "^1.8.22",
-    "github-repository-provider": "^7.4.16",
+    "github-repository-provider": "^7.4.18",
     "local-repository-provider": "^6.4.36",
     "markdown-doctest": "^0.9.1",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
