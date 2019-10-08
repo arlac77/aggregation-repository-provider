@@ -48,10 +48,11 @@ test("list groups github/gitea", async t => {
 
   const rgs = {};
 
-  for await (const rg of provider.repositoryGroups("*")) {
+  for await (const rg of provider.repositoryGroups()) {
     rgs[rg.name] = rg;
-    console.log(rg.provider.name, rg, rg.name);
+    //console.log(rg.provider.name, rg, rg.name);
   }
 
   t.truthy(rgs["arlac77"]);
+  t.truthy(rgs["old"]);
 });
