@@ -16,5 +16,6 @@ function createProvider() {
 
 const provider = createProvider();
 
+//test(listGroupsTest, provider, "some_strange_name", undefined);
 test(listGroupsTest, provider, "*", { arlac77: {}, "github-mirror": { description: "github.com mirror" }  });
 //test(listGroupsTest, provider, undefined, { arlac77: {}, "github-mirror": { description: "github.com mirror" }});
