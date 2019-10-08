@@ -1,4 +1,6 @@
 import test from "ava";
+import { listGroupsTest } from "repository-provider-test-support";
+
 import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
@@ -14,23 +16,5 @@ function createProvider() {
 
 const provider = createProvider();
 
-async function lgt(t, pattern, names) {
-  const rgs = {};
-
-  for await (const rg of provider.repositoryGroups(pattern)) {
-    rgs[rg.name] = rg;
-    //  console.log(rg.provider.name, rg, rg.name);
-  }
-
-  console.log(rgs);
-
-  for (const name of names) {
-    t.truthy(rgs[name] !== undefined, name);
-  }
-}
-
-lgt.title = (providedTitle = "list groups", pattern, names) =>
-  `${providedTitle} '${pattern}' = ${names}`.trim();
-
-test(lgt, "*", ["arlac77", "old"]);
-//test(lgt, undefined, ["arlac77", "old"]);
+test(listGroupsTest, provider, "*", { arlac77: {}, old: {} });
+//test(listGroupsTest, undefined, { arlac77: {}, old: {} });
