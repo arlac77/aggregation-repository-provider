@@ -39,7 +39,7 @@
     "local-repository-provider": "^6.4.39",
     "markdown-doctest": "^0.9.1",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
-    "semantic-release": "^15.13.25"
+    "semantic-release": "^15.13.26"
   },
   "engines": {
     "node": ">=12.11.1"
