@@ -1132,7 +1132,7 @@
     is-plain-object "^3.0.0"
     universal-user-agent "^4.0.0"
 
-"@octokit/plugin-throttling@^2.6.0":
+"@octokit/plugin-throttling@2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@octokit/plugin-throttling/-/plugin-throttling-2.7.0.tgz#ddff45c3465809799b8fde7c0f8a39e89d80a174"
   integrity sha512-NMx7LI+eHu9tSb9U5s/OuGi/fIX7GUzfPJy00g2EJstt35Dug2cytA1P4WXxG1GSjUuZgalUfLg0G+nZKpaVpw==
@@ -3734,12 +3734,12 @@ github-graphql-api@^1.0.6:
   resolved "https://registry.yarnpkg.com/github-graphql-api/-/github-graphql-api-1.0.6.tgz#43eb1423198975ee91fa0682bfe1a9452c8ba8e5"
   integrity sha512-Oe/+7WQup22g0aIv+S7YyIbXvOujfVl6I1t8+NFfwjfcEarDXWDOup3VplOiRs/ezDP+uB/WTEk7p4cVWAGXSQ==
 
-github-repository-provider@^7.4.20:
-  version "7.4.20"
-  resolved "https://registry.yarnpkg.com/github-repository-provider/-/github-repository-provider-7.4.20.tgz#a81400da0cccb79ee0cd9a450ccda8b65715f38f"
-  integrity sha512-MsBo13ytAXqrGtuzEL7Vabw8gSmpGIwDYH7RZE/vTshGSwWvHPd00aj3P35DYh0PTrvMEfZQhtaiUwt3K6H0LA==
+github-repository-provider@^7.4.21:
+  version "7.4.21"
+  resolved "https://registry.yarnpkg.com/github-repository-provider/-/github-repository-provider-7.4.21.tgz#861645b4724bdd07c5abcddd2ae8be4fc2fa35db"
+  integrity sha512-ccxihHwPcuhEXJ6NMOTP6oP4MoRwXdeXiUZuNDulF6W03g1hwDBv7tJnxs0SYCWoX53D1T6P3jKxd1wkUaWXog==
   dependencies:
-    "@octokit/plugin-throttling" "^2.6.0"
+    "@octokit/plugin-throttling" "2.7.0"
     "@octokit/rest" "^16.33.1"
     content-entry "^2.2.2"
     github-graphql-api "^1.0.6"
