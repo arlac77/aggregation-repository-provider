@@ -34,7 +34,7 @@
     "c8": "^5.0.4",
     "documentation": "^12.1.2",
     "esm": "^3.2.25",
-    "gitea-repository-provider": "^1.9.1",
+    "gitea-repository-provider": "^1.9.2",
     "github-repository-provider": "^7.4.20",
     "local-repository-provider": "^6.4.43",
     "markdown-doctest": "^1.0.0",
