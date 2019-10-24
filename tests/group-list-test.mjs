@@ -1,5 +1,5 @@
 import test from "ava";
-import { listGroupsTest } from "repository-provider-test-support";
+import { groupListTest } from "repository-provider-test-support";
 
 import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
@@ -16,12 +16,12 @@ function createProvider() {
 
 const provider = createProvider();
 
-test(listGroupsTest, provider, "some_strange_name", undefined);
-test(listGroupsTest, provider, "*", {
+test(groupListTest, provider, "some_strange_name", undefined);
+test.serial(groupListTest, provider, "*", {
   arlac77: {},
   "github-mirror": { description: "github.com mirror" }
 });
-test.skip(listGroupsTest, provider, "github-mirror", {
+test.serial(groupListTest, provider, "github-mirror", {
   "github-mirror": { description: "github.com mirror" }
 });
-test.skip(listGroupsTest, provider, undefined, { arlac77: {}, "github-mirror": { description: "github.com mirror" }});
+test.skip(groupListTest, provider, undefined, { arlac77: {}, "github-mirror": { description: "github.com mirror" }});

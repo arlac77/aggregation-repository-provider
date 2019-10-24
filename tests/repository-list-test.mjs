@@ -1,4 +1,6 @@
 import test from "ava";
+import { repositoryListTest } from "repository-provider-test-support";
+
 import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
@@ -12,19 +14,16 @@ function createProvider() {
   ]);
 }
 
-test("list repositories github", async t => {
-  const provider = createProvider();
-
-  const r = {};
-
-  for await (const repository of provider.repositories(
-    "arlac77/*"
-  )) {
-    //console.log("REPO",repository);
-    r[repository.fullName] = repository;
+test(repositoryListTest, createProvider(), "arlac77/*", {
+  "aggregation-repository-provider": {
+    fullName: "arlac77/aggregation-repository-provider"
   }
+});
 
-  t.truthy(r["arlac77/aggregation-repository-provider"]);
+test(repositoryListTest, createProvider(), undefined, {
+  "aggregation-repository-provider": {
+    fullName: "github-mirror/aggregation-repository-provider"
+  }
 });
 
 test("list branches github", async t => {

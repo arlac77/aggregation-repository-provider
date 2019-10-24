@@ -1,5 +1,9 @@
 import test from "ava";
-import { assertRepo, assertBranch } from "repository-provider-test-support";
+import {
+  assertRepo,
+  assertBranch,
+  providerTest
+} from "repository-provider-test-support";
 
 import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
@@ -15,6 +19,8 @@ function createProvider() {
     LocalProvider.initialize(undefined, process.env)
   ]);
 }
+
+test(providerTest, createProvider());
 
 test("sorted providers", async t => {
   const provider = createProvider();
@@ -32,7 +38,7 @@ test("locate repository undefined", async t => {
 
 const owner1 = {
   name: "arlac77",
-  uuid: '{7eeeef8a-17ef-45be-996f-ea51387bc7b9}'
+  uuid: "{7eeeef8a-17ef-45be-996f-ea51387bc7b9}"
 };
 
 const repoFixtures = {
@@ -116,17 +122,17 @@ const repoFixtures = {
     uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
     description: "test repository for npm-template-sync @bitbucket"
   },
-  "https://bitbucket.org/arlac77/npm-package-template.git" : {
+  "https://bitbucket.org/arlac77/npm-package-template.git": {
     provider: BitbucketProvider,
     name: "npm-package-template",
-    uuid: '{36734289-3058-4c37-86ff-0ee8696d3d9d}',
-    branch: 'master'
+    uuid: "{36734289-3058-4c37-86ff-0ee8696d3d9d}",
+    branch: "master"
   },
   "https://arlac77@bitbucket.org/arlac77/npm-package-template.git": {
     provider: BitbucketProvider,
     name: "npm-package-template",
     fullName: "arlac77/npm-package-template",
-    uuid: '{36734289-3058-4c37-86ff-0ee8696d3d9d}',
+    uuid: "{36734289-3058-4c37-86ff-0ee8696d3d9d}",
     owner: owner1,
     hooks: [
       {
@@ -136,7 +142,7 @@ const repoFixtures = {
         events: new Set(["repo:push"])
       }
     ],
-    branch: 'master'
+    branch: "master"
   }
 };
 
