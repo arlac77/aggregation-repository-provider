@@ -36,7 +36,7 @@
     "esm": "^3.2.25",
     "gitea-repository-provider": "^1.9.6",
     "github-repository-provider": "^7.4.28",
-    "local-repository-provider": "^6.4.48",
+    "local-repository-provider": "^6.4.49",
     "markdown-doctest": "^1.0.0",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^15.13.28"
