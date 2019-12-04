@@ -1,10 +1,11 @@
 {
   "name": "aggregation-repository-provider",
   "version": "0.0.0-semantic-release",
-  "type": "module",
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
+  "type": "module",
   "main": "src/repository-provider.mjs",
   "module": "src/repository-provider.mjs",
   "description": "aggregates several repository providers into one",
@@ -69,6 +70,5 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
     }
-  },
-  "sideEffects": false
+  }
 }
