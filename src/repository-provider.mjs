@@ -20,16 +20,17 @@ import { Provider } from "repository-provider";
  * // repository2 -> bitbucket
  */
 export class AggregationProvider extends Provider {
+
+  providers;
+
   constructor(providers = []) {
     super(undefined);
 
-    providers = providers
+    this.providers = providers
       .filter(provider => provider !== undefined)
       .sort((a, b) =>
         a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0
       );
-
-    Object.defineProperty(this, "providers", { value: providers });
   }
 
   /**
