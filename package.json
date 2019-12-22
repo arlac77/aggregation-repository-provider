@@ -32,7 +32,7 @@
   "devDependencies": {
     "ava": "^2.4.0",
     "bitbucket-repository-provider": "^3.3.38",
-    "c8": "^6.0.1",
+    "c8": "^7.0.0",
     "documentation": "^12.1.4",
     "esm": "^3.2.25",
     "gitea-repository-provider": "^1.9.7",
@@ -40,7 +40,7 @@
     "local-repository-provider": "^6.5.0",
     "markdown-doctest": "^1.0.0",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
-    "semantic-release": "^15.13.31"
+    "semantic-release": "^15.14.0"
   },
   "engines": {
     "node": ">=12.14.0"
