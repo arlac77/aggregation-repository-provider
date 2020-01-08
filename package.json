@@ -24,7 +24,8 @@
     "docs": "documentation readme src/repository-provider.mjs --section=API",
     "lint": "documentation lint src/repository-provider.mjs",
     "posttest": "markdown-doctest",
-    "test": "ava"
+    "test": "ava",
+    "prepare": "rollup -c"
   },
   "dependencies": {
     "repository-provider": "^16.10.3"
