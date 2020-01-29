@@ -27,7 +27,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "repository-provider": "^16.11.3"
+    "repository-provider": "^16.12.0"
   },
   "devDependencies": {
     "ava": "^2.4.0",
