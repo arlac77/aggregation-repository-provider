@@ -1,0 +1,10 @@
+{
+  "name": "aggregation-repository-provider",
+  "description": "aggregates several repository providers into one",
+  "icons": [
+    {
+      "src": "facicon.ico",
+      "sizes": "16x16"
+    }
+  ]
+}
