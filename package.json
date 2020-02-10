@@ -29,8 +29,8 @@
     "repository-provider": "^16.12.1"
   },
   "devDependencies": {
+    "bitbucket-repository-provider": "^3.4.2",
     "ava": "^3.3.0",
-    "bitbucket-repository-provider": "^3.4.1",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "gitea-repository-provider": "^1.9.15",
