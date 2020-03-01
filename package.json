@@ -33,7 +33,7 @@
     "bitbucket-repository-provider": "^3.4.6",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
-    "gitea-repository-provider": "^1.9.16",
+    "gitea-repository-provider": "^1.9.17",
     "github-repository-provider": "^7.6.6",
     "local-repository-provider": "^6.5.9",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
