@@ -1,5 +1,4 @@
 {
-  "name": "aggregation-repository-provider",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
@@ -22,8 +21,8 @@
   "scripts": {
     "test": "ava --node-arguments '--experimental-modules' --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --node-arguments '--experimental-modules' --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme src/repository-provider.mjs --section=API",
-    "lint": "documentation lint src/repository-provider.mjs"
+    "docs": "documentation readme src/repository-provider.mjs --section=API && documentation readme src/repository-provider.mjs --section=API",
+    "lint": "documentation lint src/repository-provider.mjs && documentation lint src/repository-provider.mjs"
   },
   "dependencies": {
     "repository-provider": "^16.12.2"
