@@ -25,7 +25,7 @@
     "lint": "documentation lint src/repository-provider.mjs"
   },
   "dependencies": {
-    "repository-provider": "^16.12.2"
+    "repository-provider": "^16.12.3"
   },
   "devDependencies": {
     "ava": "^3.5.0",
@@ -34,7 +34,7 @@
     "documentation": "^12.1.4",
     "gitea-repository-provider": "^1.9.17",
     "github-repository-provider": "^7.6.7",
-    "local-repository-provider": "^6.5.10",
+    "local-repository-provider": "^6.5.11",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.4"
   },
