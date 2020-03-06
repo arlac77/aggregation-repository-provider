@@ -45,6 +45,7 @@ const repoFixtures = {
   "": undefined,
   " ": undefined,
 
+
   "git@mfelten.de/github-repository-provider.git": {
     provider: LocalProvider
   },
@@ -151,9 +152,9 @@ test("locate repository several", async t => {
 
   t.plan(62);
 
-  for (const rn of Object.keys(repoFixtures)) {
-    const repository = await provider.repository(rn);
-    await assertRepo(t, repository, repoFixtures[rn], rn);
+  for (const [name, repositoryFixture] of Object.entries(repoFixtures)) {
+    const repository = await provider.repository(name);
+    await assertRepo(t, repository, repositoryFixture, name);
   }
 });
 
@@ -162,9 +163,9 @@ test("locate branch several", async t => {
 
   t.plan(28);
 
-  for (const rn of Object.keys(repoFixtures)) {
-    const branch = await provider.branch(rn);
-    await assertBranch(t, branch, repoFixtures[rn], rn);
+  for (const [name, repositoryFixture] of Object.entries(repoFixtures)) {
+    const branch = await provider.branch(name);
+    await assertBranch(t, branch, repositoryFixture, name);
   }
 });
 
