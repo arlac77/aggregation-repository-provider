@@ -24,7 +24,7 @@ test(groupListTest, provider, "*", {
 test(groupListTest, provider, "github-mirror", {
   "github-mirror": { description: "github.com mirror" },
 });
-test.skip(groupListTest, provider, undefined, {
+test(groupListTest, provider, undefined, {
   arlac77: {},
   "github-mirror": { description: "github.com mirror" },
 });
