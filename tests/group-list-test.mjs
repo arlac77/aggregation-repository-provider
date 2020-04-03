@@ -10,18 +10,21 @@ function createProvider() {
   return new AggregationProvider([
     GiteaProvider.initialize(undefined, process.env),
     GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env)
+    BitbucketProvider.initialize(undefined, process.env),
   ]);
 }
 
 const provider = createProvider();
 
 test(groupListTest, provider, "some_strange_name", undefined);
-test.serial(groupListTest, provider, "*", {
+test(groupListTest, provider, "*", {
   arlac77: {},
-  "github-mirror": { description: "github.com mirror" }
+  "github-mirror": { description: "github.com mirror" },
 });
-test.serial(groupListTest, provider, "github-mirror", {
-  "github-mirror": { description: "github.com mirror" }
+test(groupListTest, provider, "github-mirror", {
+  "github-mirror": { description: "github.com mirror" },
 });
-test.skip(groupListTest, provider, undefined, { arlac77: {}, "github-mirror": { description: "github.com mirror" }});
+test.skip(groupListTest, provider, undefined, {
+  arlac77: {},
+  "github-mirror": { description: "github.com mirror" },
+});
