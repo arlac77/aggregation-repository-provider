@@ -25,9 +25,10 @@ test(providerTest, createProvider());
 test("sorted providers", async t => {
   const provider = createProvider();
 
-  t.is(provider.providers[0].name, "GiteaProvider");
-  t.is(provider.providers[1].name, "GithubProvider");
-  t.is(provider.providers[2].name, "BitbucketProvider");
+  let i = 0;
+  for(const p of [GiteaProvider, GithubProvider, BitbucketProvider, LocalProvider]) {
+    t.true(provider.providers[i++] instanceof p, `instanceof ${p}`);
+  }
 });
 
 test("locate repository undefined", async t => {
