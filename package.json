@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "ava": "^3.5.2",
-    "bitbucket-repository-provider": "^3.4.8",
+    "bitbucket-repository-provider": "^3.5.0",
     "c8": "^7.1.0",
     "documentation": "^12.2.0",
     "gitea-repository-provider": "^1.9.17",
