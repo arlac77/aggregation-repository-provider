@@ -26,7 +26,12 @@ test("sorted providers", async t => {
   const provider = createProvider();
 
   let i = 0;
-  for(const p of [GiteaProvider, GithubProvider, BitbucketProvider, LocalProvider]) {
+  for (const p of [
+    GiteaProvider,
+    GithubProvider,
+    BitbucketProvider,
+    LocalProvider
+  ]) {
     t.true(provider.providers[i++] instanceof p, `instanceof ${p}`);
   }
 });
