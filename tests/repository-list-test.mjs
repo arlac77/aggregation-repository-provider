@@ -14,17 +14,21 @@ function createProvider() {
   ]);
 }
 
-test(repositoryListTest, createProvider(), "arlac77/*", {
+const provider = createProvider();
+
+test(repositoryListTest, provider, "arlac77/*", {
   "aggregation-repository-provider": {
     fullName: "arlac77/aggregation-repository-provider"
   }
 });
 
-test(repositoryListTest, createProvider(), undefined, {
+test(repositoryListTest, provider, undefined, {
   "aggregation-repository-provider": {
     fullName: "github-mirror/aggregation-repository-provider"
   }
 });
+
+test(repositoryListTest, provider, "no_such_group/*");
 
 test("list branches github", async t => {
   const provider = createProvider();
