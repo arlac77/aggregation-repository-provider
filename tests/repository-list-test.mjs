@@ -29,18 +29,3 @@ test(repositoryListTest, provider, undefined, {
 });
 
 test(repositoryListTest, provider, "no_such_group/*");
-
-test("list branches github", async t => {
-  const provider = createProvider();
-
-  const b = {};
-
-  for await (const branch of provider.branches(
-    "arlac77/*repository-provider"
-  )) {
-    //console.log("BRANCH",branch.fullCondensedName);
-    b[branch.fullCondensedName] = branch;
-  }
-
-  t.truthy(b["arlac77/aggregation-repository-provider"]);
-});
