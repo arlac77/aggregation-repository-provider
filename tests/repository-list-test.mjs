@@ -17,14 +17,17 @@ function createProvider() {
 const provider = createProvider();
 
 test(repositoryListTest, provider, "arlac77/*", {
-  "aggregation-repository-provider": {
-    fullName: "arlac77/aggregation-repository-provider"
+  "arlac77/aggregation-repository-provider": {
+    name: "aggregation-repository-provider"
   }
 });
 
 test(repositoryListTest, provider, undefined, {
-  "aggregation-repository-provider": {
-    fullName: "github-mirror/aggregation-repository-provider"
+  "github-mirror/aggregation-repository-provider": {
+    name: "aggregation-repository-provider"
+  },
+  "github-mirror/template-ava": {
+    name: "template-ava"
   }
 });
 
