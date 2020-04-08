@@ -16,6 +16,12 @@ function createProvider() {
 
 const provider = createProvider();
 
+test(repositoryListTest, provider, "k0nsti/*", {
+  "k0nsti/konsum": {
+    name: "konsum"
+  }
+});
+
 test(repositoryListTest, provider, "arlac77/*", {
   "arlac77/aggregation-repository-provider": {
     name: "aggregation-repository-provider"
