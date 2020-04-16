@@ -37,7 +37,7 @@
     "github-repository-provider": "7.8.1",
     "local-repository-provider": "^6.5.14",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
-    "semantic-release": "^17.0.4"
+    "semantic-release": "^17.0.6"
   },
   "engines": {
     "node": ">=12.16.2"
