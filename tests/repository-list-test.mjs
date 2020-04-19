@@ -22,9 +22,12 @@ test(repositoryListTest, provider, "k0nsti/*", {
   }
 });
 
-test(repositoryListTest, provider, "arlac77/*", {
+test(repositoryListTest, provider, "arlac77/*repository-provider", {
   "arlac77/aggregation-repository-provider": {
     name: "aggregation-repository-provider"
+  },
+  "arlac77/repository-provider": {
+    name: "repository-provider"
   }
 });
 
