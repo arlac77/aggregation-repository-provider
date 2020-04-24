@@ -18,7 +18,8 @@ const provider = createProvider();
 
 test(groupListTest, provider, "some_strange_name", undefined);
 test(groupListTest, provider, "*", {
-  arlac77: {},
+  arlac77: { /*description: "xx"*/ },
+  "Kronos-Integration": { /*description: "service management with node"*/ },
   "github-mirror": { description: "github.com mirror" },
 });
 test(groupListTest, provider, "github-mirror", {
