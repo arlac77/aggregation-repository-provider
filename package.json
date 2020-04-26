@@ -33,9 +33,9 @@
     "bitbucket-repository-provider": "^3.5.10",
     "c8": "^7.1.0",
     "documentation": "^12.3.0",
-    "gitea-repository-provider": "^1.10.10",
+    "gitea-repository-provider": "^1.10.11",
     "github-repository-provider": "^7.9.2",
-    "local-repository-provider": "^6.5.22",
+    "local-repository-provider": "^6.5.23",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.7"
   },
