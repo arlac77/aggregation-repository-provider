@@ -7,7 +7,6 @@
   "sideEffects": false,
   "type": "module",
   "main": "src/repository-provider.mjs",
-  "module": "src/repository-provider.mjs",
   "description": "aggregates several repository providers into one",
   "keywords": [
     "repository-provider"
