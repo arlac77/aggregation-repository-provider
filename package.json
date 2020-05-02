@@ -6,7 +6,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "main": "src/repository-provider.mjs",
+  "main": "./src/repository-provider.mjs",
   "exports": {
     ".": "./src/repository-provider.mjs",
     "./": "./"
