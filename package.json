@@ -8,7 +8,8 @@
   "type": "module",
   "main": "src/repository-provider.mjs",
   "exports": {
-    ".": "./src/repository-provider.mjs"
+    ".": "./src/repository-provider.mjs",
+    "./": "./"
   },
   "description": "aggregates several repository providers into one",
   "keywords": [
