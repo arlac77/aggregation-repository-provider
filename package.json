@@ -38,7 +38,7 @@
     "documentation": "^13.0.0",
     "gitea-repository-provider": "^1.10.19",
     "github-repository-provider": "^7.9.14",
-    "local-repository-provider": "^6.5.31",
+    "local-repository-provider": "^6.5.32",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.7"
   },
