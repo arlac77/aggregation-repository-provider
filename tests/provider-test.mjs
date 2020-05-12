@@ -154,7 +154,7 @@ const repoFixtures = {
 test("locate repository several", async (t) => {
   const provider = createProvider();
 
-  t.plan(69);
+  t.plan(1012);
 
   for (const [name, repositoryFixture] of Object.entries(repoFixtures)) {
     const repository = await provider.repository(name);
