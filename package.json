@@ -40,7 +40,7 @@
     "github-repository-provider": "^7.9.17",
     "local-repository-provider": "^6.5.34",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
-    "semantic-release": "^17.0.7"
+    "semantic-release": "^17.0.8"
   },
   "engines": {
     "node": ">=12.16.3"
