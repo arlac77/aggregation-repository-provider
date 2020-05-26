@@ -8,8 +8,7 @@
   "type": "module",
   "main": "./src/repository-provider.mjs",
   "exports": {
-    ".": "./src/repository-provider.mjs",
-    "./": "./"
+    ".": "./src/repository-provider.mjs"
   },
   "description": "aggregates several repository providers into one",
   "keywords": [
@@ -29,16 +28,16 @@
     "lint": "documentation lint ./src/repository-provider.mjs"
   },
   "dependencies": {
-    "repository-provider": "^18.3.0"
+    "repository-provider": "^18.5.0"
   },
   "devDependencies": {
     "ava": "^3.8.2",
-    "bitbucket-repository-provider": "^3.5.24",
+    "bitbucket-repository-provider": "^3.5.26",
     "c8": "^7.1.2",
     "documentation": "^13.0.0",
-    "gitea-repository-provider": "^1.10.22",
-    "github-repository-provider": "^7.9.21",
-    "local-repository-provider": "^6.5.35",
+    "gitea-repository-provider": "^1.10.23",
+    "github-repository-provider": "^7.9.23",
+    "local-repository-provider": "^6.5.36",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.8"
   },
