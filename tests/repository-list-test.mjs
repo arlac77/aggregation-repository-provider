@@ -1,10 +1,10 @@
 import test from "ava";
 import { repositoryListTest } from "repository-provider-test-support";
 
-import { GithubProvider } from "github-repository-provider";
-import { GiteaProvider } from "gitea-repository-provider";
-import { BitbucketProvider } from "bitbucket-repository-provider";
-import { AggregationProvider } from "aggregation-repository-provider";
+import GithubProvider from "github-repository-provider";
+import GiteaProvider from "gitea-repository-provider";
+import BitbucketProvider from "bitbucket-repository-provider";
+import AggregationProvider from "aggregation-repository-provider";
 
 function createProvider() {
   return AggregationProvider.initialize(
