@@ -19,7 +19,7 @@ const provider = createProvider();
 test(groupListTest, provider, "some_strange_name", undefined);
 test(groupListTest, provider, "*", {
   arlac77: {
-    type: "User"
+    //type: "User"
     /*description: "xx"*/
   },
   "Kronos-Integration": {
