@@ -17,21 +17,20 @@ function createProvider() {
 const provider = createProvider();
 
 test(groupListTest, provider, "some_strange_name", undefined);
-test(groupListTest, provider, "*", {
-  arlac77: {
-    //type: "User"
-    /*description: "xx"*/
-  },
-  "Kronos-Integration": {
-    type: "Organization"
-    /*description: "service management with node"*/
-  },
-  "github-mirror": { description: "github.com mirror" }
-});
 test(groupListTest, provider, "github-mirror", {
   "github-mirror": { description: "github.com mirror" }
 });
-test(groupListTest, provider, undefined, {
-  arlac77: {},
+
+const all = {
+  arlac77: {
+    type: "user"
+  },
+  "Kronos-Integration": {
+    type: "Organization",
+   // description: "service management with node"
+  },
   "github-mirror": { description: "github.com mirror" }
-});
+};
+
+test(groupListTest, provider, "*", all);
+test(groupListTest, provider, undefined, all);
