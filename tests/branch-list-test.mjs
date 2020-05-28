@@ -5,7 +5,7 @@ import { GithubProvider } from "github-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
 import { LocalProvider } from "local-repository-provider";
-import { AggregationProvider } from "../src/repository-provider.mjs";
+import { AggregationProvider } from "aggregation-repository-provider";
 
 function createProvider() {
   return new AggregationProvider([

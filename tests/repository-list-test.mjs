@@ -4,14 +4,14 @@ import { repositoryListTest } from "repository-provider-test-support";
 import { GithubProvider } from "github-repository-provider";
 import { GiteaProvider } from "gitea-repository-provider";
 import { BitbucketProvider } from "bitbucket-repository-provider";
-import { AggregationProvider } from "../src/repository-provider.mjs";
+import { AggregationProvider } from "aggregation-repository-provider";
 
 function createProvider() {
-  return new AggregationProvider([
-    GiteaProvider.initialize(undefined, process.env),
-    GithubProvider.initialize(undefined, process.env),
-    BitbucketProvider.initialize(undefined, process.env)
-  ]);
+  return AggregationProvider.initialize(
+    [GiteaProvider, GithubProvider, BitbucketProvider],
+    undefined,
+    process.env
+  );
 }
 
 const provider = createProvider();

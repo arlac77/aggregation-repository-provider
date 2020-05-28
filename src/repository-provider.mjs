@@ -20,16 +20,28 @@ import { Provider } from "repository-provider";
  * // repository2 -> bitbucket
  */
 export class AggregationProvider extends Provider {
-  constructor(providers = []) {
+  /**
+   * Creates a new provider for a given list of Provider factories
+   * @param {Class[]} factories
+   * @param {Object} options additional options
+   * @param {Object} env taken from process.env
+   * @return {AggregationProvider} newly created provider
+   */
+  static initialize(factories, options, env) {
+    return new this(
+      factories
+        .map(f => f.initialize(options, env))
+        .filter(provider => provider !== undefined)
+    );
+  }
+
+  constructor(providers) {
     super(undefined);
-
-    providers = providers
-      .filter(provider => provider !== undefined)
-      .sort((a, b) =>
+    Object.defineProperty(this, "providers", {
+      value: providers.sort((a, b) =>
         a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0
-      );
-
-    Object.defineProperty(this, "providers", { value: providers });
+      )
+    });
   }
 
   /**
