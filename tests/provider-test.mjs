@@ -127,16 +127,16 @@ const repoFixtures = {
     uuid: "{1fbf1cff-a829-473c-bd42-b5bd684868a1}",
     description: "test repository for npm-template-sync @bitbucket",
   },
-  "https://bitbucket.org/arlac77/template-cli-app.git": {
+  "https://bitbucket.org/arlac77/template-node-app.git": {
     provider: BitbucketProvider,
-    name: "template-cli-app",
+    name: "template-node-app",
     uuid: "{bec21095-03ca-45ad-8571-b7d611a6dffd}",
     branch: "master",
   },
-  "https://arlac77@bitbucket.org/arlac77/template-cli-app.git": {
+  "https://arlac77@bitbucket.org/arlac77/template-node-app.git": {
     provider: BitbucketProvider,
-    name: "template-cli-app",
-    fullName: "arlac77/template-cli-app",
+    name: "template-node-app",
+    fullName: "arlac77/template-node-app",
     uuid: "{bec21095-03ca-45ad-8571-b7d611a6dffd}",
     owner: owner1,
     hooks: [
@@ -154,7 +154,7 @@ const repoFixtures = {
 test("locate repository several", async (t) => {
   const provider = createProvider();
 
-  t.plan(1012);
+  t.plan(1015);
 
   for (const [name, repositoryFixture] of Object.entries(repoFixtures)) {
     const repository = await provider.repository(name);
