@@ -28,16 +28,16 @@
     "lint": "documentation lint ./src/repository-provider.mjs"
   },
   "dependencies": {
-    "repository-provider": "^19.1.0"
+    "repository-provider": "^19.1.1"
   },
   "devDependencies": {
     "ava": "^3.8.2",
-    "bitbucket-repository-provider": "^3.5.33",
+    "bitbucket-repository-provider": "^3.5.34",
     "c8": "^7.1.2",
     "documentation": "^13.0.0",
-    "gitea-repository-provider": "^1.10.29",
-    "github-repository-provider": "^7.9.29",
-    "local-repository-provider": "^6.5.40",
+    "gitea-repository-provider": "^1.10.30",
+    "github-repository-provider": "^7.9.30",
+    "local-repository-provider": "^6.5.42",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.8"
   },
