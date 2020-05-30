@@ -20,7 +20,6 @@ import { Provider } from "repository-provider";
  * // repository2 -> bitbucket
  */
 export class AggregationProvider extends Provider {
-  
   /**
    * Creates a new provider for a given list of provider factories
    * @param {Class[]} factories
@@ -37,9 +36,7 @@ export class AggregationProvider extends Provider {
     Object.defineProperty(this, "providers", {
       value: providers
         .filter(provider => provider !== undefined)
-        .sort((a, b) =>
-          a.priority < b.priority ? 1 : a.priority > b.priority ? -1 : 0
-        )
+        .sort((a, b) => b.priority - a.priority)
     });
   }
 
