@@ -1,3 +1,5 @@
+import aggregate from "aggregate-async-iterator";
+
 import { Provider } from "repository-provider";
 
 /**
@@ -46,9 +48,7 @@ export class AggregationProvider extends Provider {
    * @return {Iterator<Repository>} all matching repositories of the providers
    */
   async *repositories(patterns) {
-    for (const provider of this.providers) {
-      yield* provider.repositories(patterns);
-    }
+    yield* aggregate(this.providers.map(p => p.repositories(patterns)));
   }
 
   /**
@@ -81,9 +81,7 @@ export class AggregationProvider extends Provider {
    * @return {Iterator<Branch>} all matching branches of the providers
    */
   async *branches(patterns) {
-    for (const provider of this.providers) {
-      yield* provider.branches(patterns);
-    }
+    yield* aggregate(this.providers.map(p => p.branches(patterns)));
   }
 
   /**
@@ -109,9 +107,7 @@ export class AggregationProvider extends Provider {
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
-    for (const provider of this.providers) {
-      yield* provider.repositoryGroups(patterns);
-    }
+    yield* aggregate(this.providers.map(p => p.repositoryGroups(patterns)));
   }
 
   /**
