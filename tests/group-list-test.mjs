@@ -18,7 +18,7 @@ const provider = createProvider();
 
 test(groupListTest, provider, "some_strange_name", undefined);
 test(groupListTest, provider, "github-mirror", {
-  "github-mirror": { description: "github.com mirror" }
+  "github-mirror": { description: "mirror of github.com" }
 });
 
 const all = {
@@ -29,7 +29,7 @@ const all = {
     type: "Organization",
    // description: "service management with node"
   },
-  "github-mirror": { description: "github.com mirror" }
+  "github-mirror": { description: "mirror of github.com" }
 };
 
 test(groupListTest, provider, "*", all);
