@@ -1,4 +1,4 @@
-import aggregate from "aggregate-async-iterator";
+import { aggregateRoundRobin /*aggregateFifo*/ as aggregate } from "aggregate-async-iterator";
 
 import { Provider } from "repository-provider";
 
