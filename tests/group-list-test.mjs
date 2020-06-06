@@ -18,21 +18,21 @@ const provider = createProvider();
 
 test(groupListTest, provider, "some_strange_name", undefined);
 test(groupListTest, provider, "github-mirror", {
-  "github-mirror": { description: "mirror of github.com" }
+  "GiteaProvider/github-mirror": { description: "mirror of github.com" }
 });
 
 const all = {
-  arlac77: {
-    type: "user",
-    provider: provider.providers.find(p => p.name === "BitbucketProvider")
+  "GithubProvider/arlac77": {
+    type: "User"
   },
-  "Kronos-Integration": {
-    type: "Organization",
-    //provider: provider.providers.find(p => p.name === "BitbGithubProviderucketProvider")
-
+  "BitbucketProvider/arlac77": {
+    type: "user"
+  },
+  "GithubProvider/Kronos-Integration": {
+    type: "Organization"
     // description: "service management with node"
   },
-  "github-mirror": { description: "mirror of github.com" }
+  "GiteaProvider/github-mirror": { description: "mirror of github.com" }
 };
 
 test(groupListTest, provider, "*", all);
