@@ -23,11 +23,14 @@ test(groupListTest, provider, "github-mirror", {
 
 const all = {
   arlac77: {
-    type: "user"
+    type: "user",
+    provider: provider.providers.find(p => p.name === "BitbucketProvider")
   },
   "Kronos-Integration": {
     type: "Organization",
-   // description: "service management with node"
+    //provider: provider.providers.find(p => p.name === "BitbGithubProviderucketProvider")
+
+    // description: "service management with node"
   },
   "github-mirror": { description: "mirror of github.com" }
 };
