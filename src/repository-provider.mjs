@@ -1,4 +1,4 @@
-import { aggregateFifo } from "aggregate-async-iterator";
+import { aggregateFifo, aggregateRoundRobin } from "aggregate-async-iterator";
 import { MultiGroupProvider } from "repository-provider";
 
 /**
@@ -72,7 +72,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Branch>} all matching branches of the providers
    */
   async *branches(patterns) {
-    yield* aggregateFifo(this.providers.map(p => p.branches(patterns)));
+    yield* aggregateRoundRobin(this.providers.map(p => p.branches(patterns)));
   }
 
   /**
