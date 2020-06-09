@@ -96,7 +96,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
-    yield* aggregateFifo(this.providers.map(p => p.repositoryGroups(patterns)));
+    yield* aggregateRoundRobin(this.providers.map(p => p.repositoryGroups(patterns)));
   }
 
   /**
