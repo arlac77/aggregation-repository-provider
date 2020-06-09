@@ -29,16 +29,16 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.0",
-    "repository-provider": "^20.1.3"
+    "repository-provider": "^21.0.0"
   },
   "devDependencies": {
     "ava": "^3.8.2",
-    "bitbucket-repository-provider": "^3.6.6",
+    "bitbucket-repository-provider": "^3.6.8",
     "c8": "^7.1.2",
     "documentation": "^13.0.1",
-    "gitea-repository-provider": "^1.10.41",
-    "github-repository-provider": "^7.9.34",
-    "local-repository-provider": "^6.5.45",
+    "gitea-repository-provider": "^1.10.43",
+    "github-repository-provider": "^7.9.37",
+    "local-repository-provider": "^6.6.0",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.8"
   },

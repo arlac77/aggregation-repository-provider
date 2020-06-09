@@ -16,7 +16,7 @@ function createProvider() {
     GithubProvider.initialize({ priority: 2 }, process.env),
     GiteaProvider.initialize({ priority: 3 }, process.env),
     BitbucketProvider.initialize({ priority: 1 }, process.env),
-    LocalProvider.initialize(undefined, process.env)
+  //  LocalProvider.initialize(undefined, process.env)
   ]);
 }
 
@@ -162,7 +162,7 @@ test("locate repository several", async (t) => {
   }
 });
 
-test("locate branch several", async (t) => {
+test.only("locate branch several", async (t) => {
   const provider = createProvider();
 
   t.plan(28);

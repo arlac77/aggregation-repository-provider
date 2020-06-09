@@ -1,9 +1,5 @@
-import {
-  aggregateRoundRobin,
-  aggregateFifo
-} from "aggregate-async-iterator";
-
-import { Provider } from "repository-provider";
+import { aggregateFifo } from "aggregate-async-iterator";
+import { MultiGroupProvider } from "repository-provider";
 
 /**
  * <!-- skip-example -->
@@ -24,7 +20,7 @@ import { Provider } from "repository-provider";
  * // repository1 -> github
  * // repository2 -> bitbucket
  */
-export class AggregationProvider extends Provider {
+export class AggregationProvider extends MultiGroupProvider {
   /**
    * Creates a new provider for a given list of provider factories
    * @param {Class[]} factories
@@ -62,20 +58,12 @@ export class AggregationProvider extends Provider {
    */
   async repository(name) {
     for (const p of this.providers) {
-      this.trace({
-        message: "consulting provider",
-        provider: p.name,
-        repository: name
-      });
-
       const repository = await p.repository(name);
 
       if (repository !== undefined) {
         return repository;
       }
     }
-
-    return undefined;
   }
 
   /**
@@ -84,7 +72,7 @@ export class AggregationProvider extends Provider {
    * @return {Iterator<Branch>} all matching branches of the providers
    */
   async *branches(patterns) {
-    yield* aggregateRoundRobin(this.providers.map(p => p.branches(patterns)));
+    yield* aggregateFifo(this.providers.map(p => p.branches(patterns)));
   }
 
   /**
@@ -100,8 +88,6 @@ export class AggregationProvider extends Provider {
         return b;
       }
     }
-
-    return undefined;
   }
 
   /**
@@ -117,24 +103,15 @@ export class AggregationProvider extends Provider {
    * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
-   * @param {Object} options
    * @return {Primise<RepositoryGroup>}
    */
-  async repositoryGroup(name, options) {
+  async repositoryGroup(name) {
     for (const p of this.providers) {
-      this.trace({
-        message: "consulting provider for repo group",
-        provider: p.name,
-        group: name
-      });
-
-      const rg = await p.repositoryGroup(name, options);
+      const rg = await p.repositoryGroup(name);
       if (rg !== undefined) {
         return rg;
       }
     }
-
-    return undefined;
   }
 }
 

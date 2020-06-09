@@ -16,10 +16,10 @@ function createProvider() {
 
 const provider = createProvider();
 
-test(groupListTest, provider, "some_strange_name", undefined);
+test(groupListTest, provider, "some_strange_name", undefined, true);
 test(groupListTest, provider, "github-mirror", {
   "GiteaProvider/github-mirror": { description: "mirror of github.com" }
-});
+}, true);
 
 const all = {
   "GithubProvider/arlac77": {
@@ -35,5 +35,5 @@ const all = {
   "GiteaProvider/github-mirror": { description: "mirror of github.com" }
 };
 
-test(groupListTest, provider, "*", all);
-test(groupListTest, provider, undefined, all);
+test(groupListTest, provider, "*", all, true);
+test(groupListTest, provider, undefined, all, true);

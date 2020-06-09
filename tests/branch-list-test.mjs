@@ -12,7 +12,7 @@ function createProvider() {
     GithubProvider.initialize({ priority: 2 }, process.env),
     GiteaProvider.initialize({ priority: 3 }, process.env),
     BitbucketProvider.initialize({ priority: 1 }, process.env),
-    LocalProvider.initialize(undefined, process.env),
+  //  LocalProvider.initialize(undefined, process.env),
   ]);
 }
 
