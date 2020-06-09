@@ -36,6 +36,8 @@ aggregates several repository providers into one
         -   [Parameters](#parameters-5)
     -   [repositoryGroup](#repositorygroup)
         -   [Parameters](#parameters-6)
+    -   [initialize](#initialize)
+        -   [Parameters](#parameters-7)
 
 ## AggregationProvider
 
@@ -47,7 +49,7 @@ Combines several repository providers into one
 
 ### Parameters
 
--   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>**  (optional, default `[]`)
+-   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
 
 ### Properties
 
@@ -133,6 +135,18 @@ They are consulted in the order of the propviders given to the constructor
 -   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **Primise&lt;RepositoryGroup>** 
+
+### initialize
+
+Creates a new provider for a given list of provider factories
+
+#### Parameters
+
+-   `factories` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Class>** 
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
+-   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
+
+Returns **[AggregationProvider](#aggregationprovider)** newly created provider
 
 # install
 
