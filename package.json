@@ -28,22 +28,22 @@
     "lint": "documentation lint ./src/repository-provider.mjs"
   },
   "dependencies": {
-    "aggregate-async-iterator": "^1.1.0",
-    "repository-provider": "^21.0.1"
+    "aggregate-async-iterator": "^1.1.1",
+    "repository-provider": "^21.0.4"
   },
   "devDependencies": {
     "ava": "^3.8.2",
-    "bitbucket-repository-provider": "^3.6.8",
+    "bitbucket-repository-provider": "^3.6.12",
     "c8": "^7.2.0",
     "documentation": "^13.0.1",
-    "gitea-repository-provider": "^1.10.43",
-    "github-repository-provider": "^7.9.37",
-    "local-repository-provider": "^6.6.0",
+    "gitea-repository-provider": "^1.10.46",
+    "github-repository-provider": "^7.9.41",
+    "local-repository-provider": "^6.6.1",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.0.8"
   },
   "engines": {
-    "node": ">=12.17.0"
+    "node": ">=12.18.0"
   },
   "repository": {
     "type": "git",
