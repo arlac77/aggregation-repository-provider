@@ -33,12 +33,12 @@
   },
   "devDependencies": {
     "ava": "^3.10.1",
-    "bitbucket-repository-provider": "^3.7.9",
+    "bitbucket-repository-provider": "^3.7.11",
     "c8": "^7.2.0",
     "documentation": "^13.0.2",
-    "gitea-repository-provider": "^1.11.17",
-    "github-repository-provider": "^7.15.1",
-    "local-repository-provider": "^6.7.5",
+    "gitea-repository-provider": "^1.12.2",
+    "github-repository-provider": "^7.15.3",
+    "local-repository-provider": "^6.7.9",
     "repository-provider-test-support": "github:arlac77/repository-provider-test-support",
     "semantic-release": "^17.1.1"
   },
