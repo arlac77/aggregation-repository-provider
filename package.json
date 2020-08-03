@@ -32,9 +32,9 @@
     "repository-provider": "^23.6.2"
   },
   "devDependencies": {
-    "ava": "^3.11.0",
+    "ava": "^3.11.1",
     "bitbucket-repository-provider": "^3.7.11",
-    "c8": "^7.2.1",
+    "c8": "^7.3.0",
     "documentation": "^13.0.2",
     "gitea-repository-provider": "^1.12.2",
     "github-repository-provider": "^7.15.3",
