@@ -12,6 +12,8 @@
   },
   "description": "aggregates several repository providers into one",
   "keywords": [
+    "aggregate",
+    "asynciterator",
     "repository-provider"
   ],
   "contributors": [
@@ -24,8 +26,8 @@
   "scripts": {
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme ./src/repository-provider.mjs --section=API",
-    "lint": "documentation lint ./src/repository-provider.mjs"
+    "docs": "documentation readme ./src/aggregate-async-iterator.mjs --section=API && documentation readme ./src/repository-provider.mjs --section=API",
+    "lint": "documentation lint ./src/aggregate-async-iterator.mjs && documentation lint ./src/repository-provider.mjs"
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.1",
