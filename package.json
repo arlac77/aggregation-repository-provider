@@ -40,7 +40,7 @@
     "documentation": "^13.0.2",
     "gitea-repository-provider": "^1.13.15",
     "github-repository-provider": "^7.17.17",
-    "local-repository-provider": "^6.7.22",
+    "local-repository-provider": "^6.7.23",
     "repository-provider-test-support": "^1.0.10",
     "semantic-release": "^17.1.2"
   },
