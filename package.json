@@ -41,7 +41,7 @@
     "gitea-repository-provider": "^1.13.18",
     "github-repository-provider": "^7.17.20",
     "local-repository-provider": "^7.0.2",
-    "repository-provider-test-support": "^1.0.12",
+    "repository-provider-test-support": "^1.0.13",
     "semantic-release": "^17.2.1"
   },
   "engines": {
