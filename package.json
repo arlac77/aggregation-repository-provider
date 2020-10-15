@@ -31,12 +31,12 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.1",
-    "repository-provider": "^23.11.0"
+    "repository-provider": "^23.11.1"
   },
   "devDependencies": {
     "ava": "^3.13.0",
     "bitbucket-repository-provider": "^3.7.28",
-    "c8": "^7.3.3",
+    "c8": "^7.3.4",
     "documentation": "^13.0.2",
     "gitea-repository-provider": "^1.13.19",
     "github-repository-provider": "^7.17.21",
