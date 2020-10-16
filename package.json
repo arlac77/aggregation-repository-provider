@@ -38,7 +38,7 @@
     "bitbucket-repository-provider": "^3.7.28",
     "c8": "^7.3.4",
     "documentation": "^13.0.2",
-    "gitea-repository-provider": "^1.13.19",
+    "gitea-repository-provider": "^1.13.20",
     "github-repository-provider": "^7.17.21",
     "local-repository-provider": "^7.0.3",
     "repository-provider-test-support": "^1.0.13",
