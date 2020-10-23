@@ -21,7 +21,7 @@ const provider = createProvider();
 test(branchListTest, provider, "bad-name/unknown-*");
 test(branchListTest, provider, "arlac77/npm-*", 5);
 test(branchListTest, provider, "arlac77/*repository-provider", {
-  "GithubProvider/arlac77/aggregation-repository-provider": {
+  "github/arlac77/aggregation-repository-provider": {
     fullCondensedName: "arlac77/aggregation-repository-provider",
   }
 }, true);
