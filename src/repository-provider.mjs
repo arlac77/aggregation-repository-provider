@@ -78,7 +78,9 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
-    yield* aggregateRoundRobin(this.providers.map(p => p.repositoryGroups(patterns)));
+    yield* aggregateFifo(
+      this.providers.map(p => p.repositoryGroups(patterns))
+    );
   }
 
   /**
@@ -102,7 +104,16 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repositories of the providers
    */
   async *list(type, patterns) {
-    yield* aggregateRoundRobin(this.providers.map(p => p.list(type, patterns)));
+    try {
+      for await (const e of aggregateFifo(
+        this.providers.map(p => p.list(type, patterns))
+      )) {
+        console.log(type, e.identifier);
+        yield e;
+      }
+    } catch (e) {
+      console.log("ERR", e);
+    }
   }
 }
 

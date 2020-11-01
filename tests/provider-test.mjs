@@ -24,7 +24,7 @@ function createProvider() {
           master: {}
         }
       },
-      { delay: 5000, priority: 1 }
+      { delay: 5000, priority: 4 }
     ),
   //  LocalProvider.initialize(undefined, process.env)
   ]);

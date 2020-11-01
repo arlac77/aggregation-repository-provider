@@ -17,11 +17,15 @@ function createProvider() {
       {
         "mock1/repo1": {
           master: {}
+        },
+        "arlac77/npm-mocket-1": {
+          master: {}
         }
+
       },
-      { delay: 5000, priority: 1 }
-    )
-    //  LocalProvider.initialize(undefined, process.env),
+      { delay: 10000, priority: 4 }
+    ),
+    //  LocalProvider.initialize(undefined, process.env)
   ]);
 }
 
@@ -34,7 +38,7 @@ test(branchListTest, provider, "mock1/r*", {
 });
 
 test(branchListTest, provider, "bad-name/unknown-*");
-test(branchListTest, provider, "arlac77/npm-*", 5);
+test(branchListTest, provider, "arlac77/npm-*", 6);
 test(
   branchListTest,
   provider,
