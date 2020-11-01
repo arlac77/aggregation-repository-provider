@@ -210,21 +210,3 @@ test("locate github after bitbucket short", async (t) => {
   //t.is(repository.provider.name, "GithubProvider");
   t.is(repository.fullName, "arlac77/aggregation-repository-provider");
 });
-
-test.skip("locate bitbucket (stash) ssh", async (t) => {
-  const provider = new AggregationProvider([
-    //new GithubProvider({ url: 'http://nowhere.com/' }),
-    BitbucketProvider.initialize(undefined, process.env),
-  ]);
-
-  try {
-    const repository = await provider.repository(
-      "ssh://git@stash.mydomain.com/myproject/myrepo.git"
-    );
-
-    t.is(repository.provider.name, "BitbucketProvider");
-    t.is(repository, "myproject/myrepo");
-  } catch (e) {
-    t.is(e, "myproject/myrepo");
-  }
-});
