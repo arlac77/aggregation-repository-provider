@@ -1,4 +1,4 @@
-import { aggregateFifo, aggregateRoundRobin } from "aggregate-async-iterator";
+import { aggregateFifo } from "aggregate-async-iterator";
 import { MultiGroupProvider } from "repository-provider";
 
 /**
@@ -42,15 +42,6 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
-   * List repositories of the providers
-   * @param {string[]|string} patterns
-   * @return {Iterator<Repository>} all matching repositories of the providers
-   */
-  async *repositories(patterns) {
-    yield* aggregateFifo(this.providers.map(p => p.repositories(patterns)));
-  }
-
-  /**
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
    * @param {string} name
@@ -64,15 +55,6 @@ export class AggregationProvider extends MultiGroupProvider {
         return repository;
       }
     }
-  }
-
-  /**
-   * List branches of the providers
-   * @param {string[]|string} patterns
-   * @return {Iterator<Branch>} all matching branches of the providers
-   */
-  async *branches(patterns) {
-    yield* aggregateRoundRobin(this.providers.map(p => p.branches(patterns)));
   }
 
   /**
@@ -112,6 +94,15 @@ export class AggregationProvider extends MultiGroupProvider {
         return rg;
       }
     }
+  }
+
+  /**
+   * List repositories or branches of the providers
+   * @param {string[]|string} patterns
+   * @return {Iterator<Repository>} all matching repositories of the providers
+   */
+  async *list(type, patterns) {
+    yield* aggregateFifo(this.providers.map(p => p.list(type, patterns)));
   }
 }
 
