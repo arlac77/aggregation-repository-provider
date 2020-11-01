@@ -5,6 +5,7 @@ import GithubProvider from "github-repository-provider";
 import BitbucketProvider from "bitbucket-repository-provider";
 import GiteaProvider from "gitea-repository-provider";
 import LocalProvider from "local-repository-provider";
+import MockProvider from "mock-repository-provider";
 import AggregationProvider from "aggregation-repository-provider";
 
 function createProvider() {
@@ -12,16 +13,36 @@ function createProvider() {
     GithubProvider.initialize({ priority: 2 }, process.env),
     GiteaProvider.initialize({ priority: 3 }, process.env),
     BitbucketProvider.initialize({ priority: 1 }, process.env),
-  //  LocalProvider.initialize(undefined, process.env),
+    new MockProvider(
+      {
+        "mock1/repo1": {
+          master: {}
+        }
+      },
+      { delay: 5000, priority: 1 }
+    )
+    //  LocalProvider.initialize(undefined, process.env),
   ]);
 }
 
 const provider = createProvider();
 
+test(branchListTest, provider, "mock1/r*", {
+  "mock1/repo1": {
+    fullCondensedName: "mock1/repo1"
+  }
+});
+
 test(branchListTest, provider, "bad-name/unknown-*");
 test(branchListTest, provider, "arlac77/npm-*", 5);
-test(branchListTest, provider, "arlac77/*repository-provider", {
-  "github/arlac77/aggregation-repository-provider": {
-    fullCondensedName: "arlac77/aggregation-repository-provider",
-  }
-}, true);
+test(
+  branchListTest,
+  provider,
+  "arlac77/*repository-provider",
+  {
+    "github/arlac77/aggregation-repository-provider": {
+      fullCondensedName: "arlac77/aggregation-repository-provider"
+    }
+  },
+  true
+);
