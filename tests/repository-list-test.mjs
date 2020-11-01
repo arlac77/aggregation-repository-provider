@@ -16,6 +16,11 @@ function createProvider() {
 
 const provider = createProvider();
 
+test("single repo", async t => {
+  const r = await provider.repository("k0nsti/konsum");
+  t.is(r.identifier, "github:k0nsti/konsum");
+});
+
 test(repositoryListTest, provider, "k0nsti/*", {
   "k0nsti/konsum": {
     name: "konsum"
