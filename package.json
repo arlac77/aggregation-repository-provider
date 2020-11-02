@@ -42,7 +42,7 @@
     "github-repository-provider": "^7.17.31",
     "local-repository-provider": "^7.0.13",
     "mock-repository-provider": "^5.5.2",
-    "repository-provider-test-support": "^1.0.24",
+    "repository-provider-test-support": "^1.0.26",
     "semantic-release": "^17.2.2"
   },
   "engines": {
