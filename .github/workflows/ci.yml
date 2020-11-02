@@ -35,7 +35,7 @@ jobs:
           BITBUCKET_PASSWORD: '${{ secrets.BITBUCKET_PASSWORD }}'
           GITEA_TOKEN: '${{ secrets.GITEA_TOKEN }}'
           GITEA_API: '${{ secrets.GITEA_API }}'
-
+          GIT_SSH_COMMAND: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
   release:
     needs:
       - test
