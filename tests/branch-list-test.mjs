@@ -25,7 +25,7 @@ function createProvider() {
       },
       { delay: 10000, priority: 4 }
     ),
-    //  LocalProvider.initialize(undefined, process.env)
+  //    LocalProvider.initialize(undefined, process.env)
   ]);
 }
 
@@ -39,6 +39,7 @@ test(branchListTest, provider, "mock1/r*", {
 
 test(branchListTest, provider, "bad-name/unknown-*");
 test(branchListTest, provider, "arlac77/npm-*", 6);
+test(branchListTest, provider, "https://github.com/arlac77/npm-*", 6);
 test(
   branchListTest,
   provider,
