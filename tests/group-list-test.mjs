@@ -5,21 +5,24 @@ import GithubProvider from "github-repository-provider";
 import GiteaProvider from "gitea-repository-provider";
 import BitbucketProvider from "bitbucket-repository-provider";
 import AggregationProvider from "aggregation-repository-provider";
+import LocalProvider from "local-repository-provider";
 
-function createProvider() {
-  return AggregationProvider.initialize(
-    [GiteaProvider, GithubProvider, BitbucketProvider],
-    undefined,
-    process.env
-  );
-}
-
-const provider = createProvider();
+const provider = AggregationProvider.initialize(
+  [GiteaProvider, GithubProvider, BitbucketProvider, LocalProvider],
+  undefined,
+  process.env
+);
 
 test(groupListTest, provider, "some_strange_name", undefined, true);
-test(groupListTest, provider, "github-mirror", {
-  "gitea/github-mirror": { description: "mirror of github.com" }
-}, true);
+test(
+  groupListTest,
+  provider,
+  "github-mirror",
+  {
+    "gitea/github-mirror": { description: "mirror of github.com" }
+  },
+  true
+);
 
 const all = {
   "github/arlac77": {
