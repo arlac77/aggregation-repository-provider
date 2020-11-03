@@ -41,6 +41,16 @@ export class AggregationProvider extends MultiGroupProvider {
     });
   }
 
+  async lookup(type, name) {
+    for (const p of this.providers) {
+      const item = await p[type](name);
+
+      if (item !== undefined) {
+        return item;
+      }
+    }
+  }
+
   /**
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor
@@ -48,13 +58,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Primise<Repository>}
    */
   async repository(name) {
-    for (const p of this.providers) {
-      const repository = await p.repository(name);
-
-      if (repository !== undefined) {
-        return repository;
-      }
-    }
+    return this.lookup("repository", name);
   }
 
   /**
@@ -64,12 +68,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Primise<Branch>}
    */
   async branch(name) {
-    for (const p of this.providers) {
-      const b = await p.branch(name);
-      if (b !== undefined) {
-        return b;
-      }
-    }
+    return this.lookup("branch", name);
   }
 
   /**
