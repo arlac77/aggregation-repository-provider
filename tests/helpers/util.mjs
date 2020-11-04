@@ -19,7 +19,7 @@ export function createProvider() {
           master: {}
         }
       },
-      { delay: 10000, priority: 4 }
+      { delay: 5000, priority: 4 }
     ),
     LocalProvider.initialize(undefined, process.env)
   ]);
