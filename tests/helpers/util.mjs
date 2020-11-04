@@ -21,6 +21,6 @@ export function createProvider() {
       },
       { delay: 10000, priority: 4 }
     ),
-   // LocalProvider.initialize(undefined, process.env)
+    LocalProvider.initialize(undefined, process.env)
   ]);
 }
