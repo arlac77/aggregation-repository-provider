@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.4",
-    "repository-provider": "^23.21.0"
+    "repository-provider": "^23.21.1"
   },
   "devDependencies": {
     "ava": "^3.13.0",
@@ -42,7 +42,7 @@
     "github-repository-provider": "^7.18.11",
     "local-repository-provider": "^7.0.28",
     "mock-repository-provider": "^5.5.15",
-    "repository-provider-test-support": "^1.2.0",
+    "repository-provider-test-support": "^1.2.1",
     "semantic-release": "^17.2.2"
   },
   "engines": {
