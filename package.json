@@ -39,7 +39,7 @@
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "gitea-repository-provider": "^1.14.26",
-    "github-repository-provider": "^7.18.12",
+    "github-repository-provider": "^7.18.14",
     "local-repository-provider": "^7.0.31",
     "mock-repository-provider": "^5.5.18",
     "repository-provider-test-support": "^1.2.4",
