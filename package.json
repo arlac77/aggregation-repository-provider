@@ -35,14 +35,14 @@
   },
   "devDependencies": {
     "ava": "^3.13.0",
-    "bitbucket-repository-provider": "^3.7.50",
+    "bitbucket-repository-provider": "^3.7.51",
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
-    "gitea-repository-provider": "^1.14.24",
+    "gitea-repository-provider": "^1.14.26",
     "github-repository-provider": "^7.18.12",
-    "local-repository-provider": "^7.0.30",
-    "mock-repository-provider": "^5.5.17",
-    "repository-provider-test-support": "^1.2.2",
+    "local-repository-provider": "^7.0.31",
+    "mock-repository-provider": "^5.5.18",
+    "repository-provider-test-support": "^1.2.4",
     "semantic-release": "^17.2.2"
   },
   "engines": {
