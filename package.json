@@ -38,11 +38,11 @@
     "bitbucket-repository-provider": "^3.7.54",
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
-    "gitea-repository-provider": "^1.14.29",
+    "gitea-repository-provider": "^1.14.30",
     "github-repository-provider": "^7.18.17",
-    "local-repository-provider": "^7.0.34",
-    "mock-repository-provider": "^5.5.21",
-    "repository-provider-test-support": "^1.2.7",
+    "local-repository-provider": "^7.0.36",
+    "mock-repository-provider": "^5.5.23",
+    "repository-provider-test-support": "^1.2.9",
     "semantic-release": "^17.2.2"
   },
   "engines": {
