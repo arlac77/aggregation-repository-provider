@@ -33,6 +33,8 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           BITBUCKET_USERNAME: '${{ secrets.BITBUCKET_USERNAME }}'
           BITBUCKET_PASSWORD: '${{ secrets.BITBUCKET_PASSWORD }}'
+          GITEA_API: '${{ secrets.GITEA_API }}'
+          GITEA_TOKEN: '${{ secrets.GITEA_TOKEN }}'
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
