@@ -30,7 +30,7 @@ jobs:
       - run: npm run build --if-present
       - run: npm run cover --if-present
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GH_TOKEN: '${{ secrets.GH_TOKEN }}'
           BITBUCKET_USERNAME: '${{ secrets.BITBUCKET_USERNAME }}'
           BITBUCKET_PASSWORD: '${{ secrets.BITBUCKET_PASSWORD }}'
           GITEA_API: '${{ secrets.GITEA_API }}'
