@@ -40,7 +40,7 @@
     "documentation": "github:arlac77/documentation",
     "gitea-repository-provider": "^1.14.32",
     "github-repository-provider": "^7.19.1",
-    "local-repository-provider": "^7.0.37",
+    "local-repository-provider": "^7.0.38",
     "mock-repository-provider": "^5.5.24",
     "repository-provider-test-support": "^1.2.15",
     "semantic-release": "^17.2.3"
