@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.4",
-    "repository-provider": "^24.2.3"
+    "repository-provider": "^24.3.0"
   },
   "devDependencies": {
     "ava": "^3.13.0",
@@ -39,7 +39,7 @@
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "gitea-repository-provider": "^1.14.32",
-    "github-repository-provider": "^7.19.1",
+    "github-repository-provider": "^7.20.0",
     "local-repository-provider": "^7.0.38",
     "mock-repository-provider": "^5.5.24",
     "repository-provider-test-support": "^1.2.15",
