@@ -39,6 +39,8 @@ export class AggregationProvider extends MultiGroupProvider {
         .filter(provider => provider !== undefined)
         .sort((a, b) => b.priority - a.priority)
     });
+
+    this.providers.forEach(provider => (provider.messageDestination = this));
   }
 
   async lookup(type, name) {

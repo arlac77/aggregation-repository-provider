@@ -32,6 +32,26 @@ test("sorted providers", async t => {
   }
 });
 
+test("message forwarding", async t => {
+  const provider = createProvider();
+
+  let info,warn,error;
+
+  provider.messageDestination = {
+    info(...args) { info = [...args]; },
+    warn(...args) { warn = [...args]; },
+    error(...args) { error = [...args]; }
+  };
+
+  provider.providers[0].info('info');
+  provider.providers[1].warn('warn');
+  provider.providers[2].error('error');
+  
+  t.deepEqual(info, ['info']);
+  t.deepEqual(warn, ['warn']);
+  t.deepEqual(error, ['error']);
+});
+
 test("locate repository undefined", async t => {
   const provider = createProvider();
 
