@@ -14,15 +14,14 @@ const provider = AggregationProvider.initialize(
 );
 
 test(groupListTest, provider, "some_strange_name", undefined, true);
-test(
-  groupListTest,
-  provider,
-  "github-mirror",
-  {
+  
+const githubMirror = {
     "gitea/github-mirror": { description: "mirror of github.com" }
-  },
-  true
-);
+  };
+
+test( groupListTest, provider, "github-mirror", githubMirror, true);
+test( groupListTest, provider, "gitea:github-mirror", githubMirror, true);
+test( groupListTest, provider, "gitea:*", githubMirror, true);
 
 const all = {
   "github/arlac77": {
