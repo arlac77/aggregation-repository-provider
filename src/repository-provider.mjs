@@ -3,7 +3,7 @@ import { MultiGroupProvider } from "repository-provider";
 
 /**
  * <!-- skip-example -->
- * Combines several repository providers into one
+ * Combines several repository providers into one.
  * @param {Provider[]} providers
  * @property {Provider[]} providers
  * @example
@@ -22,7 +22,7 @@ import { MultiGroupProvider } from "repository-provider";
  */
 export class AggregationProvider extends MultiGroupProvider {
   /**
-   * Creates a new provider for a given list of provider factories
+   * Creates a new provider for a given list of provider factories.
    * @param {Class[]} factories
    * @param {Object} options additional options
    * @param {Object} env taken from process.env
@@ -74,7 +74,7 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
-   * List repositories groups of the providers
+   * List repositories groups of the providers.
    * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
@@ -98,7 +98,7 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
-   * List repositories or branches of the providers
+   * List repositories or branches of the providers.
    * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repositories of the providers
    */
