@@ -38,7 +38,7 @@ aggregates several repository providers into one
 
 <!-- skip-example -->
 
-Combines several repository providers into one
+Combines several repository providers into one.
 
 ### Parameters
 
@@ -89,7 +89,7 @@ Returns **Primise&lt;Branch>**
 
 ### repositoryGroups
 
-List repositories groups of the providers
+List repositories groups of the providers.
 
 #### Parameters
 
@@ -110,7 +110,7 @@ Returns **Primise&lt;RepositoryGroup>**
 
 ### list
 
-List repositories or branches of the providers
+List repositories or branches of the providers.
 
 #### Parameters
 
@@ -121,7 +121,7 @@ Returns **Iterator&lt;Repository>** all matching repositories of the providers
 
 ### initialize
 
-Creates a new provider for a given list of provider factories
+Creates a new provider for a given list of provider factories.
 
 #### Parameters
 
