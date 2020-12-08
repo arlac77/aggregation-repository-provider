@@ -39,10 +39,10 @@
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "gitea-repository-provider": "^1.14.52",
-    "github-repository-provider": "^7.21.4",
-    "local-repository-provider": "^7.0.64",
-    "mock-repository-provider": "^5.5.47",
-    "repository-provider-test-support": "^1.2.36",
+    "github-repository-provider": "^7.21.5",
+    "local-repository-provider": "^7.0.65",
+    "mock-repository-provider": "^5.5.48",
+    "repository-provider-test-support": "^1.2.37",
     "semantic-release": "^17.3.0"
   },
   "engines": {
