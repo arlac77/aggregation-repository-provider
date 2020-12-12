@@ -30,7 +30,7 @@
     "lint:docs": "documentation lint ./src/repository-provider.mjs"
   },
   "dependencies": {
-    "aggregate-async-iterator": "^1.1.4",
+    "aggregate-async-iterator": "^6.3.7",
     "repository-provider": "^25.0.10"
   },
   "devDependencies": {
