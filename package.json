@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "ava": "^3.14.0",
-    "bitbucket-repository-provider": "^3.7.79",
+    "bitbucket-repository-provider": "^3.7.82",
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "gitea-repository-provider": "^1.15.0",
