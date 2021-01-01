@@ -32,7 +32,7 @@
     "repository-provider": "^25.1.0"
   },
   "devDependencies": {
-    "ava": "^3.14.0",
+    "ava": "^3.15.0",
     "bitbucket-repository-provider": "^3.7.85",
     "c8": "^7.4.0",
     "documentation": "github:arlac77/documentation",
