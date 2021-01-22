@@ -11,8 +11,8 @@ test(branchListTest, provider, "mock1/r*", {
 });
 
 test(branchListTest, provider, "bad-name/unknown-*");
-test(branchListTest, provider, "arlac77/npm-*", 5);
-test(branchListTest, provider, "https://github.com/arlac77/npm-*", 5);
+test(branchListTest, provider, "arlac77/npm-*", 3);
+test(branchListTest, provider, "https://github.com/arlac77/npm-*", 3);
 test(
   branchListTest,
   provider,
