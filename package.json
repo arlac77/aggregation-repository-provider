@@ -23,9 +23,9 @@
     "test": "npm run test:ava",
     "test:ava": "ava --timeout 2m tests/*.mjs",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m tests/*.mjs && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme ./src/repository-provider.mjs --section=API",
+    "docs": "documentation readme --section=API ./src/**/*.mjs",
     "lint": "npm run lint:docs",
-    "lint:docs": "documentation lint ./src/repository-provider.mjs"
+    "lint:docs": "documentation lint ./src/**/*.mjs"
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.5",
@@ -33,18 +33,18 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
-    "bitbucket-repository-provider": "^3.7.85",
+    "bitbucket-repository-provider": "^3.7.87",
     "c8": "^7.4.0",
     "documentation": "github:arlac77/documentation",
-    "gitea-repository-provider": "^1.15.6",
+    "gitea-repository-provider": "^1.15.8",
     "github-repository-provider": "^7.21.11",
     "local-repository-provider": "^7.0.73",
     "mock-repository-provider": "^5.5.56",
-    "repository-provider-test-support": "^1.3.2",
+    "repository-provider-test-support": "^1.3.4",
     "semantic-release": "^17.3.3"
   },
   "engines": {
-    "node": ">=12.19.0"
+    "node": ">=12.20.1"
   },
   "repository": {
     "type": "git",
