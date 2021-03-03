@@ -55,7 +55,7 @@ export class AggregationProvider extends MultiGroupProvider {
 
   /**
    * Retrieve named repository in one of the given providers.
-   * They are consulted in the order of the propviders given to the constructor
+   * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
    * @return {Primise<Repository>}
    */
@@ -65,7 +65,7 @@ export class AggregationProvider extends MultiGroupProvider {
 
   /**
    * Retrieve named branch in one of the given providers.
-   * They are consulted in the order of the propviders given to the constructor
+   * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
    * @return {Primise<Branch>}
    */
@@ -84,7 +84,7 @@ export class AggregationProvider extends MultiGroupProvider {
 
   /**
    * Retrieve named repository group in one of the given providers.
-   * They are consulted in the order of the propviders given to the constructor
+   * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
    * @return {Primise<RepositoryGroup>}
    */
