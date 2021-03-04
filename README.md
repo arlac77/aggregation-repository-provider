@@ -72,7 +72,7 @@ const repository2 = await provider.repository(
 ### repository
 
 Retrieve named repository in one of the given providers.
-They are consulted in the order of the propviders given to the constructor
+They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
@@ -83,7 +83,7 @@ Returns **Primise&lt;Repository>**
 ### branch
 
 Retrieve named branch in one of the given providers.
-They are consulted in the order of the propviders given to the constructor
+They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Returns **Iterator&lt;Repository>** all matching repository groups of the provid
 ### repositoryGroup
 
 Retrieve named repository group in one of the given providers.
-They are consulted in the order of the propviders given to the constructor
+They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
