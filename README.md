@@ -35,6 +35,7 @@ aggregates several repository providers into one
         -   [Parameters](#parameters-5)
     -   [initialize](#initialize)
         -   [Parameters](#parameters-6)
+    -   [instanceIdentifier](#instanceidentifier)
 
 ## AggregationProvider
 
@@ -129,11 +130,15 @@ Creates a new provider for a given list of provider factories.
 
 #### Parameters
 
--   `factories` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Class>** 
+-   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**  (optional, default `[]`)
 -   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
 -   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
 
 Returns **[AggregationProvider](#aggregationprovider)** newly created provider
+
+### instanceIdentifier
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** default instance environment name prefix
 
 # install
 
