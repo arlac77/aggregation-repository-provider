@@ -2,7 +2,7 @@ import test from "ava";
 
 import AggregationProvider from "aggregation-repository-provider";
 
-test("initialize 1", async t => {
+test("initialize import name", async t => {
   const provider = await AggregationProvider.initialize(
     ["github-repository-provider"],
     {},
@@ -19,7 +19,7 @@ test("initialize AGGREGATION_FACTORIES", async t => {
     {},
     {
       AGGREGATION_FACTORIES:
-        "github-repository-provider,gitea-repository-provider",
+        "github-repository-provider,XGITEA_(gitea-repository-provider),GITEA_(gitea-repository-provider)",
       ...process.env
     }
   );
