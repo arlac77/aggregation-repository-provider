@@ -23,13 +23,39 @@ import { MultiGroupProvider } from "repository-provider";
 export class AggregationProvider extends MultiGroupProvider {
   /**
    * Creates a new provider for a given list of provider factories.
-   * @param {Class[]} factories
+   * @param {Class[]|string[]} factories
    * @param {Object} options additional options
    * @param {Object} env taken from process.env
    * @return {AggregationProvider} newly created provider
    */
-  static initialize(factories, options, env) {
-    return new this(factories.map(f => f.initialize(options, env)));
+  static async initialize(factories = [], options, env) {
+    const key = this.instanceIdentifier + "FACTORIES";
+
+    if (env[key]) {
+      factories.push(...env[key].split(/\s*,\s*/));
+    }
+
+    return new this(
+      await Promise.all(
+        factories.map(async f => {
+          if (typeof f === "string") {
+            f = (await import(f)).default;
+          }
+          return f.initialize(options, env);
+        })
+      )
+    );
+  }
+
+  static get name() {
+    return "aggregation";
+  }
+
+  /**
+   * @return {string} default instance environment name prefix
+   */
+  static get instanceIdentifier() {
+    return "AGGREGATION_";
   }
 
   constructor(providers) {
