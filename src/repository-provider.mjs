@@ -23,6 +23,10 @@ import { MultiGroupProvider } from "repository-provider";
 export class AggregationProvider extends MultiGroupProvider {
   /**
    * Creates a new provider for a given list of provider factories.
+   * factories can be import urls with additional instance identifier.
+   * ```txt
+   * IDENTIFIER(my-repository-provider)
+   * ```
    * @param {Class[]|string[]} factories
    * @param {Object} options additional options
    * @param {Object} env taken from process.env
@@ -38,10 +42,19 @@ export class AggregationProvider extends MultiGroupProvider {
     return new this(
       await Promise.all(
         factories.map(async f => {
+          let o = options;
+
           if (typeof f === "string") {
+            const m = f.match(/^(\w+)\(([^\)]+)\)/);
+            if (m) {
+              f = m[2];
+              o = { instanceIdentifier: m[1], ...options };
+            }
+
             f = (await import(f)).default;
           }
-          return f.initialize(options, env);
+
+          return f.initialize(o, env);
         })
       )
     );
