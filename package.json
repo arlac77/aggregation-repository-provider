@@ -35,7 +35,7 @@
     "ava": "^3.15.0",
     "bitbucket-repository-provider": "^3.8.1",
     "c8": "^7.6.0",
-    "documentation": "github:arlac77/documentation",
+    "documentation": "^13.2.0",
     "gitea-repository-provider": "^1.16.1",
     "github-repository-provider": "^7.22.1",
     "local-repository-provider": "^7.0.79",
