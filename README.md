@@ -127,6 +127,11 @@ Returns **Iterator&lt;Repository>** all matching repositories of the providers
 ### initialize
 
 Creates a new provider for a given list of provider factories.
+factories can be import urls with additional instance identifier.
+
+```txt
+IDENTIFIER(my-repository-provider)
+```
 
 #### Parameters
 
