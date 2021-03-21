@@ -113,6 +113,16 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
+   * Retrieve named tag in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor.
+   * @param {string} name
+   * @return {Primise<Branch>}
+   */
+  async tag(name) {
+    return this.lookup("tag", name);
+  }
+
+  /**
    * List repositories groups of the providers.
    * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repository groups of the providers
