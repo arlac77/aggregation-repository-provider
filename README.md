@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/aggregation-repository-provider)](https://bundlephobia.com/result?p=aggregation-repository-provider)
 [![downloads](http://img.shields.io/npm/dm/aggregation-repository-provider.svg?style=flat-square)](https://npmjs.org/package/aggregation-repository-provider)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/aggregation-repository-provider.svg?style=flat-square)](https://github.com/arlac77/aggregation-repository-provider/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Faggregation-repository-provider%2Fbadge&style=flat)](https://actions-badge.atrox.dev/arlac77/aggregation-repository-provider/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Faggregation-repository-provider%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/aggregation-repository-provider/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/aggregation-repository-provider/badge.svg)](https://snyk.io/test/github/arlac77/aggregation-repository-provider)
@@ -19,25 +19,25 @@ aggregates several repository providers into one
 
 ### Table of Contents
 
--   [AggregationProvider](#aggregationprovider)
-    -   [Parameters](#parameters)
-    -   [Properties](#properties)
-    -   [Examples](#examples)
-    -   [repository](#repository)
-        -   [Parameters](#parameters-1)
-    -   [branch](#branch)
-        -   [Parameters](#parameters-2)
-    -   [tag](#tag)
-        -   [Parameters](#parameters-3)
-    -   [repositoryGroups](#repositorygroups)
-        -   [Parameters](#parameters-4)
-    -   [repositoryGroup](#repositorygroup)
-        -   [Parameters](#parameters-5)
-    -   [list](#list)
-        -   [Parameters](#parameters-6)
-    -   [initialize](#initialize)
-        -   [Parameters](#parameters-7)
-    -   [instanceIdentifier](#instanceidentifier)
+*   [AggregationProvider](#aggregationprovider)
+    *   [Parameters](#parameters)
+    *   [Properties](#properties)
+    *   [Examples](#examples)
+    *   [repository](#repository)
+        *   [Parameters](#parameters-1)
+    *   [branch](#branch)
+        *   [Parameters](#parameters-2)
+    *   [tag](#tag)
+        *   [Parameters](#parameters-3)
+    *   [repositoryGroups](#repositorygroups)
+        *   [Parameters](#parameters-4)
+    *   [repositoryGroup](#repositorygroup)
+        *   [Parameters](#parameters-5)
+    *   [list](#list)
+        *   [Parameters](#parameters-6)
+    *   [initialize](#initialize)
+        *   [Parameters](#parameters-7)
+    *   [instanceIdentifier](#instanceidentifier)
 
 ## AggregationProvider
 
@@ -49,11 +49,11 @@ Combines several repository providers into one.
 
 ### Parameters
 
--   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
+*   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Provider>** 
 
 ### Properties
 
--   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Provider>** 
+*   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Provider>** 
 
 ### Examples
 
@@ -79,9 +79,9 @@ They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **Primise&lt;Repository>** 
+Returns **Primise\<Repository>** 
 
 ### branch
 
@@ -90,9 +90,9 @@ They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **Primise&lt;Branch>** 
+Returns **Primise\<Branch>** 
 
 ### tag
 
@@ -101,9 +101,9 @@ They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **Primise&lt;Branch>** 
+Returns **Primise\<Branch>** 
 
 ### repositoryGroups
 
@@ -111,9 +111,9 @@ List repositories groups of the providers.
 
 #### Parameters
 
--   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+*   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **Iterator&lt;Repository>** all matching repository groups of the providers
+Returns **Iterator\<Repository>** all matching repository groups of the providers
 
 ### repositoryGroup
 
@@ -122,9 +122,9 @@ They are consulted in the order of the propviders given to the constructor.
 
 #### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **Primise&lt;RepositoryGroup>** 
+Returns **Primise\<RepositoryGroup>** 
 
 ### list
 
@@ -132,10 +132,10 @@ List repositories or branches of the providers.
 
 #### Parameters
 
--   `type`  
--   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+*   `type`  
+*   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
-Returns **Iterator&lt;Repository>** all matching repositories of the providers
+Returns **Iterator\<Repository>** all matching repositories of the providers
 
 ### initialize
 
@@ -148,9 +148,9 @@ IDENTIFIER(my-repository-provider)
 
 #### Parameters
 
--   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**  (optional, default `[]`)
--   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
--   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
+*   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**  (optional, default `[]`)
+*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
+*   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
 
 Returns **[AggregationProvider](#aggregationprovider)** newly created provider
 
