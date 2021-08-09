@@ -13,6 +13,7 @@ const githubMirror = {
 test(groupListTest, provider, "github-mirror", githubMirror, true);
 test(groupListTest, provider, "gitea:github-mirror", githubMirror, true);
 test(groupListTest, provider, "gitea:*", githubMirror, true);
+test(groupListTest, provider, "gitea:", githubMirror, true);
 
 const all = {
   "github/arlac77": {
