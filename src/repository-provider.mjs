@@ -148,6 +148,7 @@ export class AggregationProvider extends MultiGroupProvider {
 
   /**
    * List repositories or branches of the providers.
+   * @param {string} type name of the method to deliver typed iterator projects,repositories,branches,tags
    * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repositories of the providers
    */
