@@ -132,7 +132,7 @@ List repositories or branches of the providers.
 
 #### Parameters
 
-*   `type`  
+*   `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** name of the method to deliver typed iterator projects,repositories,branches,tags
 *   `patterns` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
 Returns **Iterator\<Repository>** all matching repositories of the providers
