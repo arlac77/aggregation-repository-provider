@@ -23,7 +23,7 @@ import { MultiGroupProvider } from "repository-provider";
 export class AggregationProvider extends MultiGroupProvider {
   /**
    * Creates a new provider for a given list of provider factories.
-   * factories can be import urls with additional instance identifier.
+   * Factories can be import urls with additional instance identifier.
    * ```txt
    * IDENTIFIER(my-repository-provider)
    * ```
@@ -56,7 +56,8 @@ export class AggregationProvider extends MultiGroupProvider {
 
           return f.initialize(o, env);
         })
-      )
+      ),
+      options
     );
   }
 
@@ -71,15 +72,17 @@ export class AggregationProvider extends MultiGroupProvider {
     return "AGGREGATION_";
   }
 
-  constructor(providers) {
-    super(undefined);
+  constructor(providers, options) {
+    super(options);
     Object.defineProperty(this, "providers", {
       value: providers
         .filter(provider => provider !== undefined)
         .sort((a, b) => b.priority - a.priority)
     });
 
-    this.providers.forEach(provider => (provider.messageDestination = this));
+    this.providers.forEach(
+      provider => (provider.messageDestination = this)
+    );
   }
 
   async lookup(type, name) {
