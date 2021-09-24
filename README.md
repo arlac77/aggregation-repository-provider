@@ -50,6 +50,7 @@ Combines several repository providers into one.
 ### Parameters
 
 *   `providers` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Provider>** 
+*   `options`  
 
 ### Properties
 
@@ -140,7 +141,7 @@ Returns **Iterator\<Repository>** all matching repositories of the providers
 ### initialize
 
 Creates a new provider for a given list of provider factories.
-factories can be import urls with additional instance identifier.
+Factories can be import urls with additional instance identifier.
 
 ```txt
 IDENTIFIER(my-repository-provider)
