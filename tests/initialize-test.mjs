@@ -9,7 +9,7 @@ test("initialize import name", async t => {
     process.env
   );
   t.is(provider.name, "aggregation");
-  t.true(provider.providers.length >= 1);
+  t.true(provider._providers.length >= 1);
 });
 
 test("initialize AGGREGATION_FACTORIES", async t => {
@@ -24,9 +24,9 @@ test("initialize AGGREGATION_FACTORIES", async t => {
   );
 
   t.is(provider.name, "aggregation");
-  t.is(provider.providers.length, 2);
-  t.is(provider.providers[0].name, "github");
-  t.is(provider.providers[1].name, "gitea");
+  t.is(provider._providers.length, 2);
+  t.is(provider._providers[0].name, "github");
+  t.is(provider._providers[1].name, "gitea");
 });
 
 test("logging", async t => {
@@ -40,9 +40,9 @@ test("logging", async t => {
 
   t.is(provider.messageDestination, messageDestination);
 
-  provider.providers[0].info("info");
-  provider.providers[0].error("error");
-  provider.providers[0].warn("warn");
+  provider._providers[0].info("info");
+  provider._providers[0].error("error");
+  provider._providers[0].warn("warn");
 
   t.deepEqual(messages.info, ["info"]);
   t.deepEqual(messages.error, ["error"]);

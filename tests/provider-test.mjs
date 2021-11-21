@@ -28,8 +28,20 @@ test("sorted providers", async t => {
     BitbucketProvider,
     LocalProvider
   ]) {
-    t.true(provider.providers[i++] instanceof p, `instanceof ${p}`);
+    t.true(provider._providers[i++] instanceof p, `instanceof ${p}`);
   }
+});
+
+test("list providers", async t => {
+  const provider = createProvider();
+
+  const ps = [];
+
+  for await (const p of provider.providers('git*')) {
+    ps.push(p);
+  }
+
+  t.is(ps.length,2);
 });
 
 test("message forwarding", async t => {
@@ -43,9 +55,9 @@ test("message forwarding", async t => {
     error(...args) { error = [...args]; }
   };
 
-  provider.providers[0].info('info');
-  provider.providers[1].warn('warn');
-  provider.providers[2].error('error');
+  provider._providers[0].info('info');
+  provider._providers[1].warn('warn');
+  provider._providers[2].error('error');
   
   t.deepEqual(info, ['info']);
   t.deepEqual(warn, ['warn']);
