@@ -1,3 +1,4 @@
+import { matcher } from "matching-iterator";
 import { aggregateFifo } from "aggregate-async-iterator";
 import { MultiGroupProvider } from "repository-provider";
 
@@ -74,19 +75,25 @@ export class AggregationProvider extends MultiGroupProvider {
 
   constructor(providers, options) {
     super(options);
-    Object.defineProperty(this, "providers", {
+    Object.defineProperty(this, "_providers", {
       value: providers
         .filter(provider => provider !== undefined)
         .sort((a, b) => b.priority - a.priority)
     });
 
-    this.providers.forEach(
+    this._providers.forEach(
       provider => (provider.messageDestination = this)
     );
   }
 
+  async * providers(name) {
+    yield* matcher(this._providers.values(), name, {
+      name: "name"
+    });
+  }
+
   async lookup(type, name) {
-    for (const p of this.providers) {
+    for (const p of this._providers) {
       const item = await p[type](name);
 
       if (item !== undefined) {
@@ -131,7 +138,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
-    yield* aggregateFifo(this.providers.map(p => p.repositoryGroups(patterns)));
+    yield* aggregateFifo(this._providers.map(p => p.repositoryGroups(patterns)));
   }
 
   /**
@@ -141,7 +148,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Primise<RepositoryGroup>}
    */
   async repositoryGroup(name) {
-    for (const p of this.providers) {
+    for (const p of this._providers) {
       const rg = await p.repositoryGroup(name);
       if (rg !== undefined) {
         return rg;
@@ -156,7 +163,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repositories of the providers
    */
   async *list(type, patterns) {
-    yield* aggregateFifo(this.providers.map(p => p.list(type, patterns)));
+    yield* aggregateFifo(this._providers.map(p => p.list(type, patterns)));
   }
 }
 
