@@ -81,12 +81,10 @@ export class AggregationProvider extends MultiGroupProvider {
         .sort((a, b) => b.priority - a.priority)
     });
 
-    this._providers.forEach(
-      provider => (provider.messageDestination = this)
-    );
+    this._providers.forEach(provider => (provider.messageDestination = this));
   }
 
-  async * providers(name) {
+  async *providers(name) {
     yield* matcher(this._providers.values(), name, {
       name: "name"
     });
@@ -100,6 +98,16 @@ export class AggregationProvider extends MultiGroupProvider {
         return item;
       }
     }
+  }
+
+  /**
+   * Retrieve named pull request in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor.
+   * @param {string} name
+   * @return {Primise<PullRequest>}
+   */
+  async pullRequest(name) {
+    return this.lookup("pullRequest", name);
   }
 
   /**
@@ -138,7 +146,9 @@ export class AggregationProvider extends MultiGroupProvider {
    * @return {Iterator<Repository>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
-    yield* aggregateFifo(this._providers.map(p => p.repositoryGroups(patterns)));
+    yield* aggregateFifo(
+      this._providers.map(p => p.repositoryGroups(patterns))
+    );
   }
 
   /**
