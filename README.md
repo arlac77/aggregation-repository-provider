@@ -23,20 +23,22 @@ aggregates several repository providers into one
     *   [Parameters](#parameters)
     *   [Properties](#properties)
     *   [Examples](#examples)
-    *   [repository](#repository)
+    *   [pullRequest](#pullrequest)
         *   [Parameters](#parameters-1)
-    *   [branch](#branch)
+    *   [repository](#repository)
         *   [Parameters](#parameters-2)
-    *   [tag](#tag)
+    *   [branch](#branch)
         *   [Parameters](#parameters-3)
-    *   [repositoryGroups](#repositorygroups)
+    *   [tag](#tag)
         *   [Parameters](#parameters-4)
-    *   [repositoryGroup](#repositorygroup)
+    *   [repositoryGroups](#repositorygroups)
         *   [Parameters](#parameters-5)
-    *   [list](#list)
+    *   [repositoryGroup](#repositorygroup)
         *   [Parameters](#parameters-6)
-    *   [initialize](#initialize)
+    *   [list](#list)
         *   [Parameters](#parameters-7)
+    *   [initialize](#initialize)
+        *   [Parameters](#parameters-8)
     *   [instanceIdentifier](#instanceidentifier)
 
 ## AggregationProvider
@@ -72,6 +74,17 @@ const repository2 = await provider.repository(
 // repository1 -> github
 // repository2 -> bitbucket
 ```
+
+### pullRequest
+
+Retrieve named pull request in one of the given providers.
+They are consulted in the order of the propviders given to the constructor.
+
+#### Parameters
+
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **Primise\<PullRequest>** 
 
 ### repository
 
