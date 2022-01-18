@@ -39,7 +39,7 @@
     "gitea-repository-provider": "^1.16.57",
     "github-repository-provider": "^7.25.15",
     "local-repository-provider": "^7.0.114",
-    "mock-repository-provider": "^5.5.119",
+    "mock-repository-provider": "^5.5.120",
     "repository-provider-test-support": "^1.9.8",
     "semantic-release": "^19.0.2"
   },
