@@ -141,6 +141,16 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
+   * Retrieve named repository group in one of the given providers.
+   * They are consulted in the order of the propviders given to the constructor.
+   * @param {string} name
+   * @return {Primise<RepositoryGroup>}
+   */
+  async repositoryGroup(name) {
+    return this.lookup("repositoryGroup", name);
+  }
+
+  /**
    * List repositories groups of the providers.
    * @param {string[]|string} patterns
    * @return {Iterator<Repository>} all matching repository groups of the providers
@@ -149,21 +159,6 @@ export class AggregationProvider extends MultiGroupProvider {
     yield* aggregateFifo(
       this._providers.map(p => p.repositoryGroups(patterns))
     );
-  }
-
-  /**
-   * Retrieve named repository group in one of the given providers.
-   * They are consulted in the order of the propviders given to the constructor.
-   * @param {string} name
-   * @return {Primise<RepositoryGroup>}
-   */
-  async repositoryGroup(name) {
-    for (const p of this._providers) {
-      const rg = await p.repositoryGroup(name);
-      if (rg !== undefined) {
-        return rg;
-      }
-    }
   }
 
   /**
