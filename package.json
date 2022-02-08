@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.9",
-    "repository-provider": "^26.7.0"
+    "repository-provider": "^26.7.1"
   },
   "devDependencies": {
     "ava": "^4.0.1",
