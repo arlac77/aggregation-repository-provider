@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.9",
-    "repository-provider": "^26.7.2"
+    "repository-provider": "^26.7.3"
   },
   "devDependencies": {
     "ava": "^4.0.1",
@@ -37,9 +37,9 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.5",
     "gitea-repository-provider": "^1.16.67",
-    "github-repository-provider": "^7.25.32",
+    "github-repository-provider": "^7.25.34",
     "local-repository-provider": "^7.2.0",
-    "mock-repository-provider": "^5.5.135",
+    "mock-repository-provider": "^5.5.137",
     "repository-provider-test-support": "^1.12.4",
     "semantic-release": "^19.0.2"
   },
