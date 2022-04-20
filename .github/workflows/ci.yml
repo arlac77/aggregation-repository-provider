@@ -21,7 +21,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
-          BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
+          BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
           GITEA_API: ${{ secrets.GITEA_API }}
           GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
       - name: Coveralls Parallel
