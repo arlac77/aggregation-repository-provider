@@ -40,7 +40,7 @@
     "github-repository-provider": "^7.26.9",
     "local-repository-provider": "^8.0.0",
     "mock-repository-provider": "^6.0.16",
-    "repository-provider-test-support": "^2.0.1",
+    "repository-provider-test-support": "^2.0.2",
     "semantic-release": "^19.0.2"
   },
   "engines": {
