@@ -11,7 +11,6 @@ import BitbucketProvider from "bitbucket-repository-provider";
 import GiteaProvider from "gitea-repository-provider";
 import LocalProvider from "local-repository-provider";
 import MockProvider from "mock-repository-provider";
-
 import AggregationProvider from "aggregation-repository-provider";
 
 
@@ -47,9 +46,10 @@ test("list providers", async t => {
 test("message forwarding", async t => {
   const provider = createProvider();
 
-  let info,warn,error;
+  let info,warn,error,trace;
 
   provider.messageDestination = {
+    trace(...args) { trace = [...args]; },
     info(...args) { info = [...args]; },
     warn(...args) { warn = [...args]; },
     error(...args) { error = [...args]; }

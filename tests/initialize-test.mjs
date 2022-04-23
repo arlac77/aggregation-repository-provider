@@ -13,9 +13,11 @@ test("initialize import name", async t => {
 });
 
 test("initialize AGGREGATION_FACTORIES", async t => {
+  const messageDestination = createMessageDestination().messageDestination;
+
   const provider = await AggregationProvider.initialize(
     [],
-    {},
+    {messageDestination},
     {
       ...process.env,
       AGGREGATION_FACTORIES:
