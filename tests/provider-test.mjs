@@ -2,9 +2,10 @@ import test from "ava";
 import {
   assertRepo,
   assertBranch,
-  providerTest
+  providerTest,
+  createMessageDestination
 } from "repository-provider-test-support";
-import { createProvider } from "./helpers/util.mjs"; 
+import { createProvider } from "./helpers/util.mjs";
 
 import GithubProvider from "github-repository-provider";
 import BitbucketProvider from "bitbucket-repository-provider";
@@ -12,7 +13,6 @@ import GiteaProvider from "gitea-repository-provider";
 import LocalProvider from "local-repository-provider";
 import MockProvider from "mock-repository-provider";
 import AggregationProvider from "aggregation-repository-provider";
-
 
 test(providerTest, createProvider());
 
@@ -36,32 +36,23 @@ test("list providers", async t => {
 
   const ps = [];
 
-  for await (const p of provider.providers('git*')) {
+  for await (const p of provider.providers("git*")) {
     ps.push(p);
   }
 
-  t.is(ps.length,2);
+  t.is(ps.length, 2);
 });
 
-test("message forwarding", async t => {
+test.only("message forwarding", async t => {
   const provider = createProvider();
+  const { messageDestination, messages, levels } = createMessageDestination();
 
-  let info,warn,error,trace;
+  provider.messageDestination = messageDestination;
 
-  provider.messageDestination = {
-    trace(...args) { trace = [...args]; },
-    info(...args) { info = [...args]; },
-    warn(...args) { warn = [...args]; },
-    error(...args) { error = [...args]; }
-  };
-
-  provider._providers[0].info('info');
-  provider._providers[1].warn('warn');
-  provider._providers[2].error('error');
-  
-  t.deepEqual(info, ['info']);
-  t.deepEqual(warn, ['warn']);
-  t.deepEqual(error, ['error']);
+  for (const l of levels) {
+    provider._providers[0][l](l);
+    t.deepEqual(messages[l], [l], l);
+  }
 });
 
 test("locate repository undefined", async t => {
