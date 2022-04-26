@@ -32,7 +32,7 @@ test("initialize AGGREGATION_FACTORIES", async t => {
 });
 
 test("logging", async t => {
-  const { messageDestination, messages } = createMessageDestination();
+  const { messageDestination, messages, levels } = createMessageDestination();
 
   const provider = await AggregationProvider.initialize(
     ["github-repository-provider"],
@@ -42,11 +42,8 @@ test("logging", async t => {
 
   t.is(provider.messageDestination, messageDestination);
 
-  provider._providers[0].info("info");
-  provider._providers[0].error("error");
-  provider._providers[0].warn("warn");
-
-  t.deepEqual(messages.info, ["info"]);
-  t.deepEqual(messages.error, ["error"]);
-  t.deepEqual(messages.warn, ["warn"]);
+  for (const l of levels) {
+    provider._providers[0][l](l);
+    t.deepEqual(messages[l], [l], l);
+  }
 });
