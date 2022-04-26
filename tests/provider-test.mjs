@@ -43,7 +43,7 @@ test("list providers", async t => {
   t.is(ps.length, 2);
 });
 
-test.only("message forwarding", async t => {
+test("message forwarding", async t => {
   const provider = createProvider();
   const { messageDestination, messages, levels } = createMessageDestination();
 
