@@ -39,6 +39,8 @@ aggregates several repository providers into one
         *   [Parameters](#parameters-7)
     *   [initialize](#initialize)
         *   [Parameters](#parameters-8)
+    *   [initializeProviders](#initializeproviders)
+        *   [Parameters](#parameters-9)
     *   [instanceIdentifier](#instanceidentifier)
 
 ## AggregationProvider
@@ -162,11 +164,21 @@ IDENTIFIER(my-repository-provider)
 
 #### Parameters
 
-*   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**  (optional, default `[]`)
+*   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)** 
 *   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
 *   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
 
 Returns **[AggregationProvider](#aggregationprovider)** newly created provider
+
+### initializeProviders
+
+#### Parameters
+
+*   `factories` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Class> | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**  (optional, default `[]`)
+*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** additional options
+*   `env` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** taken from process.env
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<Provider>** newly created providers
 
 ### instanceIdentifier
 
