@@ -33,32 +33,44 @@ export class AggregationProvider extends MultiGroupProvider {
    * @param {Object} env taken from process.env
    * @return {AggregationProvider} newly created provider
    */
-  static async initialize(factories = [], options, env) {
+  static async initialize(factories, options, env) {
+    return new this(
+      await this.initializeProviders((factories), options, env),
+      options,
+      env
+    );
+  }
+
+  /**
+   *
+   * @param {Class[]|string[]} factories
+   * @param {Object} options additional options
+   * @param {Object} env taken from process.env
+   * @return {Provider[]} newly created providers
+   */
+  static async initializeProviders(factories = [], options, env) {
     const key = this.instanceIdentifier + "FACTORIES";
 
     if (env[key]) {
       factories.push(...env[key].split(/\s*,\s*/));
     }
 
-    return new this(
-      await Promise.all(
-        factories.map(async f => {
-          let o = options;
+    return Promise.all(
+      factories.map(async f => {
+        let o = options;
 
-          if (typeof f === "string") {
-            const m = f.match(/^(\w+)\(([^\)]+)\)/);
-            if (m) {
-              f = m[2];
-              o = { instanceIdentifier: m[1], ...options };
-            }
-
-            f = (await import(f)).default;
+        if (typeof f === "string") {
+          const m = f.match(/^(\w+)\(([^\)]+)\)/);
+          if (m) {
+            f = m[2];
+            o = { instanceIdentifier: m[1], ...options };
           }
 
-          return f.initialize(o, env);
-        })
-      ),
-      options
+          f = (await import(f)).default;
+        }
+
+        return f.initialize(o, env);
+      })
     );
   }
 
@@ -75,11 +87,10 @@ export class AggregationProvider extends MultiGroupProvider {
 
   constructor(providers, options) {
     super(options);
-    Object.defineProperty(this, "_providers", {
-      value: providers
-        .filter(provider => provider !== undefined)
-        .sort((a, b) => b.priority - a.priority)
-    });
+
+    this._providers = providers
+      .filter(provider => provider !== undefined)
+      .sort((a, b) => b.priority - a.priority);
 
     this._providers.forEach(provider => (provider.messageDestination = this));
   }
