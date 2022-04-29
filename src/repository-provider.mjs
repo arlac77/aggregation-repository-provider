@@ -35,9 +35,8 @@ export class AggregationProvider extends MultiGroupProvider {
    */
   static async initialize(factories, options, env) {
     return new this(
-      await this.initializeProviders((factories), options, env),
-      options,
-      env
+      await this.initializeProviders(factories, options, env),
+      options
     );
   }
 
@@ -87,7 +86,10 @@ export class AggregationProvider extends MultiGroupProvider {
 
   constructor(providers, options) {
     super(options);
+    this.setProviders(providers);
+  }
 
+  setProviders(providers) {
     this._providers = providers
       .filter(provider => provider !== undefined)
       .sort((a, b) => b.priority - a.priority);
