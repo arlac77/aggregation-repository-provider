@@ -29,11 +29,11 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.10",
-    "repository-provider": "^28.3.9"
+    "repository-provider": "^28.3.11"
   },
   "devDependencies": {
     "ava": "^4.2.0",
-    "bitbucket-repository-provider": "^4.1.16",
+    "bitbucket-repository-provider": "^4.1.17",
     "c8": "^7.11.2",
     "documentation": "^13.2.5",
     "gitea-repository-provider": "^2.1.37",
