@@ -36,7 +36,7 @@
     "bitbucket-repository-provider": "^4.1.24",
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
-    "gitea-repository-provider": "^2.1.56",
+    "gitea-repository-provider": "^2.1.57",
     "github-repository-provider": "^7.29.2",
     "local-repository-provider": "^8.0.11",
     "mock-repository-provider": "^6.0.44",
