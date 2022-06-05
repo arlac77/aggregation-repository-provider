@@ -37,7 +37,7 @@
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
     "gitea-repository-provider": "^2.2.2",
-    "github-repository-provider": "^7.30.4",
+    "github-repository-provider": "^7.30.5",
     "local-repository-provider": "^8.0.11",
     "mock-repository-provider": "^6.0.50",
     "repository-provider-test-support": "^2.2.2",
