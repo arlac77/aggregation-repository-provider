@@ -29,17 +29,17 @@
   },
   "dependencies": {
     "aggregate-async-iterator": "^1.1.11",
-    "repository-provider": "^31.2.5"
+    "repository-provider": "^31.2.6"
   },
   "devDependencies": {
     "ava": "^4.3.0",
-    "bitbucket-repository-provider": "^4.2.5",
+    "bitbucket-repository-provider": "^4.2.6",
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
-    "gitea-repository-provider": "^2.2.2",
-    "github-repository-provider": "^7.30.5",
+    "gitea-repository-provider": "^2.2.4",
+    "github-repository-provider": "^7.30.7",
     "local-repository-provider": "^8.0.11",
-    "mock-repository-provider": "^6.0.50",
+    "mock-repository-provider": "^6.0.52",
     "repository-provider-test-support": "^2.2.2",
     "semantic-release": "^19.0.2"
   },
