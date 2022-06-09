@@ -28,7 +28,7 @@
     "lint:docs": "documentation lint ./src/**/*.mjs"
   },
   "dependencies": {
-    "aggregate-async-iterator": "^1.1.12",
+    "aggregate-async-iterator": "^1.1.13",
     "repository-provider": "^31.2.6"
   },
   "devDependencies": {
@@ -39,8 +39,8 @@
     "gitea-repository-provider": "^2.2.5",
     "github-repository-provider": "^7.30.7",
     "local-repository-provider": "^8.0.11",
-    "mock-repository-provider": "^6.0.54",
-    "repository-provider-test-support": "^2.2.3",
+    "mock-repository-provider": "^6.0.55",
+    "repository-provider-test-support": "^2.2.4",
     "semantic-release": "^19.0.3"
   },
   "engines": {
