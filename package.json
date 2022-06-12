@@ -36,11 +36,11 @@
     "bitbucket-repository-provider": "^4.2.10",
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
-    "gitea-repository-provider": "^2.2.10",
-    "github-repository-provider": "^7.30.11",
+    "gitea-repository-provider": "^2.2.11",
+    "github-repository-provider": "^7.30.12",
     "local-repository-provider": "^8.0.12",
-    "mock-repository-provider": "^6.0.56",
-    "repository-provider-test-support": "^2.2.4",
+    "mock-repository-provider": "^6.0.57",
+    "repository-provider-test-support": "^2.2.5",
     "semantic-release": "^19.0.3"
   },
   "engines": {
