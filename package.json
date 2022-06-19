@@ -33,14 +33,14 @@
   },
   "devDependencies": {
     "ava": "^4.3.0",
-    "bitbucket-repository-provider": "^4.2.12",
+    "bitbucket-repository-provider": "^4.2.13",
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
-    "gitea-repository-provider": "^2.2.12",
-    "github-repository-provider": "^7.30.21",
+    "gitea-repository-provider": "^2.2.14",
+    "github-repository-provider": "^7.30.22",
     "local-repository-provider": "^8.0.12",
-    "mock-repository-provider": "^6.0.58",
-    "repository-provider-test-support": "^2.2.5",
+    "mock-repository-provider": "^6.0.59",
+    "repository-provider-test-support": "^2.2.6",
     "semantic-release": "^19.0.3"
   },
   "engines": {
