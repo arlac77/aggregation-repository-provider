@@ -37,10 +37,10 @@
     "c8": "^7.12.0",
     "documentation": "^14.0.0",
     "gitea-repository-provider": "^2.4.2",
-    "github-repository-provider": "^7.33.2",
+    "github-repository-provider": "^7.33.3",
     "local-repository-provider": "^8.1.0",
-    "mock-repository-provider": "^6.2.6",
-    "repository-provider-test-support": "^2.2.16",
+    "mock-repository-provider": "^6.2.7",
+    "repository-provider-test-support": "^2.2.17",
     "semantic-release": "^19.0.5"
   },
   "engines": {
