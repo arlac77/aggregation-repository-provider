@@ -27,6 +27,6 @@ export function createProvider() {
       ),
       LocalProvider.initialize(undefined, process.env)
     ],
-    { messageDestination }
+    { messageDestination, url: "https://somewhere/" }
   );
 }
