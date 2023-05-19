@@ -34,7 +34,7 @@
     "ava": "^5.2.0",
     "bitbucket-repository-provider": "^5.1.6",
     "c8": "^7.13.0",
-    "documentation": "^14.0.1",
+    "documentation": "^14.0.2",
     "gitea-repository-provider": "^3.1.5",
     "github-repository-provider": "^8.0.17",
     "local-repository-provider": "^8.1.15",
