@@ -39,7 +39,7 @@
     "github-repository-provider": "^8.0.21",
     "local-repository-provider": "^8.1.17",
     "mock-repository-provider": "^6.2.54",
-    "repository-provider-test-support": "^2.4.1",
+    "repository-provider-test-support": "^2.4.2",
     "semantic-release": "^21.0.7"
   },
   "engines": {
