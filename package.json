@@ -40,7 +40,7 @@
     "local-repository-provider": "^9.0.0",
     "mock-repository-provider": "^8.0.3",
     "repository-provider-test-support": "^3.0.1",
-    "semantic-release": "^22.0.10"
+    "semantic-release": "^22.0.12"
   },
   "engines": {
     "node": ">=20.10.0"
