@@ -1,12 +1,19 @@
 import { matcher } from "matching-iterator";
 import { aggregateFifo } from "aggregate-async-iterator";
-import { MultiGroupProvider } from "repository-provider";
+import {
+  MultiGroupProvider,
+  RepositoryGroup,
+  Repository,
+  Branch,
+  Tag,
+  PullRequest
+} from "repository-provider";
 
 /**
  * <!-- skip-example -->
  * Combines several repository providers into one.
- * @param {Provider[]} providers
- * @property {Provider[]} providers
+ * @param {MultiGroupProvider[]} providers
+ * @property {MultiGroupProvider[]} providers
  * @example
  *   const provider = new AggregationProvider([
  *     new GithubProvider(),
@@ -28,7 +35,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * ```txt
    * IDENTIFIER(my-repository-provider)
    * ```
-   * @param {Class[]|string[]} factories
+   * @param {(new()=>MultiGroupProvider)[]|string[]} factories
    * @param {Object} [options] additional options
    * @param {Object} [env] taken from process.env
    * @return {Promise<AggregationProvider>} newly created provider
@@ -42,10 +49,10 @@ export class AggregationProvider extends MultiGroupProvider {
 
   /**
    *
-   * @param {Class[]|string[]} factories
+   * @param {(new()=>MultiGroupProvider)[]|string[]} factories
    * @param {Object} [options] additional options
    * @param {Object} [env] taken from process.env
-   * @return {Promise<Provider[]>} newly created providers
+   * @return {Promise<MultiGroupProvider[]>} newly created providers
    */
   static async initializeProviders(factories = [], options, env) {
     const key = this.instanceIdentifier + "FACTORIES";
@@ -117,7 +124,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * Retrieve named pull request in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
-   * @return {Primise<PullRequest>}
+   * @return {Promise<PullRequest>}
    */
   async pullRequest(name) {
     return this.lookup("pullRequest", name);
@@ -127,7 +134,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * Retrieve named repository in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
-   * @return {Primise<Repository>}
+   * @return {Promise<Repository>}
    */
   async repository(name) {
     return this.lookup("repository", name);
@@ -137,7 +144,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * Retrieve named branch in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
-   * @return {Primise<Branch>}
+   * @return {Promise<Branch>}
    */
   async branch(name) {
     return this.lookup("branch", name);
@@ -147,7 +154,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * Retrieve named tag in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
-   * @return {Primise<Branch>}
+   * @return {Promise<Tag>}
    */
   async tag(name) {
     return this.lookup("tag", name);
@@ -157,7 +164,7 @@ export class AggregationProvider extends MultiGroupProvider {
    * Retrieve named repository group in one of the given providers.
    * They are consulted in the order of the propviders given to the constructor.
    * @param {string} name
-   * @return {Primise<RepositoryGroup>}
+   * @return {Promise<RepositoryGroup>}
    */
   async repositoryGroup(name) {
     return this.lookup("repositoryGroup", name);
@@ -166,9 +173,10 @@ export class AggregationProvider extends MultiGroupProvider {
   /**
    * List repositories groups of the providers.
    * @param {string[]|string} [patterns]
-   * @return {AsyncIterator<RepositoryGroup>} all matching repository groups of the providers
+   * @return {AsyncIterable<RepositoryGroup>} all matching repository groups of the providers
    */
   async *repositoryGroups(patterns) {
+    // @ts-ignore
     yield* aggregateFifo(
       this._providers.map(p => p.repositoryGroups(patterns))
     );
@@ -178,9 +186,11 @@ export class AggregationProvider extends MultiGroupProvider {
    * List repositories or branches of the providers.
    * @param {string} type name of the method to deliver typed iterator projects,repositories,branches,tags
    * @param {string[]|string} [patterns]
-   * @return {AsyncIterator<Repository|PullRequest|Branch>} all matching repositories of the providers
+   * @return {AsyncIterable<Repository|PullRequest|Branch>} all matching repositories of the providers
    */
+  // @ts-ignore
   async *list(type, patterns) {
+    // @ts-ignore
     yield* aggregateFifo(this._providers.map(p => p.list(type, patterns)));
   }
 }
