@@ -5,13 +5,13 @@
     "access": "public",
     "provenance": true
   },
+  "types": "./types/repository-provider.d.mts",
   "exports": {
     ".": {
       "default": "./src/repository-provider.mjs",
       "types": "./types/repository-provider.d.mts"
     }
   },
-  "types": "./types/repository-provider.d.mts",
   "description": "aggregates several repository providers into one",
   "keywords": [
     "repository-provider"
