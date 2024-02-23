@@ -6,7 +6,10 @@ import {
   Repository,
   Branch,
   Tag,
-  PullRequest
+  PullRequest,
+  Project,
+  Milestone,
+  Hook
 } from "repository-provider";
 
 /**
@@ -183,10 +186,11 @@ export class AggregationProvider extends MultiGroupProvider {
   }
 
   /**
-   * List repositories or branches of the providers.
-   * @param {string} type name of the method to deliver typed iterator projects,repositories,branches,tags
-   * @param {string[]|string} [patterns]
-   * @return {AsyncIterable<Repository|PullRequest|Branch>} all matching repositories of the providers
+   * List provider objects of a given type collected from all providers.
+   *
+   * @param {string} type name of the method to deliver typed iterator projects,milestones,hooks,repositories,branches,tags
+   * @param {string[]|string|undefined} patterns group / repository filter
+   * @return {AsyncIterable<Repository|PullRequest|Branch|Tag|Project|Milestone|Hook>} all matching repositories of the providers
    */
   // @ts-ignore
   async *list(type, patterns) {
