@@ -3,7 +3,7 @@ import { createMessageDestination } from "repository-provider-test-support";
 import AggregationProvider from "aggregation-repository-provider";
 
 test("initialize import name", async t => {
-  const provider = await AggregationProvider.initialize(
+  const provider = await AggregationProvider.initializeWithProviders(
     ["github-repository-provider"],
     {},
     process.env
@@ -15,7 +15,7 @@ test("initialize import name", async t => {
 test("initialize AGGREGATION_FACTORIES", async t => {
   const messageDestination = createMessageDestination().messageDestination;
 
-  const provider = await AggregationProvider.initialize(
+  const provider = await AggregationProvider.initializeWithProviders(
     [],
     {messageDestination},
     {
@@ -34,7 +34,7 @@ test("initialize AGGREGATION_FACTORIES", async t => {
 test("logging", async t => {
   const { messageDestination, messages, levels } = createMessageDestination();
 
-  const provider = await AggregationProvider.initialize(
+  const provider = await AggregationProvider.initializeWithProviders(
     ["github-repository-provider"],
     { messageDestination },
     process.env

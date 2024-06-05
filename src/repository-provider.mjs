@@ -41,45 +41,34 @@ export class AggregationProvider extends MultiGroupProvider {
    * @param {(new()=>MultiGroupProvider)[]|string[]} factories
    * @param {Object} [options] additional options
    * @param {Object} [env] taken from process.env
-   * @return {Promise<AggregationProvider>} newly created provider
+   * @return {Promise<MultiGroupProvider>} newly created provider
    */
-  static async initialize(factories, options, env) {
-    return new this(
-      await this.initializeProviders(factories, options, env),
-      options
-    );
-  }
-
-  /**
-   *
-   * @param {(new()=>MultiGroupProvider)[]|string[]} factories
-   * @param {Object} [options] additional options
-   * @param {Object} [env] taken from process.env
-   * @return {Promise<MultiGroupProvider[]>} newly created providers
-   */
-  static async initializeProviders(factories = [], options, env) {
+  static async initializeWithProviders(factories = [], options, env) {
     const key = this.instanceIdentifier + "FACTORIES";
 
     if (env[key]) {
       factories.push(...env[key].split(/\s*,\s*/));
     }
 
-    return Promise.all(
-      factories.map(async f => {
-        let o = options;
+    return new this(
+      await Promise.all(
+        factories.map(async f => {
+          let o = options;
 
-        if (typeof f === "string") {
-          const m = f.match(/^(\w+)\(([^\)]+)\)/);
-          if (m) {
-            f = m[2];
-            o = { instanceIdentifier: m[1], ...options };
+          if (typeof f === "string") {
+            const m = f.match(/^(\w+)\(([^\)]+)\)/);
+            if (m) {
+              f = m[2];
+              o = { instanceIdentifier: m[1], ...options };
+            }
+
+            f = (await import(f)).default;
           }
 
-          f = (await import(f)).default;
-        }
-
-        return f.initialize(o, env);
-      })
+          return f.initialize(o, env);
+        })
+      ),
+      options
     );
   }
 
