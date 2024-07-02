@@ -49,7 +49,7 @@
     "mock-repository-provider": "^8.2.7",
     "repository-provider-test-support": "^3.1.5",
     "semantic-release": "^24.0.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   },
   "engines": {
     "node": ">=20.12.2"
