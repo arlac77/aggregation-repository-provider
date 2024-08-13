@@ -24,7 +24,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.7
-      - uses: actions/setup-node@v4.0.3
+      - name: prepare node
+        uses: actions/setup-node@v4.0.3
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
@@ -36,7 +37,7 @@ jobs:
           BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
           GITEA_API: ${{ secrets.GITEA_API }}
           GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
-      - name: Coveralls Parallel
+      - name: coveralls
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +59,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.7
-      - uses: actions/setup-node@v4.0.3
+      - name: prepare node
+        uses: actions/setup-node@v4.0.3
         with:
           node-version: 22.6.0
           cache: npm
@@ -76,7 +78,7 @@ jobs:
       - test-node
     runs-on: ubuntu-latest
     steps:
-      - name: Coveralls Finished
+      - name: finish coveralls
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
