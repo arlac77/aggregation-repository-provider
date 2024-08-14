@@ -30,7 +30,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
           cache-dependency-path: package-lock.json
-      - run: npm run cover --if-present
+      - name: test and coverage
+        run: npm run cover --if-present
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
