@@ -8,8 +8,8 @@
   "types": "./types/repository-provider.d.mts",
   "exports": {
     ".": {
-      "default": "./src/repository-provider.mjs",
-      "types": "./types/repository-provider.d.mts"
+      "types": "./types/repository-provider.d.mts",
+      "default": "./src/repository-provider.mjs"
     }
   },
   "description": "aggregates several repository providers into one",
