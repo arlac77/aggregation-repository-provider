@@ -47,7 +47,7 @@
     "github-repository-provider": "^9.2.9",
     "local-repository-provider": "^9.1.8",
     "mock-repository-provider": "^8.3.12",
-    "repository-provider-test-support": "^3.1.35",
+    "repository-provider-test-support": "^3.1.36",
     "semantic-release": "^24.2.3",
     "typescript": "^5.8.3"
   },
