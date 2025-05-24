@@ -38,7 +38,7 @@
     "@types/node": "^22.15.21",
     "aggregate-async-iterator": "^1.2.2",
     "content-entry": "^14.2.2",
-    "repository-provider": "^35.4.16"
+    "repository-provider": "^35.4.17"
   },
   "devDependencies": {
     "ava": "^6.3.0",
