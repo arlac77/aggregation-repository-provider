@@ -50,7 +50,7 @@
     "local-repository-provider": "^9.1.12",
     "mock-repository-provider": "^8.3.17",
     "repository-provider-test-support": "^3.1.40",
-    "semantic-release": "^24.2.5",
+    "semantic-release": "^24.2.6",
     "typescript": "^5.8.3"
   },
   "engines": {
