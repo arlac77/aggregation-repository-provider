@@ -37,7 +37,7 @@
   "dependencies": {
     "aggregate-async-iterator": "^1.2.2",
     "content-entry": "^14.2.3",
-    "repository-provider": "^35.5.5"
+    "repository-provider": "^35.5.6"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
