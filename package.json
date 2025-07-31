@@ -51,7 +51,7 @@
     "mock-repository-provider": "^8.3.31",
     "repository-provider-test-support": "^3.1.51",
     "semantic-release": "^24.2.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=22.17.1"
