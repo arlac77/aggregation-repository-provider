@@ -37,7 +37,7 @@
   "dependencies": {
     "aggregate-async-iterator": "^1.2.2",
     "content-entry": "^14.2.4",
-    "repository-provider": "^35.5.10"
+    "repository-provider": "^35.5.11"
   },
   "devDependencies": {
     "@types/node": "^24.2.1",
@@ -49,7 +49,7 @@
     "github-repository-provider": "^9.2.29",
     "local-repository-provider": "^9.1.16",
     "mock-repository-provider": "^8.3.31",
-    "repository-provider-test-support": "^3.1.51",
+    "repository-provider-test-support": "^3.1.52",
     "semantic-release": "^24.2.7",
     "typescript": "^5.9.2"
   },
