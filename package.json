@@ -37,7 +37,7 @@
     "repository-provider": "^35.7.6"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.1",
     "ava": "^6.4.1",
     "bitbucket-repository-provider": "^6.3.8",
     "c8": "^10.1.3",
