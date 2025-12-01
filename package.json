@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "ava": "^6.4.1",
-    "bitbucket-repository-provider": "^7.0.2",
+    "bitbucket-repository-provider": "^7.0.3",
     "c8": "^10.1.3",
     "documentation": "^14.0.3",
     "gitea-repository-provider": "^5.0.0",
