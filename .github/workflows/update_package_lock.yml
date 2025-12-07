@@ -20,7 +20,7 @@ jobs:
       - name: install playwright
         run: npx playwright install
       - name: test
-        run: npm install-test
+        run: install npm-test
         env:
           BROWSER: chrome
       - name: create pull request
