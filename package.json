@@ -34,10 +34,10 @@
   "dependencies": {
     "aggregate-async-iterator": "^1.2.3",
     "content-entry": "^14.2.7",
-    "repository-provider": "^36.0.26"
+    "repository-provider": "^36.0.27"
   },
   "devDependencies": {
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.1.0",
     "ava": "^6.4.1",
     "bitbucket-repository-provider": "^7.0.16",
     "c8": "^10.1.3",
