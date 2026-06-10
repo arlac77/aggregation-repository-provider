@@ -47,7 +47,7 @@
     "local-repository-provider": "^10.0.0",
     "mock-repository-provider": "^9.0.31",
     "repository-provider-test-support": "^5.0.20",
-    "semantic-release": "^25.0.3"
+    "semantic-release": "^25.0.5"
   },
   "overrides": {
     "c8": {
