@@ -34,7 +34,7 @@
   "dependencies": {
     "aggregate-async-iterator": "^1.2.5",
     "content-entry": "^14.2.7",
-    "repository-provider": "^37.1.6"
+    "repository-provider": "^37.1.7"
   },
   "devDependencies": {
     "@types/node": "^26.1.0",
@@ -45,7 +45,7 @@
     "gitea-repository-provider": "^5.0.13",
     "github-repository-provider": "^10.0.45",
     "local-repository-provider": "^10.0.0",
-    "mock-repository-provider": "^9.0.36",
+    "mock-repository-provider": "^9.0.37",
     "repository-provider-test-support": "^5.0.26",
     "semantic-release": "^25.0.5"
   },
